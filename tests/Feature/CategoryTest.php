@@ -63,4 +63,14 @@ class CategoryTest extends TestCase {
             'name' => $name
         ]);
     }
-}
+
+    public function testNonAdminCannotCreateACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $name = fake()->text(20);
+        $response = $this->actingAs($user)->postJson('/api/categories/', [
+            'name' => $name
+        ]);
+        $response->assertStatus(422);
+    }}
