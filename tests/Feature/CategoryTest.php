@@ -73,4 +73,56 @@ class CategoryTest extends TestCase {
             'name' => $name
         ]);
         $response->assertStatus(422);
+    }
+
+    public function testUnauthenticatedUserCannotUpdateACategory(): void {
+        $name1 = fake()->text(20);
+        $category = Category::factory()->create([
+            'name' => $name1
+        ]);
+        do {
+            $name2 = fake()->text(20);
+        } while ($name1 === $name2);
+        $response = $this->putJson('/api/categories/' . strval($category->id), [
+            'name' => $name2
+        ]);
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanUpdateACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $name1 = fake()->text(20);
+        $category = Category::factory()->create([
+            'name' => $name1
+        ]);
+        do {
+            $name2 = fake()->text(20);
+        } while ($name1 === $name2);
+        $response = $this->actingAs($user)->putJson('/api/categories/' . strval($category->id), [
+            'name' => $name2
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category->id,
+            'name' => $name2
+        ]);
+    }
+
+    public function testNonAdminCannotUpdateACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $name1 = fake()->text(20);
+        $category = Category::factory()->create([
+            'name' => $name1
+        ]);
+        do {
+            $name2 = fake()->text(20);
+        } while ($name1 === $name2);
+        $response = $this->actingAs($user)->putJson('/api/categories/' . strval($category->id), [
+            'name' => $name2
+        ]);
+        $response->assertStatus(422);
     }}
