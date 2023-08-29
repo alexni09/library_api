@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Database\Seeders\CategorySeeder;
+use App\Models\Category;
 
 class CategoryTest extends TestCase {
     use RefreshDatabase;
@@ -23,5 +24,19 @@ class CategoryTest extends TestCase {
             ->assertJsonStructure(['data' => [
                 ['*' => 'id', 'name']
             ]]);
+    }
+
+    public function testPublicUserCanShowACategory(): void {
+        $first = Category::first();
+        $response = $this->getJson('/api/categories/' . strval($first->id));
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount(2, 'data')
+            ->assertJson([
+                'data' => [
+                    'id' => $first->id,
+                    'name' => $first->name
+                ]
+            ]);
     }
 }
