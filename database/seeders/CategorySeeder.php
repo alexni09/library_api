@@ -7,10 +7,9 @@ use Illuminate\Database\Seeder;
 use App\Models\Category;
 
 class CategorySeeder extends Seeder {
-    /**
-     * Run the database seeds.
-     */
+    const HOW_MANY_TO_SEED = 17;
+
     public function run(): void {
-        Category::factory(rand(13,19))->create();
+        Category::factory(self::HOW_MANY_TO_SEED)->create();
     }
 }
