@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('profile', [ProfileController::class, 'update']);
     Route::put('password', PasswordUpdateController::class);
     Route::post('auth/logout', LogoutController::class);
+    Route::put('categories/{category}', [CategoryController::class, 'update']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
