@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Auth\ProfileController;
 use App\Http\Controllers\Api\Auth\PasswordUpdateController;
 use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\WhoAmIController;
+use App\Http\Controllers\Api\Main\CategoryController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -16,6 +17,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('auth/register', RegisterController::class);
 
 Route::post('auth/login', LoginController::class);
+
+Route::get('categories', [CategoryController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 
