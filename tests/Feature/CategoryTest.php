@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Database\Seeders\CategorySeeder;
 use App\Models\Category;
+use App\Models\User;
 
 class CategoryTest extends TestCase {
     use RefreshDatabase;
@@ -45,5 +46,15 @@ class CategoryTest extends TestCase {
             'name' => fake()->text(20)
         ]);
         $response->assertStatus(401);
+    }
+
+    public function testAdminCanCreateACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->postJson('/api/categories/', [
+            'name' => fake()->text(20)
+        ]);
+        $response->assertStatus(201);
     }
 }
