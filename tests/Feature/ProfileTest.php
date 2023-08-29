@@ -12,12 +12,12 @@ class ProfileTest extends TestCase {
  
     public function testUserCanWhoAmIItself() {
         $user = User::factory()->create();
-        $response = $this->postJson('/api/v1/auth/login', [
+        $response = $this->postJson('/api/auth/login', [
             'email'    => $user->email,
             'password' => 'password'
         ]);
         //$token = $response['access_token'];
-        $response = $this->actingAs($user)->getJson('/api/v1/whoami');
+        $response = $this->actingAs($user)->getJson('/api/whoami');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
             ->assertJsonCount(3, 'data')
@@ -27,7 +27,7 @@ class ProfileTest extends TestCase {
     public function testUserCanGetTheirProfile() {
         $user = User::factory()->create();
  
-        $response = $this->actingAs($user)->getJson('/api/v1/profile');
+        $response = $this->actingAs($user)->getJson('/api/profile');
  
         $response->assertStatus(200)
             ->assertJsonStructure(['name', 'email'])
@@ -38,7 +38,7 @@ class ProfileTest extends TestCase {
     public function testUserCanUpdateNameAndEmail() {
         $user = User::factory()->create();
  
-        $response = $this->actingAs($user)->putJson('/api/v1/profile', [
+        $response = $this->actingAs($user)->putJson('/api/profile', [
             'name'  => 'John Updated',
             'email' => 'john_updated@example.com',
         ]);
@@ -57,7 +57,7 @@ class ProfileTest extends TestCase {
     public function testUserCanChangePassword() {
         $user = User::factory()->create();
  
-        $response = $this->actingAs($user)->putJson('/api/v1/password', [
+        $response = $this->actingAs($user)->putJson('/api/password', [
             'current_password'      => 'password',
             'password'              => 'testing123',
             'password_confirmation' => 'testing123',
