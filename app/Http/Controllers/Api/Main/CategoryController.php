@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller {
     public function index():AnonymousResourceCollection {
@@ -15,6 +16,11 @@ class CategoryController extends Controller {
     }
 
     public function show(Category $category):CategoryResource {
+        return CategoryResource::make($category);
+    }
+
+    public function store(StoreCategoryRequest $request):CategoryResource {
+        $category = Category::create([ 'name' => $request('name') ]);
         return CategoryResource::make($category);
     }
 }
