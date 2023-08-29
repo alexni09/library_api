@@ -20,6 +20,8 @@ Route::post('auth/login', LoginController::class);
 
 Route::get('categories', [CategoryController::class, 'index']);
 
+Route::get('categories/{category}', [CategoryController::class, 'show']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 
                                                     // Can't be outside middleware!!

@@ -13,4 +13,8 @@ class CategoryController extends Controller {
     public function index():AnonymousResourceCollection {
         return CategoryResource::collection(Category::all());
     }
+
+    public function show(Category $category):CategoryResource {
+        return CategoryResource::make($category);
+    }
 }
