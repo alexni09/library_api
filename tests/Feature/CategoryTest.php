@@ -52,9 +52,15 @@ class CategoryTest extends TestCase {
         $user = User::factory()->create([
             'is_admin' => true
         ]);
+        $name = fake()->text(20);
         $response = $this->actingAs($user)->postJson('/api/categories/', [
-            'name' => fake()->text(20)
+            'name' => $name
         ]);
+        $id = $response['data']['id'];
         $response->assertStatus(201);
+        $this->assertDatabaseHas('categories', [
+            'id' => $id,
+            'name' => $name
+        ]);
     }
 }
