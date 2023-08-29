@@ -10,8 +10,12 @@ use Database\Seeders\CategorySeeder;
 class CategoryTest extends TestCase {
     use RefreshDatabase;
 
-    public function testPublicUserCanListCategories(): void {
+    protected function setUp(): void {
+        parent::setUp();
         (new CategorySeeder)->run();
+    }
+
+    public function testPublicUserCanListCategories(): void {
         $response = $this->getJson('/api/categories');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
