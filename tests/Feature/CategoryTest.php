@@ -39,4 +39,11 @@ class CategoryTest extends TestCase {
                 ]
             ]);
     }
+
+    public function testUnauthenticatedUserCannotCreateACategory(): void {
+        $response = $this->postJson('/api/categories/', [
+            'name' => fake()->text(20)
+        ]);
+        $response->assertStatus(401);
+    }
 }
