@@ -24,7 +24,6 @@ Route::get('categories/{category}', [CategoryController::class, 'show']);
 
 Route::get('books', [BookController::class, 'index']);
 Route::get('books/{book}', [BookController::class, 'show']);
-Route::post('books', [BookController::class, 'store']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 
@@ -39,4 +38,5 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('categories', [CategoryController::class, 'store']);
     Route::put('categories/{category}', [CategoryController::class, 'update']);
     Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
+    Route::post('books', [BookController::class, 'store']);
 });

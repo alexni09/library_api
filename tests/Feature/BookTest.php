@@ -46,4 +46,15 @@ class BookTest extends TestCase {
                 ]
             ]);
     }
+
+    public function testUnauthenticatedUserCannotCreateABook(): void {
+        $category = Category::first();
+        $response = $this->postJson('/api/books/', [
+            'name' => fake()->text(20),
+            'rating' => rand(1,5),
+            'category_id' => $category->id
+        ]);
+        $response->assertStatus(401);
+    }
+
 }
