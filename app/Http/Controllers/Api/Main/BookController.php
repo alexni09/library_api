@@ -18,4 +18,9 @@ class BookController extends Controller {
     public function show(Book $book):BookResource {
         return BookResource::make($book);
     }
+
+    public function store(StoreBookRequest $request):BookResource {
+        $book = Book::create($request->validated());
+        return BookResource::make($book);
+    }
 }
