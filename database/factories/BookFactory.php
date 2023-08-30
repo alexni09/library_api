@@ -23,7 +23,8 @@ class BookFactory extends Factory {
      */
     public function definition(): array {
         return [
-            'name' => $this->faker->text(30)
+            'name' => $this->faker->text(30),
+            'rating' => rand(1,5)
         ];
     }
 }
