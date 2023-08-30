@@ -125,4 +125,77 @@ class CategoryTest extends TestCase {
             'name' => $name2
         ]);
         $response->assertStatus(422);
-    }}
+    }
+
+    public function testUnauthenticatedUserCannotDeleteACategory(): void {
+        $name = fake()->text(20);
+        $category = Category::factory()->create([
+            'name' => $name
+        ]);
+        $response = $this->deleteJson('/api/categories/' . strval($category->id));
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanDeleteACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $name1 = fake()->text(20);
+        $category1 = Category::factory()->create([
+            'name' => $name1
+        ]);
+        $name2 = fake()->text(20);
+        $category2 = Category::factory()->create([
+            'name' => $name2
+        ]);
+        $name3 = fake()->text(20);
+        $category3 = Category::factory()->create([
+            'name' => $name3
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/categories/' . strval($category2->id));
+        $response->assertStatus(204);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category1->id,
+            'name' => $name1
+        ]);
+        $this->assertDatabaseMissing('categories', [
+            'id' => $category2->id
+        ]);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category3->id,
+            'name' => $name3
+        ]);
+    }
+
+    public function testNonAdminCannotDeleteACategory(): void {
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $name1 = fake()->text(20);
+        $category1 = Category::factory()->create([
+            'name' => $name1
+        ]);
+        $name2 = fake()->text(20);
+        $category2 = Category::factory()->create([
+            'name' => $name2
+        ]);
+        $name3 = fake()->text(20);
+        $category3 = Category::factory()->create([
+            'name' => $name3
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/categories/' . strval($category2->id));
+        $response->assertStatus(422);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category1->id,
+            'name' => $name1
+        ]);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category2->id,
+            'name' => $name2
+        ]);
+        $this->assertDatabaseHas('categories', [
+            'id' => $category3->id,
+            'name' => $name3
+        ]);
+    }
+}
