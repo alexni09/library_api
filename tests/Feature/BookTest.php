@@ -10,6 +10,7 @@ use Database\Seeders\CategorySeeder;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
+use App\Services\Misc;
 
 class BookTest extends TestCase {
     use RefreshDatabase;
@@ -51,10 +52,47 @@ class BookTest extends TestCase {
         $category = Category::first();
         $response = $this->postJson('/api/books/', [
             'name' => fake()->text(20),
-            'rating' => rand(1,5),
+            'rating' => Misc::rating(),
             'category_id' => $category->id
         ]);
         $response->assertStatus(401);
+    }
+
+    public function testAdminCanCreateABook(): void {
+        $category = Category::first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $name = fake()->text(20);
+        $rating = Misc::rating();
+        $response = $this->actingAs($user)->postJson('/api/books/', [
+            'name' => $name,
+            'rating' => $rating,
+            'category_id' => $category->id
+        ]);
+        $id = $response['data']['id'];
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('books', [
+            'id' => $id,
+            'name' => $name,
+            'rating' => $rating,
+            'category_id' => $category->id
+        ]);
+    }
+
+    public function testNonAdminCannotCreateABook(): void {
+        $category = Category::first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $name = fake()->text(20);
+        $rating = Misc::rating();
+        $response = $this->actingAs($user)->postJson('/api/books/', [
+            'name' => $name,
+            'rating' => $rating,
+            'category_id' => $category->id
+        ]);
+        $response->assertStatus(422);
     }
 
 }
