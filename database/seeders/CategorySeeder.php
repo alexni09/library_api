@@ -10,6 +10,6 @@ class CategorySeeder extends Seeder {
     const HOW_MANY_TO_SEED = 17;
 
     public function run(): void {
-        Category::factory(self::HOW_MANY_TO_SEED)->create();
+        Category::factory(self::HOW_MANY_TO_SEED)->hasBooks(BookSeeder::HOW_MANY_TO_SEED)->create();
     }
 }
