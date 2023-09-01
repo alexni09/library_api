@@ -105,4 +105,43 @@ class BookTest extends TestCase {
         $response->assertStatus(401);
     }
 
+    public function testAdminCanUpdateABookThreeKeys(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $name = fake()->text(20);
+        $rating = Misc::rating();
+        $response = $this->actingAs($user)->putJson('/api/books/' . strval($book->id), [
+            'name' => $name,
+            'rating' => $rating,
+            'category_id' => $category->id
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('books', [
+            'id' => $book->id,
+            'name' => $name,
+            'rating' => $rating,
+            'category_id' => $category->id
+        ]);
+    }
+
+    public function testAdminCanUpdateABookOneKey(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $rating = Misc::rating();
+        $response = $this->actingAs($user)->putJson('/api/books/' . strval($book->id), [
+            'rating' => $rating
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('books', [
+            'id' => $book->id,
+            'rating' => $rating
+        ]);
+    }
+
 }
