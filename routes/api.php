@@ -25,6 +25,9 @@ Route::get('categories/{category}', [CategoryController::class, 'show']);
 Route::get('books', [BookController::class, 'index']);
 Route::get('books/{book}', [BookController::class, 'show']);
 
+Route::put('books/{book}', [BookController::class, 'update']);
+Route::get('books/update/{book}', [BookController::class, 'update']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 
                                                     // Can't be outside middleware!!
