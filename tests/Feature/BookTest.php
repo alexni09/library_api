@@ -144,4 +144,14 @@ class BookTest extends TestCase {
         ]);
     }
 
+    public function testAdminCannotUpdateABookZeroKeys(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->putJson('/api/books/' . strval($book->id));
+        $response->assertStatus(422);
+    }
+
 }
