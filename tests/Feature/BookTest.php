@@ -167,4 +167,11 @@ class BookTest extends TestCase {
         $response->assertStatus(422);
     }
 
+    public function testUnauthenticatedUserCannotDeleteABook(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $response = $this->deleteJson('/api/books/' . strval($book->id));
+        $response->assertStatus(401);
+    }
+
 }
