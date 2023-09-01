@@ -174,4 +174,16 @@ class BookTest extends TestCase {
         $response->assertStatus(401);
     }
 
+    public function testAdminCanDeleteABookOnceButNotTwice(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
+        $response->assertStatus(204);
+        $response2 = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
+        $response2->assertStatus(404);
+    }
+
 }
