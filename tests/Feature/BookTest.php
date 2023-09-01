@@ -186,4 +186,13 @@ class BookTest extends TestCase {
         $response2->assertStatus(404);
     }
 
+    public function testNonAdminCannotDeleteABook(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
+        $response->assertStatus(422);
+    }
 }
