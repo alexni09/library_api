@@ -36,4 +36,8 @@ class BookController extends Controller {
         return BookResource::make($book);
     }
 
+    public function destroy(Book $book):Response {
+        $book->delete();
+        return response()->noContent();
+    }
 }
