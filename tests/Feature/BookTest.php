@@ -154,4 +154,17 @@ class BookTest extends TestCase {
         $response->assertStatus(422);
     }
 
+    public function testNonAdminCannotUpdateABookOneKey(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $rating = Misc::rating();
+        $response = $this->actingAs($user)->putJson('/api/books/' . strval($book->id), [
+            'rating' => $rating
+        ]);
+        $response->assertStatus(422);
+    }
+
 }
