@@ -172,6 +172,9 @@ class BookTest extends TestCase {
         $book = Book::where('category_id', $category->id)->first();
         $response = $this->deleteJson('/api/books/' . strval($book->id));
         $response->assertStatus(401);
+        $this->assertDatabaseHas('books', [
+            'id' => $book->id
+        ]);
     }
 
     public function testAdminCanDeleteABookOnceButNotTwice(): void {
@@ -182,6 +185,9 @@ class BookTest extends TestCase {
         ]);
         $response = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
         $response->assertStatus(204);
+        $this->assertDatabaseMissing('books', [
+            'id' => $book->id
+        ]);
         $response2 = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
         $response2->assertStatus(404);
     }
@@ -194,5 +200,8 @@ class BookTest extends TestCase {
         ]);
         $response = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
         $response->assertStatus(422);
+        $this->assertDatabaseHas('books', [
+            'id' => $book->id
+        ]);
     }
 }
