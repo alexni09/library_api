@@ -95,4 +95,14 @@ class BookTest extends TestCase {
         $response->assertStatus(422);
     }
 
+    public function testUnauthenticatedUserCannotUpdateABook(): void {
+        $category = Category::first();
+        $book = Book::where('category_id', $category->id)->first();
+        $name = fake()->text(20);
+        $response = $this->putJson('/api/books/' . strval($book->id), [
+            'name' => $name
+        ]);
+        $response->assertStatus(401);
+    }
+
 }
