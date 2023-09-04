@@ -24,8 +24,8 @@ class BookController extends Controller {
     }
 
     public function store(StoreBookRequest $request):BookResource {
-        Misc::monitor('post',201);
         $book = Book::create($request->validated());
+        Misc::monitor('post',201);
         return BookResource::make($book);
     }
 
