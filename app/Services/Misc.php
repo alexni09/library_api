@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Misc {
     public static function monitor(string $method, int $status):void {
-        Redis::lpush(Str::upper('list_method'),$method);
+        Redis::lpush('list_method',Str::upper($method));
         Redis::lpush('list_url',request()->fullUrl());
         Redis::lpush('list_status',strval($status));
     } 

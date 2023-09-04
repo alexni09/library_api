@@ -42,3 +42,5 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::delete('books/{book}', [BookController::class, 'destroy']);
 });
+
+Route::get('categories_', [CategoryController::class, 'store']);
