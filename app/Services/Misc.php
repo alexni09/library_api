@@ -6,18 +6,33 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 
 class Misc {
+    const LIST_METHOD = 'list_method';
+    const LIST_STATUS = 'list_status';
+    const LIST_URL = 'list_url';
     const MAX_MONITORED_LINES = 25;
+
+    public static function list_method():array {
+        return Redis::lrange('list_method',0,-1);
+    }
+
+    public static function list_status():array {
+        return Redis::lrange('list_status',0,-1);
+    }
+
+    public static function list_url():array {
+        return Redis::lrange('list_url',0,-1);
+    }
 
     public static function monitor(string $method, int $status):void {
         $l = 1 + intval(Redis::llen('list_url'));
         Redis::multi();
-        Redis::lpush('list_method',Str::upper($method));
-        Redis::lpush('list_url',request()->fullUrl());
-        Redis::lpush('list_status',strval($status));
+        Redis::lpush(self::LIST_METHOD,Str::upper($method));
+        Redis::lpush(self::LIST_URL,request()->fullUrl());
+        Redis::lpush(self::LIST_STATUS,strval($status));
         if ($l > self::MAX_MONITORED_LINES) {
-            Redis::rpop('list_method', $l - self::MAX_MONITORED_LINES);
-            Redis::rpop('list_url', $l - self::MAX_MONITORED_LINES);
-            Redis::rpop('list_status', $l - self::MAX_MONITORED_LINES);
+            Redis::rpop(self::LIST_METHOD, $l - self::MAX_MONITORED_LINES);
+            Redis::rpop(self::LIST_URL, $l - self::MAX_MONITORED_LINES);
+            Redis::rpop(self::LIST_STATUS, $l - self::MAX_MONITORED_LINES);
         }
         Redis::exec();
     } 

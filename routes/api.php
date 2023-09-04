@@ -10,10 +10,7 @@ use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\WhoAmIController;
 use App\Http\Controllers\Api\Main\CategoryController;
 use App\Http\Controllers\Api\Main\BookController;
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+use App\Http\Controllers\Api\Main\MonitorController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -42,3 +39,5 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::delete('books/{book}', [BookController::class, 'destroy']);
 });
+
+Route::get('monitor', MonitorController::class);
