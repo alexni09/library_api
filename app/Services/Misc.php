@@ -6,10 +6,20 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 
 class Misc {
+    const MAX_MONITORED_LINES = 25;
+
     public static function monitor(string $method, int $status):void {
+        $l = intval(Redis::llen('list_url'));
+        Redis::multi();
         Redis::lpush('list_method',Str::upper($method));
         Redis::lpush('list_url',request()->fullUrl());
         Redis::lpush('list_status',strval($status));
+        if ($l > self::MAX_MONITORED_LINES) {
+            Redis::rpop('list_method', $l - self::MAX_MONITORED_LINES + 1);
+            Redis::rpop('list_url', $l - self::MAX_MONITORED_LINES + 1);
+            Redis::rpop('list_status', $l - self::MAX_MONITORED_LINES + 1);
+        }
+        Redis::exec();
     } 
 
     public static function rating():int {
