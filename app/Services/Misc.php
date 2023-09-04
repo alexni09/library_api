@@ -2,7 +2,15 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Redis;
+
 class Misc {
+    public static function monitor(string $method, int $status):void {
+        Redis::lpush('list_method',$method);
+        Redis::lpush('list_url',request()->fullUrl());
+        Redis::lpush('list_status',strval($status));
+    } 
+
     public static function rating():int {
         $r = rand(1,15);
         switch($r) {
