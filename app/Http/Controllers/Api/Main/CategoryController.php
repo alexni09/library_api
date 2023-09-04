@@ -39,8 +39,17 @@ class CategoryController extends Controller {
         return CategoryResource::make($category);
     }
 
-    public function update(StoreCategoryRequest $request, Category $category):CategoryResource {
-        $category->update($request->validated());
+    public function update(Request $request, Category $category):CategoryResource|JsonResponse {
+        $validator = Validator::make($request->all(), [
+            'name' => [ 'required', 'max:255' ]
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('put',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        $category->update($validator->validated());
         Misc::monitor('put',Response::HTTP_OK);
         return CategoryResource::make($category);
     }
