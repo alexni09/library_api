@@ -3,10 +3,11 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Str;
 
 class Misc {
     public static function monitor(string $method, int $status):void {
-        Redis::lpush('list_method',$method);
+        Redis::lpush(Str::upper('list_method'),$method);
         Redis::lpush('list_url',request()->fullUrl());
         Redis::lpush('list_status',strval($status));
     } 
