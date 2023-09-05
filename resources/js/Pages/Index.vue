@@ -29,11 +29,11 @@ onBeforeUnmount(() => clearInterval(myInterval))
                 <th class="p-1 bg-zinc-300 font-semibold border-l border-b border-zinc-500">URL</th>
                 <th class="p-1 bg-zinc-300 font-semibold border-l border-b border-zinc-500">Status</th>
             </tr>
-            <tr v-if="lines.length === 0">
+            <tr v-if="lines?.length === 0">
                 <td colspan="4" class="p-1 font-medium whitespace-nowrap"><i>No Records Found!</i></td>
             </tr>
             <tr v-for="line in lines" :key="line.id">
-                <td class="px-1 whitespace-nowrap" :class="{ 'bg-zinc-200': line.id % 6 > 2 }"></td>
+                <td class="px-1 whitespace-nowrap" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.datetime }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.method }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.url }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.status }}</td>

@@ -14,6 +14,7 @@ class MonitorController extends Controller {
         $arr = [];
         for($i = 0; $i < $c; $i++) $arr[] = [
             'id' => $i,
+            'datetime' => Misc::list_datetime()[$i],
             'method' => Misc::list_method()[$i],
             'status' => intval(Misc::list_status()[$i]),
             'url' => Misc::list_url()[$i]
