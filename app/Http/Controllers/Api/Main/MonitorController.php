@@ -10,10 +10,16 @@ use App\Services\Misc;
 
 class MonitorController extends Controller {
     public function __invoke():JsonResponse {
+        $c = count(Misc::list_method());
+        $arr = [];
+        for($i = 0; $i < $c; $i++) $arr[] = [
+            'id' => 1 + $i,
+            'method' => Misc::list_method()[$i],
+            'status' => intval(Misc::list_status()[$i]),
+            'url' => Misc::list_url()[$i]
+        ];
         return response()->json([
-            Misc::LIST_METHOD => Misc::list_method(),
-            Misc::LIST_STATUS => Misc::list_status(),
-            Misc::LIST_URL => Misc::list_url()
+            'data' => $arr
         ], Response::HTTP_OK);
     }
 }
