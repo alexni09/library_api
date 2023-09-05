@@ -13,7 +13,7 @@ class MonitorController extends Controller {
         $c = count(Misc::list_method());
         $arr = [];
         for($i = 0; $i < $c; $i++) $arr[] = [
-            'id' => 1 + $i,
+            'id' => $i,
             'method' => Misc::list_method()[$i],
             'status' => intval(Misc::list_status()[$i]),
             'url' => Misc::list_url()[$i]

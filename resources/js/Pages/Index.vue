@@ -1,11 +1,11 @@
 <script setup>
-import { onMounted, ref, toRaw } from 'vue'
+import { onMounted, ref, toRaw, onBeforeUnmount } from 'vue'
+var myInterval = null
 const lines = ref(null)
 const fetchLines = () => {
     axios.get('/api/monitor')
         .then((response) => {
             lines.value = toRaw(response.data.data)
-            console.log(lines.value)
         })
         .catch(function (error) {
             console.log(error)
@@ -13,15 +13,26 @@ const fetchLines = () => {
 }
 onMounted(() => {
     fetchLines()
+    myInterval = setInterval(fetchLines, 5000)
 })
+onBeforeUnmount(() => clearInterval(myInterval))
 </script>
 <template>
-    <p class="font-bold text-xl mb-3">library_api</p>
-    <table>
-        <tr v-for="line in lines" :key="line.id">
-            <td>{{ line.method }}</td>
-            <td class="px-3">{{ line.url }}</td>
-            <td>{{ line.status }}</td>
-        </tr>
-    </table>
+    <div class="flex justify-center">
+        <h1 class="mt-2 mb-3 font-bold text-3xl">library_api</h1>
+    </div>
+    <div class="flex justify-center">
+        <table class="bg-zinc-50 border border-zinc-500">
+            <tr>
+                <th class="p-1 bg-zinc-300 font-semibold border-l border-b border-zinc-500">Method</th>
+                <th class="p-1 bg-zinc-300 font-semibold border-l border-b border-zinc-500">URL</th>
+                <th class="p-1 bg-zinc-300 font-semibold border-l border-b border-zinc-500">Status</th>
+            </tr>
+            <tr v-for="line in lines" :key="line.id">
+                <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.method }}</td>
+                <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.url }}</td>
+                <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.status }}</td>
+            </tr>
+        </table>
+    </div>
 </template>
