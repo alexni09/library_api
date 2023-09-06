@@ -8,7 +8,6 @@ use Illuminate\Http\Response;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Requests\StoreCategoryRequest;
 use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;

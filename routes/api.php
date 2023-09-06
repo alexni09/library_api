@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\WhoAmIController;
 use App\Http\Controllers\Api\Main\CategoryController;
 use App\Http\Controllers\Api\Main\BookController;
+use App\Http\Controllers\Api\Main\ExemplarController;
 use App\Http\Controllers\Api\Main\MonitorController;
 
 Route::post('auth/register', RegisterController::class);
@@ -21,6 +22,9 @@ Route::get('categories/{category}', [CategoryController::class, 'show']);
 
 Route::get('books', [BookController::class, 'index']);
 Route::get('books/{book}', [BookController::class, 'show']);
+
+Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);
+Route::get('exemplars/by-book-id/{book_id}', [ExemplarController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 

@@ -8,8 +8,6 @@ use Illuminate\Http\Response;
 use App\Http\Resources\BookResource;
 use App\Models\Book;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
 use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
