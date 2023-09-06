@@ -17,4 +17,5 @@ class Book extends Model {
 
     /* Relationships */
     public function category() { return $this->belongsTo(Category::class); }
+    public function exemplars() { return $this->hasMany(Exemplar::class); }
 }
