@@ -11,7 +11,7 @@ class Misc {
     const LIST_METHOD = 'list_method';
     const LIST_STATUS = 'list_status';
     const LIST_URL = 'list_url';
-    const MAX_MONITORED_LINES = 25;
+    const MAX_MONITORED_LINES = 30;
 
     public static function condition():int {
         $r = rand(1,10);
