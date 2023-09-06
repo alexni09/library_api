@@ -34,7 +34,7 @@ onBeforeUnmount(() => clearInterval(myInterval))
                 <td colspan="4" class="p-1 font-medium italic whitespace-nowrap">No Records Found!</td>
             </tr>
             <tr v-for="line in lines" :key="line.id" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">
-                <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('DD/MM/YYYY HH:mm:ss') }}</td>
+                <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                 <td class="tdStyle">{{ line.method }}</td>
                 <td class="tdStyle">{{ line.url }}</td>
                 <td class="tdStyle">{{ line.status }}</td>
