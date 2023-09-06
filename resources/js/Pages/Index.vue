@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, toRaw, onBeforeUnmount } from 'vue'
+import dayjs from 'dayjs'
 var myInterval = null
 const lines = ref(null)
 const fetchLines = () => {
@@ -33,7 +34,7 @@ onBeforeUnmount(() => clearInterval(myInterval))
                 <td colspan="4" class="p-1 font-medium whitespace-nowrap"><i>No Records Found!</i></td>
             </tr>
             <tr v-for="line in lines" :key="line.id">
-                <td class="px-1 whitespace-nowrap" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.datetime }}</td>
+                <td class="px-1 whitespace-nowrap" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ dayjs(line.datetime + '+00:00').format('DD/MM/YYYY HH:mm:ss') }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.method }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.url }}</td>
                 <td class="px-1 border-l border-zinc-500" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">{{ line.status }}</td>
