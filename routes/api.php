@@ -24,7 +24,7 @@ Route::get('books', [BookController::class, 'index']);
 Route::get('books/{book}', [BookController::class, 'show']);
 
 Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);
-Route::get('exemplars/by-book-id/{book_id}', [ExemplarController::class, 'index']);
+Route::get('exemplars/list/{book_id}', [ExemplarController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);  // Added by me. 
