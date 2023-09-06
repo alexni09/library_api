@@ -13,6 +13,15 @@ class Misc {
     const LIST_URL = 'list_url';
     const MAX_MONITORED_LINES = 25;
 
+    public static function condition():int {
+        $r = rand(1,10);
+        switch($r) {
+            case 1: return 4; break;
+            case 2: case 3: return 3; break;
+            case 4: case 5: case 6: return 2; break;
+            default: return 1; break;
+        }
+    }
     public static function list_datetime():array {
         return Redis::lrange(self::LIST_DATETIME,0,-1);
     }
@@ -43,7 +52,7 @@ class Misc {
             Redis::rpop(self::LIST_STATUS, $l - self::MAX_MONITORED_LINES);
         }
         Redis::exec();
-    } 
+    }
 
     public static function rating():int {
         $r = rand(1,15);
