@@ -9,7 +9,7 @@ use App\Enum\ExemplarCondition;
 class Exemplar extends Model {
     use HasFactory;
 
-    protected $fillable = ['borrowable','condition','book_id'];
+    protected $fillable = ['borrowable','condition','book_id','donor_id'];
 
     protected $casts = [
         'condition' => ExemplarCondition::class
@@ -17,4 +17,5 @@ class Exemplar extends Model {
 
     /* Relationships */
     public function book() { return $this->belongsTo(Book::class); }
+    public function donor() { return $this->belongsTo(User::class); }
 }

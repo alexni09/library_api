@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->boolean('borrowable')->default(true);
             $table->unsignedTinyInteger('condition')->default(1);
             $table->foreignId('book_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->nullable()->setNullOnDelete()->cascadeOnUpdate()->default(null);
             $table->timestamps();
         });
     }
