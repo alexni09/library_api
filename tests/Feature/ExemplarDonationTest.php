@@ -6,9 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Database\Seeders\CategorySeeder;
-use App\Models\Exemplar;
 use App\Models\Book;
-use App\Models\Category;
 use App\Models\User;
 use App\Services\Misc;
 
