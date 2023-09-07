@@ -27,8 +27,7 @@ Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);
 Route::get('exemplars/list/{book_id}', [ExemplarController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('whoami', WhoAmIController::class);  // Added by me. 
-                                                    // Can't be outside middleware!!
+    Route::get('whoami', WhoAmIController::class);
     Route::get('profile', [ProfileController::class, 'show']);
     Route::put('profile', [ProfileController::class, 'update']);
     Route::put('password', PasswordUpdateController::class);
