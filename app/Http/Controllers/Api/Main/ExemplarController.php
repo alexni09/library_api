@@ -48,4 +48,26 @@ class ExemplarController extends Controller {
         return ExemplarResource::make($exemplar);
     }
 
+    public function store(Request $request):ExemplarResource|JsonResponse {
+        $validator = Validator::make($request->all(), [
+            'book_id' => [ 'required', 'integer', 'min:1', 'exists:books,id' ],
+            'condition' => [ 'required', 'integer', 'min:1', 'max:4' ],
+            'borrowable' => [ 'nullable', 'boolean' ]  /* ?borrowable=1   ?borrowable=0 */
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('post',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        $borrowable = isset($request['borrowable']) ? boolval($request['borrowable']) : true;
+        $exemplar = Exemplar::create([
+            'book_id' => $request['book_id'],
+            'condition' => $request['condition'],
+            'borrowable' => $borrowable
+        ]);
+        Misc::monitor('post',Response::HTTP_CREATED);
+        return ExemplarResource::make($exemplar);
+    }
+
 }
