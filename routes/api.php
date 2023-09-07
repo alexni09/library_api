@@ -25,7 +25,6 @@ Route::get('books/{book}', [BookController::class, 'show']);
 
 Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);
 Route::get('exemplars/list/{book_id}', [ExemplarController::class, 'index']);
-Route::post('exemplars', [ExemplarController::class, 'store']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);
@@ -42,6 +41,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('books', [BookController::class, 'store']);
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::delete('books/{book}', [BookController::class, 'destroy']);
+    Route::post('exemplars', [ExemplarController::class, 'store']);
 });
 
 Route::get('monitor', MonitorController::class);

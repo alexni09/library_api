@@ -72,4 +72,46 @@ class ExemplarTest extends TestCase {
             ]);
     }
 
+    public function testUnauthenticatedUserCannotCreateAnExemplar(): void {
+        $book = Book::first();
+        $response = $this->postJson('/api/exemplars/', [
+            'book_id' => $book->id,
+            'condition' => Misc::condition()
+        ]);
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanCreateAnExemplar(): void {
+        $book = Book::first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $condition = Misc::condition();
+        $response = $this->actingAs($user)->postJson('/api/exemplars/', [
+            'book_id' => $book->id,
+            'condition' => $condition
+        ]);
+        $id = $response['data']['id'];
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $id,
+            'book_id' => $book->id,
+            'condition' => $condition,
+            'borrowable' => true
+        ]);
+    }
+
+    public function testNonAdminCannotCreateAnExemplar(): void {
+        $book = Book::first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $condition = Misc::condition();
+        $response = $this->actingAs($user)->postJson('/api/exemplars/', [
+            'book_id' => $book->id,
+            'condition' => $condition
+        ]);
+        $response->assertStatus(422);
+    }
+
 }
