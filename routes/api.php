@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\Main\BookController;
 use App\Http\Controllers\Api\Main\ExemplarController;
 use App\Http\Controllers\Api\Main\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
+use App\Http\Controllers\Api\Main\BookDonationController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -34,6 +35,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('password', PasswordUpdateController::class);
     Route::post('auth/logout', LogoutController::class);
     Route::post('exemplars/donate', ExemplarDonationController::class);
+    Route::post('books/donate', BookDonationController::class);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
