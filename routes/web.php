@@ -4,10 +4,15 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Redis;
+use Database\Seeders\ExemplarSeeder;
 
 Route::get('/', function () {
     return Inertia::render('Index');
+});
+
+Route::get('/booklist', function () {
+    ExemplarSeeder::prepare();
+    dd(count(ExemplarSeeder::$bookList));
 });
 
 Route::get('/dashboard', function () {

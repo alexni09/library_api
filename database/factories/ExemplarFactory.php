@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Exemplar;
+use Database\Seeders\ExemplarSeeder;
 use Database\Seeders\BookSeeder;
 use Database\Seeders\CategorySeeder;
 use App\Services\Misc;
@@ -28,7 +29,7 @@ class ExemplarFactory extends Factory {
         return [
             'borrowable' => rand(1,5) < 5,
             'condition' => Misc::condition(),
-            'book_id' => rand(1,CategorySeeder::HOW_MANY_TO_SEED * BookSeeder::HOW_MANY_TO_SEED)
+            'book_id' => ExemplarSeeder::$bookList[rand(0, count(ExemplarSeeder::$bookList) - 1)]
         ];
     }
 }
