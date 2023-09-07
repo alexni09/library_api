@@ -10,6 +10,7 @@ use App\Models\Exemplar;
 use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class ExemplarDonationController extends Controller {
     public function __invoke(Request $request):ExemplarResource|JsonResponse {
@@ -27,7 +28,7 @@ class ExemplarDonationController extends Controller {
             'book_id' => $request['book_id'],
             'condition' => $request['condition'],
             'borrowable' => true,
-            'user_id' => $request->id
+            'user_id' => Auth::id()
         ]);
         Misc::monitor('post',Response::HTTP_CREATED);
         return ExemplarResource::make($exemplar);
