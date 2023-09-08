@@ -55,9 +55,8 @@ class ExemplarTest extends TestCase {
     }
 
     public function testPublicUserListsABookWithExemplarsCorrectly(): void {
-        $book = Book::first();
-        $exemplar = Exemplar::factory()->create([ 'book_id' => $book->id ]);
-        $response = $this->getJson('/api/exemplars/list/' . strval($book->id));
+        $exemplar = Exemplar::first();
+        $response = $this->getJson('/api/exemplars/list/' . strval($exemplar->book_id));
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
             ->assertJsonCount(6, 'data.0')
