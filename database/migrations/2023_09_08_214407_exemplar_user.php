@@ -9,11 +9,13 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        $table->id();
-        $table->foreignId('exemplar_id')->constrained();
-        $table->foreignId('user_id')->constrained();
-        $table->dateTime('borrowed');
-        $table->dateTime('returned')->nullable()->default(null);
+        Schema::create('exemplar_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('exemplar_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->dateTime('borrowed');
+            $table->dateTime('returned')->nullable()->default(null);
+        });
     }
 
     /**
