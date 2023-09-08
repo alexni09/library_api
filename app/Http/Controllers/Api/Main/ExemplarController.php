@@ -99,4 +99,9 @@ class ExemplarController extends Controller {
         return ExemplarResource::make($exemplar);
     }
 
+    public function destroy(Exemplar $exemplar):Response {
+        $exemplar->delete();
+        Misc::monitor('delete',Response::HTTP_NO_CONTENT);
+        return response()->noContent();
+    }
 }

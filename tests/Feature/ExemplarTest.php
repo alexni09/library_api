@@ -191,4 +191,27 @@ class ExemplarTest extends TestCase {
         $response->assertStatus(422);
     }
 
+    public function testUnauthenticatedUserCannotDeleteAnExemplar(): void {
+        $exemplar = Exemplar::first();
+        $response = $this->deleteJson('/api/exemplars/' . strval($exemplar->id));
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanDeleteAnExemplar(): void {
+        $exemplar = Exemplar::where('condition',4)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/exemplars/' . strval($exemplar->id));
+        $response->assertStatus(204);
+    }
+
+    public function testNonAdminCannotDeleteAnExemplar(): void {
+        $exemplar = Exemplar::where('condition',3)->first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $response = $this->actingAs($user)->deleteJson('/api/exemplars/' . strval($exemplar->id));
+        $response->assertStatus(422);
+    }
 }
