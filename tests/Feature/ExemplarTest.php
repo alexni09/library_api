@@ -118,4 +118,77 @@ class ExemplarTest extends TestCase {
         $response->assertStatus(422);
     }
 
+    public function testUnauthenticatedUserCannotUpdateAnExemplar(): void {
+        $exemplar = Exemplar::first();
+        $response = $this->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'condition' => Misc::condition()
+        ]);
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanUpdateAnExemplarOneKey(): void {
+        $exemplar = Exemplar::where('condition',4)->first();
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'condition' => 2
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $exemplar->id,
+            'condition' => 2
+        ]);
+    }
+
+    public function testAdminCanUpdateAnExemplarCirculatingUserIds(): void {
+        $exemplar = Exemplar::whereNull('user_id')->first();
+        $admin = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $user1 = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $user2 = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $response = $this->actingAs($admin)->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'change_donor' => 1,
+            'user_id' => $user1->id
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $exemplar->id,
+            'user_id' => $user1->id
+        ]);
+        $response = $this->actingAs($admin)->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'change_donor' => 1,
+            'user_id' => $user2->id
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $exemplar->id,
+            'user_id' => $user2->id
+        ]);
+        $response = $this->actingAs($admin)->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'change_donor' => 0
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $exemplar->id,
+            'user_id' => null
+        ]);
+    }
+
+    public function testNonAdminCannotUpdateAnExemplar(): void {
+        $exemplar = Exemplar::where('condition',3)->first();
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $response = $this->actingAs($user)->putJson('/api/exemplars/' . strval($exemplar->id), [
+            'condition' => 1
+        ]);
+        $response->assertStatus(422);
+    }
+
 }
