@@ -13,6 +13,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
 use App\Services\Misc;
+use Illuminate\Support\Facades\DB;
 
 class ExemplarTest extends TestCase {
     use RefreshDatabase;
@@ -55,19 +56,24 @@ class ExemplarTest extends TestCase {
     }
 
     public function testPublicUserListsABookWithExemplarsCorrectly(): void {
-        $exemplar = Exemplar::first();
-        $response = $this->getJson('/api/exemplars/list/' . strval($exemplar->book_id));
-        $response->assertStatus(200)
-            ->assertJsonStructure(['data'])
-            ->assertJsonCount(6, 'data.0')
-            ->assertJsonFragment([
-                'id' => $exemplar->id,
-                'borrowable' => intval($exemplar->borrowable),
-                'book_id' => $exemplar->book_id, 
-                'book_name' => $exemplar->book->name, 
-                'condition_value' => $exemplar->condition->value, 
-                'condition_name' => $exemplar->condition->name
-            ]);
+        /* Let's test for 5 exemplars of a single book: */
+        $book_id = DB::table('quantity_of_exemplars_per_book')->select('book_id')->where('quantity',5)->first()->book_id;
+        $exemplar_ids = DB::table('exemplars')->select('id')->where('book_id',$book_id)->get()->pluck('id')->toArray();
+        $response = $this->getJson('/api/exemplars/list/' . strval($book_id) . '?borrowable=0');
+        for ($i = 0; $i < count($exemplar_ids); $i++) {
+            $exemplar = Exemplar::find($exemplar_ids[$i]);
+            $response->assertStatus(200)
+                ->assertJsonStructure(['data'])
+                ->assertJsonCount(6, 'data.' . strval($i))
+                ->assertJsonFragment([
+                    'id' => $exemplar->id,
+                    'borrowable' => intval($exemplar->borrowable),
+                    'book_id' => $exemplar->book_id, 
+                    'book_name' => $exemplar->book->name, 
+                    'condition_value' => $exemplar->condition->value, 
+                    'condition_name' => $exemplar->condition->name
+                ]);
+        }
     }
 
     public function testUnauthenticatedUserCannotCreateAnExemplar(): void {
