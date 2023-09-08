@@ -70,4 +70,33 @@ class ExemplarController extends Controller {
         return ExemplarResource::make($exemplar);
     }
 
+    public function update(Request $request, Exemplar $exemplar):ExemplarResource|JsonResponse {
+        $validator = Validator::make($request->all(), [
+            'book_id' => [ 'nullable', 'required_without_all:condition,borrowable,change_donor', 'integer', 'min:1', 'exists:books,id' ],
+            'condition' => [ 'nullable', 'required_without_all:book_id,borrowable,change_donor', 'integer', 'min:1', 'max:4' ],
+            'borrowable' => [ 'nullable', 'required_without_all:book_id,condition,change_donor', 'boolean' ],  /* ?borrowable=1   ?borrowable=0 */
+            'user_id' => [ 'nullable', 'required_if:change_donor,true', 'integer', 'min:1', 'exists:users,id' ],
+            'change_donor' => [ 'nullable', 'boolean' ]
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('put',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        $book_id = $validator->validated()['book_id'] ?? null;
+        $condition = $validator->validated()['condition'] ?? null;
+        $borrowable = $validator->validated()['borrowable'] ?? null;
+        $user_id = $validator->validated()['user_id'] ?? null;
+        $change_donor = $validator->validated()['change_donor'] ?? null;
+        if (isset($book_id)) $exemplar->book_id = $book_id;
+        if (isset($condition)) $exemplar->condition = $condition;
+        if (isset($borrowable)) $exemplar->borrowable = $borrowable;
+        if ($change_donor == 1) $exemplar->user_id = intval($user_id);
+        else if ($change_donor == 0) $exemplar->user_id = null;
+        $exemplar->save();
+        Misc::monitor('put',Response::HTTP_OK);
+        return ExemplarResource::make($exemplar);
+    }
+
 }

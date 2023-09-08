@@ -46,6 +46,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::delete('books/{book}', [BookController::class, 'destroy']);
     Route::post('exemplars', [ExemplarController::class, 'store']);
+    Route::put('exemplars/{exemplar}', [ExemplarController::class, 'update']);
 });
 
 Route::get('monitor', MonitorController::class);

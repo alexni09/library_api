@@ -13,5 +13,17 @@ class UserSeeder extends Seeder {
             'email' => 'admin@nowhere.xyz',
             'name' => 'admin'
         ]);
+
+        User::factory()->create([
+            'is_admin' => false,
+            'email' => 'user@nowhere.xyz',
+            'name' => 'user'
+        ]);
+
+        User::factory()->create([
+            'is_admin' => false,
+            'email' => 'another@nowhere.xyz',
+            'name' => 'another'
+        ]);
     }
 }
