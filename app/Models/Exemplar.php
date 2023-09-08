@@ -18,4 +18,5 @@ class Exemplar extends Model {
     /* Relationships */
     public function book() { return $this->belongsTo(Book::class); }
     public function donor() { return $this->belongsTo(User::class); }
+    public function borrowed() { return $this->belongsToMany(User::class); }
 }

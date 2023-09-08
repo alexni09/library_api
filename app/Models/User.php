@@ -44,5 +44,6 @@ class User extends Authenticatable {
     ];
 
     /* Relationships */
-    public function exemplarsDonated() { return $this->hasMany(Exemplars::class); }
+    public function exemplarsDonated() { return $this->hasMany(Exemplar::class); }
+    public function borrowed() { return $this->belongsToMany(Exemplar::class); }
 }
