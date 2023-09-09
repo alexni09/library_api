@@ -30,6 +30,13 @@ class BorrowController extends Controller {
                 'errors' => 'User has reached the maximum borrowable limit (' . strval($user->maximum_borrowable) . ').'
             ], Response::HTTP_FORBIDDEN);
         }
+        $exemplar1 = Exemplar::withCount('unreturned')->find($exemplar->id);
+        if ($exemplar1->unreturned_count >= 1) {
+            Misc::monitor('post',Response::HTTP_FORBIDDEN);
+            return response()->json([
+                'errors' => 'This exemplar is currently borrowed.'
+            ], Response::HTTP_FORBIDDEN);
+        }
         $now = Carbon::now();
         $exemplar->borrowed()->attach($user_id, [ 'borrowed' => $now ]);
         return response()->json([
