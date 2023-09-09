@@ -24,7 +24,7 @@ class BorrowTest extends TestCase {
     }
 
     public function testUnauthenticatedCannotBorrow() {
-        $exemplar = Exemplar::where('borrowable',false)->first();
+        $exemplar = Exemplar::where('borrowable',true)->first();
         $response = $this->postJson('/api/borrow/' . strval($exemplar->id));
         $response->assertStatus(401);
     }
@@ -66,5 +66,42 @@ class BorrowTest extends TestCase {
         $user2 = User::factory()->create();
         $response = $this->actingAs($user2)->postJson('/api/borrow/' . strval($exemplar->id));
         $response->assertStatus(403);
+    }
+
+    public function testUnauthenticatedCannotListBorrowedBooks() {
+        $response = $this->getJson('/api/borrowed-list/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserCanListBorrowedBooks() {
+        $exemplars = Exemplar::where('borrowable',true)->limit(6)->get();
+        $user1 = User::factory()->create();
+        $response = $this->actingAs($user1)->postJson('/api/borrow/' . strval($exemplars[0]->id));
+        $response->assertStatus(201);
+        $user2 = User::factory()->create();
+        $response = $this->actingAs($user2)->postJson('/api/borrow/' . strval($exemplars[1]->id));
+        $response->assertStatus(201);
+        $response = $this->actingAs($user2)->postJson('/api/borrow/' . strval($exemplars[2]->id));
+        $response->assertStatus(201);
+        $user3 = User::factory()->create();
+        $response = $this->actingAs($user3)->postJson('/api/borrow/' . strval($exemplars[3]->id));
+        $response->assertStatus(201);
+        $response = $this->actingAs($user3)->postJson('/api/borrow/' . strval($exemplars[4]->id));
+        $response->assertStatus(201);
+        $response = $this->actingAs($user3)->postJson('/api/borrow/' . strval($exemplars[5]->id));
+        $response->assertStatus(201);
+        $response = $this->actingAs($user3)->getJson('/api/borrowed-list/');
+        $response->assertStatus(200)->assertJsonStructure(['data']);
+        for ($i=0; $i<3; $i++) {
+            $response->assertJsonCount(6, 'data.' . strval($i))
+                ->assertJsonFragment([
+                    'id' => $exemplars[3+$i]->id,
+                    'borrowable' => intval($exemplars[3+$i]->borrowable),
+                    'book_id' => $exemplars[3+$i]->book_id, 
+                    'book_name' => $exemplars[3+$i]->book->name, 
+                    'condition_value' => $exemplars[3+$i]->condition->value, 
+                    'condition_name' => $exemplars[3+$i]->condition->name
+                ]);
+        }
     }
 }
