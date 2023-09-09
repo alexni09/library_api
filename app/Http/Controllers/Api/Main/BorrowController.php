@@ -13,6 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Http\Resources\ExemplarResource;
 
 class BorrowController extends Controller {
     public function borrow(Exemplar $exemplar):JsonResponse {
@@ -39,6 +40,7 @@ class BorrowController extends Controller {
         }
         $now = Carbon::now();
         $exemplar->borrowed()->attach($user_id, [ 'borrowed' => $now ]);
+        Misc::monitor('post',Response::HTTP_CREATED);
         return response()->json([
             'data' => [
                 'user_id' => $user_id,
@@ -48,4 +50,16 @@ class BorrowController extends Controller {
             ]
         ], Response::HTTP_CREATED);
     }
+
+    public function index():AnonymousResourceCollection|Response {
+        $user_id = Auth::id();
+        $user = User::withCount('unreturned')->find($user_id);
+        if ($user->unreturned_count === 0) {
+            Misc::monitor('post',Response::HTTP_NO_CONTENT);
+            return response()->noContent();
+        }
+        $user2 = User::with('unreturned')->find($user_id);
+        Misc::monitor('get',Response::HTTP_OK);
+        return ExemplarResource::collection($user2->unreturned()->get());
+    } 
 }
