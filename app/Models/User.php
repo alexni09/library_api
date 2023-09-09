@@ -47,5 +47,5 @@ class User extends Authenticatable {
     /* Relationships */
     public function exemplarsDonated() { return $this->hasMany(Exemplar::class); }
     public function borrowed() { return $this->belongsToMany(Exemplar::class)->withPivot('borrowed', 'returned'); }
-    public function unreturned() { return $this->belongsToMany(Exemplar::class)->wherePivotNotNull('returned'); }
+    public function unreturned() { return $this->belongsToMany(Exemplar::class)->wherePivotNull('returned'); }
 }

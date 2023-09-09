@@ -10,9 +10,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
-use App\Http\Resources\BorrowResource;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Carbon\Carbon;
 
 class BorrowController extends Controller {
     public function borrow(Exemplar $exemplar):BorrowResource|JsonResponse {
@@ -30,8 +30,15 @@ class BorrowController extends Controller {
                 'errors' => 'User has reached the maximum borrowable limit (' . strval($user->maximum_borrowable) . ').'
             ], Response::HTTP_FORBIDDEN);
         }
+        $now = Carbon::now();
+        $exemplar->borrowed()->attach($user_id, [ 'borrowed' => $now ]);
         return response()->json([
-            'errors' => $user->maximum_borrowable
+            'data' => [
+                'user_id' => $user_id,
+                'exemplar_id' => $exemplar->id,
+                'borrowed' => $now,
+                'returned' => null
+            ]
         ], Response::HTTP_CREATED);
     }
 }
