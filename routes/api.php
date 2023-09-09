@@ -39,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('books/donate', BookDonationController::class);
     Route::post('borrow/{exemplar}', [BorrowController::class, 'borrow']);
     Route::get('borrowed-list', [BorrowController::class, 'index']);
+    Route::patch('giveback/{exemplar_id}', [BorrowController::class, 'giveback']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {

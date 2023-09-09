@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Http\Resources\ExemplarResource;
+use Illuminate\Support\Facades\DB;
 
 class BorrowController extends Controller {
     public function borrow(Exemplar $exemplar):JsonResponse {
@@ -61,5 +62,56 @@ class BorrowController extends Controller {
         $user2 = User::with('unreturned')->find($user_id);
         Misc::monitor('get',Response::HTTP_OK);
         return ExemplarResource::collection($user2->unreturned()->get());
-    } 
+    }
+
+    public function giveback(int $exemplar_id, Request $request):JsonResponse {
+        $request->merge([ 'exemplar_id' => $exemplar_id ]);
+        $validator = Validator::make($request->all(), [
+            'exemplar_id' => [ 'required', 'integer', 'min:1', 'exists:exemplars,id' ],
+            'condition' => [ 'nullable', 'integer', 'min:1', 'max:4' ]
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('patch',Response::HTTP_NOT_FOUND);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_NOT_FOUND);
+        }
+        $exemplar = Exemplar::with('unreturned')->find($exemplar_id);
+        /*
+        $exemplarRecords = $exemplar->unreturned()->get();
+        $exemplar_id2 = $exemplarRecords->isEmpty() ? null : $exemplarRecords[0]->unreturned->exemplar_id;
+        if ($exemplar_id2 !== $exemplar_id) {
+            Misc::monitor('patch',Response::HTTP_NOT_FOUND);
+            return response()->json([
+                'errors' => 'Exemplar ' . strval($exemplar_id) . ' is not borrowed with this user (' . Auth::id() . ').'
+            ], Response::HTTP_NOT_FOUND);
+        }
+        */
+        $exemplar_user = DB::table('exemplar_user')->where('exemplar_id', $exemplar_id)->where('user_id', Auth::id())->whereNull('returned')->first();
+        if ($exemplar_user === null || $exemplar_user->user_id != Auth::id() || $exemplar_user->exemplar_id != $exemplar_id) {
+            Misc::monitor('patch',Response::HTTP_NOT_FOUND);
+            return response()->json([
+                'errors' => 'Exemplar #' . strval($exemplar_id) . ' is not borrowed with this user #' . strval(Auth::id()) . '.'
+            ], Response::HTTP_NOT_FOUND);
+        }
+        $condition = isset($request['condition']) ? intval($request['condition']) : $exemplar->condition->value;
+        if ($condition < $exemplar->condition->value) {
+            Misc::monitor('patch',Response::HTTP_FORBIDDEN);
+            return response()->json([
+                'errors' => 'Returning a book in a better shape is impossible!'
+            ], Response::HTTP_FORBIDDEN);
+        }
+        $now = Carbon::now();
+        $exemplar->unreturned()->updateExistingPivot(Auth::id(), [ 'returned' => $now ]);
+        $exemplar->update([ 'condition' => $condition ]);
+        Misc::monitor('patch',Response::HTTP_OK);
+        return response()->json([
+            'data' => [
+                'user_id' => Auth::id(),
+                'exemplar_id' => $exemplar->id,
+                'condition' => $exemplar->condition,
+                'returned' => $now
+            ]
+        ], Response::HTTP_OK);
+    }
 }
