@@ -15,7 +15,7 @@ use App\Models\User;
 use Carbon\Carbon;
 
 class BorrowController extends Controller {
-    public function borrow(Exemplar $exemplar):BorrowResource|JsonResponse {
+    public function borrow(Exemplar $exemplar):JsonResponse {
         if (!$exemplar->borrowable) {
             Misc::monitor('post',Response::HTTP_FORBIDDEN);
             return response()->json([
