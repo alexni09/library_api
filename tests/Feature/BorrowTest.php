@@ -23,6 +23,12 @@ class BorrowTest extends TestCase {
         (new ExemplarSeeder)->run();
     }
 
+    public function testUnauthenticatedCannotBorrow() {
+        $exemplar = Exemplar::where('borrowable',false)->first();
+        $response = $this->postJson('/api/borrow/' . strval($exemplar->id));
+        $response->assertStatus(401);
+    }
+
     public function testUserCannotBorrowAnUnborrowableBook() {
         $exemplar = Exemplar::where('borrowable',false)->first();
         $user = User::factory()->create();
