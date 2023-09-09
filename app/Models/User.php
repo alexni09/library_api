@@ -21,7 +21,7 @@ class User extends Authenticatable {
         'name',
         'email',
         'password',
-        'maximum_borrows'
+        'maximum_borrowed'
     ];
 
     /**
