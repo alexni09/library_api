@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedSmallInteger('maximum_borrowed')->default(3);
+            $table->unsignedSmallInteger('maximum_borrowable')->default(3);
             $table->rememberToken();
             $table->timestamps();
         });
