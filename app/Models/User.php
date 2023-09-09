@@ -21,6 +21,7 @@ class User extends Authenticatable {
         'name',
         'email',
         'password',
+        'maximum_borrows'
     ];
 
     /**
@@ -45,5 +46,6 @@ class User extends Authenticatable {
 
     /* Relationships */
     public function exemplarsDonated() { return $this->hasMany(Exemplar::class); }
-    public function borrowed() { return $this->belongsToMany(Exemplar::class); }
+    public function borrowed() { return $this->belongsToMany(Exemplar::class)->withPivot('borrowed', 'returned'); }
+    public function unreturned() { return $this->belongsToMany(Exemplar::class)->wherePivotNotNull('returned'); }
 }

@@ -13,8 +13,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('exemplar_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->dateTime('borrowed');
-            $table->dateTime('returned')->nullable()->default(null);
+            $table->timestamp('borrowed');
+            $table->timestamp('returned')->nullable()->default(null);
         });
     }
 

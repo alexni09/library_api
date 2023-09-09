@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Main\ExemplarController;
 use App\Http\Controllers\Api\Main\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
 use App\Http\Controllers\Api\Main\BookDonationController;
+use App\Http\Controllers\Api\Main\BorrowController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -27,6 +28,7 @@ Route::get('books/{book}', [BookController::class, 'show']);
 
 Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);
 Route::get('exemplars/list/{book_id}', [ExemplarController::class, 'index']);
+Route::get('borrow_/{exemplar}', [BorrowController::class, 'borrow']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('whoami', WhoAmIController::class);
@@ -36,6 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('auth/logout', LogoutController::class);
     Route::post('exemplars/donate', ExemplarDonationController::class);
     Route::post('books/donate', BookDonationController::class);
+    Route::post('borrow/{exemplar}', [BorrowController::class, 'borrow']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
