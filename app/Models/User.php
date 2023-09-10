@@ -48,4 +48,8 @@ class User extends Authenticatable {
     public function exemplarsDonated() { return $this->hasMany(Exemplar::class); }
     public function borrowed() { return $this->belongsToMany(Exemplar::class)->withPivot('borrowed', 'returned'); }
     public function unreturned() { return $this->belongsToMany(Exemplar::class)->wherePivotNull('returned'); }
+    public function payments() { return $this->hasMany(Payment::class); }
+
+    /* Misc */
+    public function hasOpenPayments():bool { return Payment::hasOpenPayments($this->id); }
 }

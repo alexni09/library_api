@@ -22,6 +22,7 @@ class Exemplar extends Model {
     public function donor() { return $this->belongsTo(User::class); }
     public function borrowed() { return $this->belongsToMany(User::class)->withPivot('borrowed', 'returned'); }
     public function unreturned() { return $this->belongsToMany(User::class)->as('unreturned')->wherePivotNull('returned'); }
+    public function payments() { return $this->hasMany(Payment::class); }
 
     /* Misc */
     public function borrowedTimestamp():string {
@@ -40,7 +41,7 @@ class Exemplar extends Model {
         if (!$this->isCurrentlyBorrowed()) return 0;
         $borrowedTS = new Carbon($this->borrowedTimestamp());
         $returnedTS = Carbon::now();
-        $maximumTS = $borrowedTS->addMinutes($this->maximum_minutes);
+        $maximumTS = $borrowedTS->addMinutes($this->rental_maximum_minutes);
         if ($returnedTS <= $maximumTS ) return 0;
         else return $this->fine_per_delay + $returnedTS->diffInMinutes($borrowedTS) * $this->fine_per_minute;
     }

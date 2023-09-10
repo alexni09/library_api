@@ -40,7 +40,7 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         $now = Carbon::now();
-        $due = (Carbon::now())->addMinutes($exemplar->maximum_minutes);
+        $due = (Carbon::now())->addMinutes($exemplar->rental_maximum_minutes);
         $exemplar->borrowed()->attach($user_id, [ 'borrowed' => $now ]);
         Misc::monitor('post',Response::HTTP_CREATED);
         return response()->json([
@@ -50,7 +50,7 @@ class BorrowController extends Controller {
                 'borrowed' => $now,
                 'returned' => null,
                 'return_due' => $due,
-                'maximum_minutes' => $exemplar->maximum_minutes
+                'maximum_minutes' => $exemplar->rental_maximum_minutes
             ]
         ], Response::HTTP_CREATED);
     }
@@ -95,7 +95,7 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         $now = Carbon::now();
-        $due = (new Carbon($exemplar->borrowedTimestamp()))->addMinutes($exemplar->maximum_minutes);
+        $due = (new Carbon($exemplar->borrowedTimestamp()))->addMinutes($exemplar->rental_maximum_minutes);
         $computedDelayFine = $exemplar->computedDelayFine();
         $computedDamageFine = $exemplar->computedDamageFine($condition);
         $total = $exemplar->fee + $computedDelayFine + $computedDamageFine;
