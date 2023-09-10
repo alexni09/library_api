@@ -77,16 +77,6 @@ class BorrowController extends Controller {
             ], Response::HTTP_NOT_FOUND);
         }
         $exemplar = Exemplar::with('unreturned')->find($exemplar_id);
-        /*
-        $exemplarRecords = $exemplar->unreturned()->get();
-        $exemplar_id2 = $exemplarRecords->isEmpty() ? null : $exemplarRecords[0]->unreturned->exemplar_id;
-        if ($exemplar_id2 !== $exemplar_id) {
-            Misc::monitor('patch',Response::HTTP_NOT_FOUND);
-            return response()->json([
-                'errors' => 'Exemplar ' . strval($exemplar_id) . ' is not borrowed with this user (' . Auth::id() . ').'
-            ], Response::HTTP_NOT_FOUND);
-        }
-        */
         $exemplar_user = DB::table('exemplar_user')->where('exemplar_id', $exemplar_id)->where('user_id', Auth::id())->whereNull('returned')->first();
         if ($exemplar_user === null || $exemplar_user->user_id != Auth::id() || $exemplar_user->exemplar_id != $exemplar_id) {
             Misc::monitor('patch',Response::HTTP_NOT_FOUND);

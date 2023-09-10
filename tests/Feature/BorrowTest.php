@@ -104,4 +104,110 @@ class BorrowTest extends TestCase {
                 ]);
         }
     }
+
+    public function testUnauthenticatedCannotReturnABook() {
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $response = $this->patchJson('/api/giveback/' . strval($exemplar->id));
+        $response->assertStatus(401);
+    }
+
+    public function testUserCanReturnABook() {
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar->id));
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id));
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id
+        ]);
+        $this->assertDatabaseMissing('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+    }
+
+    public function testAnotherUserCannotReturnAnothersBook() {
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+        $response = $this->actingAs($user1)->postJson('/api/borrow/' . strval($exemplar->id));
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user1->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $response = $this->actingAs($user2)->patchJson('/api/giveback/' . strval($exemplar->id));
+        $response->assertStatus(404);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user1->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $this->assertDatabaseMissing('exemplar_user', [
+            'user_id' => $user2->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+    }
+
+    public function testUserCannotReturnABookInABetterShape() {
+        $exemplar = Exemplar::where('borrowable',true)->where('condition','>',1)->first();
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar->id));
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $condition = $exemplar->condition->value - 1;
+        $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id), [
+            'condition' => $condition
+        ]);
+        $response->assertStatus(403);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+    }
+
+    public function testUserCanReturnABookInAWorseShape() {
+        $exemplar = Exemplar::where('borrowable',true)->where('condition','<',4)->first();
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar->id));
+        $response->assertStatus(201);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $condition = $exemplar->condition->value + 1;
+        $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id), [
+            'condition' => $condition
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id
+        ]);
+        $this->assertDatabaseMissing('exemplar_user', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'returned' => null
+        ]);
+        $this->assertDatabaseHas('exemplars', [
+            'id' => $exemplar->id,
+            'condition' => $condition
+        ]);
+    }
 }
