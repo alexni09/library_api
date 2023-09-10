@@ -99,6 +99,7 @@ class BorrowController extends Controller {
         $computedDelayFine = $exemplar->computedDelayFine();
         $computedDamageFine = $exemplar->computedDamageFine($condition);
         $total = $exemplar->fee + $computedDelayFine + $computedDamageFine;
+        $payment_due = (new Carbon($due))->addMinutes($exemplar->payment_maximum_minutes);
         $exemplar->unreturned()->updateExistingPivot(Auth::id(), [ 'returned' => $now ]);
         $exemplar->update([ 'condition' => $condition ]);
         Misc::monitor('patch',Response::HTTP_OK);
@@ -107,12 +108,13 @@ class BorrowController extends Controller {
                 'user_id' => Auth::id(),
                 'exemplar_id' => $exemplar->id,
                 'condition' => $exemplar->condition,
-                'due' => $due,
                 'returned' => $now,
+                'due' => $due,
                 'fee_per_rental' => $exemplar->fee,
                 'fine_per_delay' => $computedDelayFine,
                 'fine_per_damage' => $computedDamageFine,
-                'total_payment_due' => $total
+                'total_payment_due' => $total,
+                'payment_due' => $payment_due
             ]
         ], Response::HTTP_OK);
     }
