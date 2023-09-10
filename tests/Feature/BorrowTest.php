@@ -111,7 +111,7 @@ class BorrowTest extends TestCase {
         $response->assertStatus(401);
     }
 
-    public function testUserCanReturnABook() {
+    public function testUserCanReturnABookOnlyIfNotAlreadyReturned() {
         $exemplar = Exemplar::where('borrowable',true)->first();
         $user = User::factory()->create();
         $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar->id));
@@ -132,6 +132,8 @@ class BorrowTest extends TestCase {
             'exemplar_id' => $exemplar->id,
             'returned' => null
         ]);
+        $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id));
+        $response->assertStatus(404);
     }
 
     public function testAnotherUserCannotReturnAnothersBook() {
