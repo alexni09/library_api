@@ -40,6 +40,7 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         $now = Carbon::now();
+        $due = (Carbon::now())->addMinutes($exemplar->maximum_minutes);
         $exemplar->borrowed()->attach($user_id, [ 'borrowed' => $now ]);
         Misc::monitor('post',Response::HTTP_CREATED);
         return response()->json([
@@ -47,7 +48,9 @@ class BorrowController extends Controller {
                 'user_id' => $user_id,
                 'exemplar_id' => $exemplar->id,
                 'borrowed' => $now,
-                'returned' => null
+                'returned' => null,
+                'return_due' => $due,
+                'maximum_minutes' => $exemplar->maximum_minutes
             ]
         ], Response::HTTP_CREATED);
     }
@@ -92,6 +95,10 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         $now = Carbon::now();
+        $due = (new Carbon($exemplar->borrowedTimestamp()))->addMinutes($exemplar->maximum_minutes);
+        $computedDelayFine = $exemplar->computedDelayFine();
+        $computedDamageFine = $exemplar->computedDamageFine($condition);
+        $total = $exemplar->fee + $computedDelayFine + $computedDamageFine;
         $exemplar->unreturned()->updateExistingPivot(Auth::id(), [ 'returned' => $now ]);
         $exemplar->update([ 'condition' => $condition ]);
         Misc::monitor('patch',Response::HTTP_OK);
@@ -100,7 +107,12 @@ class BorrowController extends Controller {
                 'user_id' => Auth::id(),
                 'exemplar_id' => $exemplar->id,
                 'condition' => $exemplar->condition,
-                'returned' => $now
+                'due' => $due,
+                'returned' => $now,
+                'fee_per_rental' => $exemplar->fee,
+                'fine_per_delay' => $computedDelayFine,
+                'fine_per_damage' => $computedDamageFine,
+                'total_payment_due' => $total
             ]
         ], Response::HTTP_OK);
     }
