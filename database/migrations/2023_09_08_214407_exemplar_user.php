@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained();
             $table->timestamp('borrowed');
             $table->timestamp('returned')->nullable()->default(null);
+            $table->index(['returned', 'exemplar_id', 'borrowed']);
+            $table->index(['user_id', 'exemplar_id', 'returned', 'borrowed']);
         });
     }
 

@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->foreignId('book_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->nullable()->setNullOnDelete()->cascadeOnUpdate()->default(null);
             $table->timestamps();
+            $table->unique(['borrowable', 'id']);
+            $table->unique(['condition', 'borrowable', 'id']);
         });
     }
 
