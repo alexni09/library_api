@@ -15,6 +15,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Http\Resources\ExemplarResource;
 use Illuminate\Support\Facades\DB;
+use App\Models\Payment;
 
 class BorrowController extends Controller {
     public function borrow(Exemplar $exemplar):JsonResponse {
@@ -100,8 +101,17 @@ class BorrowController extends Controller {
         $computedDamageFine = $exemplar->computedDamageFine($condition);
         $total = $exemplar->fee + $computedDelayFine + $computedDamageFine;
         $payment_due = (new Carbon($due))->addMinutes($exemplar->payment_maximum_minutes);
+        DB::beginTransaction();
         $exemplar->unreturned()->updateExistingPivot(Auth::id(), [ 'returned' => $now ]);
         $exemplar->update([ 'condition' => $condition ]);
+        Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => Auth::id(),
+            'due_value' => $total,
+            'due_from' => $due,
+            'due_at' => $payment_due
+        ]);
+        DB::commit();
         Misc::monitor('patch',Response::HTTP_OK);
         return response()->json([
             'data' => [
