@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Services\Misc;
 use App\Models\Payment;
+use Carbon\Carbon;
 
 class BorrowTest extends TestCase {
     use RefreshDatabase;
@@ -223,5 +224,20 @@ class BorrowTest extends TestCase {
             'exemplar_id' => $exemplar->id,
             'paid_at' => null
         ]);
+    }
+
+    public function testUserCannotBorrowABookWithAnOpenPayment() {
+        $exemplar1 = Exemplar::where('borrowable',true)->where('condition',1)->first();
+        $user = User::factory()->create();
+        Payment::create([
+            'exemplar_id' => $exemplar1->id,
+            'user_id' => $user->id,
+            'due_value' => 12345,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        $exemplar2 = Exemplar::where('borrowable',true)->where('condition',2)->first();
+        $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar2->id));
+        $response->assertStatus(422);
     }
 }
