@@ -132,6 +132,11 @@ class BorrowTest extends TestCase {
             'exemplar_id' => $exemplar->id,
             'returned' => null
         ]);
+        $this->assertDatabaseHas('payments', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'paid_at' => null
+        ]);
         $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id));
         $response->assertStatus(404);
     }
@@ -210,6 +215,11 @@ class BorrowTest extends TestCase {
         $this->assertDatabaseHas('exemplars', [
             'id' => $exemplar->id,
             'condition' => $condition
+        ]);
+        $this->assertDatabaseHas('payments', [
+            'user_id' => $user->id,
+            'exemplar_id' => $exemplar->id,
+            'paid_at' => null
         ]);
     }
 }
