@@ -100,7 +100,11 @@ class BorrowController extends Controller {
         $computedDelayFine = $exemplar->computedDelayFine();
         $computedDamageFine = $exemplar->computedDamageFine($condition);
         $total = $exemplar->fee + $computedDelayFine + $computedDamageFine;
-        $payment_due = (new Carbon($due))->addMinutes($exemplar->payment_maximum_minutes);
+        /* returned after the due minute: */
+        $payment_due1 = (new Carbon($now))->addMinutes($exemplar->payment_maximum_minutes);
+        /* returned before the due minute: */
+        $payment_due2 = (new Carbon($exemplar->borrowedTimestamp()))->addMinutes($exemplar->rental_maximum_minutes)->addMinutes($exemplar->payment_maximum_minutes);
+        if ($payment_due1->gt($payment_due2)) $payment_due = $payment_due1; else $payment_due = $payment_due2;
         DB::beginTransaction();
         $exemplar->unreturned()->updateExistingPivot(Auth::id(), [ 'returned' => $now ]);
         $exemplar->update([ 'condition' => $condition ]);
