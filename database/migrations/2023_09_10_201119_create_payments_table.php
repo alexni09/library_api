@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->timestamp('due_at');
             $table->timestamp('paid_at')->nullable()->default(null);
             $table->unique(['paid_at','user_id','due_at','id']);
+            $table->unique(['paid_at','exemplar_id','due_at','id']);
         });
     }
 
