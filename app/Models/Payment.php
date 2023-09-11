@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Payment extends Model {
     protected $fillable = ['exemplar_id','user_id','due_value','due_from','due_at','paid_at'];
@@ -16,6 +17,6 @@ class Payment extends Model {
 
     /* Misc */
     public static function hasOpenPayments(int $user_id):bool {
-        return (bool) DB::table('payments')->selectRaw('count(distinct id) as qty')->whereNull('paid_at')->where('user_id',$user_id)->where('due_at', '<=', 'now()')->get()[0]->qty;
+        return (bool) DB::table('payments')->selectRaw('count(distinct id) as qty')->whereNull('paid_at')->where('user_id',$user_id)->where('due_at', '<=', Carbon::now())->get()[0]->qty;
     }
 }
