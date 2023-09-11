@@ -16,6 +16,11 @@ class Payment extends Model {
     public function user() { return $this->belongsTo(User::class); }
 
     /* Misc */
+    public static function balanceDue(int $user_id):int {
+        $sdv = self::selectRaw('sum(due_value) as sdv')->whereNull('paid_at')->where('user_id',$user_id)->get()[0]->sdv;
+        return $sdv ?? 0;
+    } 
+
     public static function hasAnOpenPaymentBeforeDueDate(int $exemplar_id):bool {
         return (bool) DB::table('payments')
             ->selectRaw('count(distinct id) as qty')

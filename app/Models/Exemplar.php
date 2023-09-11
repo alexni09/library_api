@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Enum\ExemplarCondition;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Payment;
 
 class Exemplar extends Model {
     use HasFactory;
@@ -44,6 +45,10 @@ class Exemplar extends Model {
         $maximumTS = $borrowedTS->addMinutes($this->rental_maximum_minutes);
         if ($returnedTS <= $maximumTS ) return 0;
         else return $this->fine_per_delay + $returnedTS->diffInMinutes($borrowedTS) * $this->fine_per_minute;
+    }
+
+    public function hasAnOpenPaymentBeforeDueDate():bool {
+        return Payment::hasAnOpenPaymentBeforeDueDate($this->id);
     }
 
     public function isCurrentlyBorrowed():bool {
