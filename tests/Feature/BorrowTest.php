@@ -13,6 +13,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
 use App\Services\Misc;
+use App\Models\Payment;
 
 class BorrowTest extends TestCase {
     use RefreshDatabase;
@@ -137,6 +138,7 @@ class BorrowTest extends TestCase {
             'exemplar_id' => $exemplar->id,
             'paid_at' => null
         ]);
+        $this->assertTrue(Payment::hasAnOpenPaymentBeforeDueDate($exemplar->id));
         $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id));
         $response->assertStatus(404);
     }
