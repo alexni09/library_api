@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Payment;
+use App\Http\Resources\PaymentResource;
 
 class PaymentController extends Controller {
     public function allPaymentsTotal():JsonResponse {
@@ -34,5 +35,15 @@ class PaymentController extends Controller {
         return response()->json([
             'data' => [ 'balance_due_unpaid' => Auth::User()->balanceDueUnpaid() ]
         ], Response::HTTP_OK);
+    }
+
+    public function listAllPayments():AnonymousResourceCollection|Response {
+        $payments = Payment::where('user_id', Auth::id())->get();
+        if ($payments->isEmpty()) {
+            Misc::monitor('post',Response::HTTP_NO_CONTENT);
+            return response()->noContent();
+        }
+        Misc::monitor('get',Response::HTTP_OK);
+        return PaymentResource::collection($payments);
     }
 }
