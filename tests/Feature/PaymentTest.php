@@ -401,12 +401,13 @@ class PaymentTest extends TestCase {
             ]);
     }
 
-    public function testUnauthenticatedCannotAccessListAllPayments() {
-        $response = $this->getJson('/api/list-all-payments/');
+
+    public function testUnauthenticatedCannotAccessListBalanceDueUnpaid() {
+        $response = $this->getJson('/api/list-balance-due-unpaid/');
         $response->assertStatus(401);
     }
 
-    public function testUserReceivesListAllPaymentsCorrectly() {
+    public function testUserReceivesListBalanceDueUnpaidCorrectly() {
         $user = User::factory()->create();
         $exemplars = Exemplar::where('borrowable',true)->limit(3)->get();
         $past30 = (Carbon::now())->subMinutes(30);
@@ -435,10 +436,10 @@ class PaymentTest extends TestCase {
             'due_at' => $past20,
             'paid_at' => $past25
         ]);
-        $response = $this->actingAs($user)->getJson('/api/list-all-payments/');
+        $response = $this->actingAs($user)->getJson('/api/list-balance-due-unpaid/');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
-            ->assertJsonCount(3,'data')
+            ->assertJsonCount(2,'data')
             ->assertJsonFragment([
                 'exemplar_id' => $exemplars[0]->id,
                 'due_value' => 2,
@@ -452,13 +453,6 @@ class PaymentTest extends TestCase {
                 'due_from' => $past30->toDateTimeString(),
                 'due_at' => $future20->toDateTimeString(),
                 'paid_at' => null
-            ])
-            ->assertJsonFragment([
-                'exemplar_id' => $exemplars[2]->id,
-                'due_value' => 200,
-                'due_from' => $past30->toDateTimeString(),
-                'due_at' => $past20->toDateTimeString(),
-                'paid_at' => $past25->toDateTimeString()
             ]);
     }
 }
