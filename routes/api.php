@@ -45,6 +45,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('balance-due-open', [PaymentController::class, 'balanceDueOpen']);
     Route::get('balance-due-unpaid', [PaymentController::class, 'balanceDueUnpaid']);
     Route::get('list-all-payments', [PaymentController::class, 'listAllPayments']);
+    Route::get('list-balance-due-unpaid', [PaymentController::class, 'listBalanceDueUnpaid']);
+    Route::get('list-balance-due-open', [PaymentController::class, 'listBalanceDueOpen']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {

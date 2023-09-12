@@ -14,6 +14,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Payment;
 use App\Http\Resources\PaymentResource;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class PaymentController extends Controller {
     public function allPaymentsTotal():JsonResponse {
@@ -37,13 +38,24 @@ class PaymentController extends Controller {
         ], Response::HTTP_OK);
     }
 
-    public function listAllPayments():AnonymousResourceCollection|Response {
-        $payments = Payment::allPaymentsList(Auth::id());
-        if (!isset($payments)) {
+    protected function list(EloquentCollection $payments):AnonymousResourceCollection|Response {
+        if ($payments->isEmpty()) {
             Misc::monitor('post',Response::HTTP_NO_CONTENT);
             return response()->noContent();
         }
         Misc::monitor('get',Response::HTTP_OK);
         return PaymentResource::collection($payments);
+    }
+
+    public function listAllPayments():AnonymousResourceCollection|Response {
+        return $this->list(Payment::allPaymentsList(Auth::id()));
+    }
+
+    public function listBalanceDueUnpaid():AnonymousResourceCollection|Response {
+        return $this->list(Payment::balanceDueUnpaidList(Auth::id()));
+    }
+
+    public function listBalanceDueOpen():AnonymousResourceCollection|Response {
+        return $this->list(Payment::balanceDueOpenList(Auth::id()));
     }
 }

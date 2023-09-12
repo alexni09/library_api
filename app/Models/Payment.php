@@ -17,14 +17,16 @@ class Payment extends Model {
     public function user() { return $this->belongsTo(User::class); }
 
     /* Misc */
-    public static function allPaymentsList(int $user_id):EloquentCollection|null {
-        $payments = Payment::where('user_id', $user_id)->get();
-        if ($payments->isEmpty()) return null; else return $payments;
+    public static function allPaymentsList(int $user_id):EloquentCollection {
+        return Payment::where('user_id', $user_id)->get();
+    }
+
+    public static function balanceDueOpenList(int $user_id):EloquentCollection {
+        return Payment::where('user_id', $user_id)->whereNull('paid_at')->where('due_at', '<=', Carbon::now())->get();
     } 
 
-    public static function balanceDueUnpaidList(int $user_id):EloquentCollection|null {
-        $payments = Payment::where('user_id', $user_id)->whereNull('paid_at')->get();
-        if ($payments->isEmpty()) return null; else return $payments;
+    public static function balanceDueUnpaidList(int $user_id):EloquentCollection {
+        return Payment::where('user_id', $user_id)->whereNull('paid_at')->get();
     } 
 
     public static function allPaymentsTotal(int $user_id):int {
