@@ -262,4 +262,142 @@ class PaymentTest extends TestCase {
         $this->assertEquals($user3->balanceDueUnpaid(),30000);
         $this->assertEquals($user4->balanceDueUnpaid(),0);
     }
+
+    public function testUnauthenticatedCannotAccessAllPaymentsTotal() {
+        $response = $this->getJson('/api/all-payments-total/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserReceivesAllPaymentsTotalCorrectly() {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+        $exemplars = Exemplar::where('borrowable',true)->limit(4)->get();
+        Payment::create([
+            'exemplar_id' => $exemplars[0]->id,
+            'user_id' => $user1->id,
+            'due_value' => 1,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[1]->id,
+            'user_id' => $user1->id,
+            'due_value' => 10,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->addMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[2]->id,
+            'user_id' => $user1->id,
+            'due_value' => 100,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20),
+            'paid_at' => (Carbon::now())->subMinutes(15)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[3]->id,
+            'user_id' => $user2->id,
+            'due_value' => 20,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        $response = $this->actingAs($user1)->getJson('/api/all-payments-total/');
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonFragment([
+                'all_payments_total' => 111
+            ]);
+    }
+
+    public function testUnauthenticatedCannotAccessBalanceDueOpen() {
+        $response = $this->getJson('/api/balance-due-open/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserReceivesBalanceDueOpenCorrectly() {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+        $exemplars = Exemplar::where('borrowable',true)->limit(4)->get();
+        Payment::create([
+            'exemplar_id' => $exemplars[0]->id,
+            'user_id' => $user1->id,
+            'due_value' => 1,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[1]->id,
+            'user_id' => $user1->id,
+            'due_value' => 10,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->addMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[2]->id,
+            'user_id' => $user1->id,
+            'due_value' => 100,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20),
+            'paid_at' => (Carbon::now())->subMinutes(15)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[3]->id,
+            'user_id' => $user2->id,
+            'due_value' => 20,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        $response = $this->actingAs($user1)->getJson('/api/balance-due-open/');
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonFragment([
+                'balance_due_open' => 1
+            ]);
+    }
+
+    public function testUnauthenticatedCannotAccessBalanceDueUnpaid() {
+        $response = $this->getJson('/api/balance-due-unpaid/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserReceivesBalanceDueUnpaidCorrectly() {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+        $exemplars = Exemplar::where('borrowable',true)->limit(4)->get();
+        Payment::create([
+            'exemplar_id' => $exemplars[0]->id,
+            'user_id' => $user1->id,
+            'due_value' => 1,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[1]->id,
+            'user_id' => $user1->id,
+            'due_value' => 10,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->addMinutes(20)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[2]->id,
+            'user_id' => $user1->id,
+            'due_value' => 100,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20),
+            'paid_at' => (Carbon::now())->subMinutes(15)
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[3]->id,
+            'user_id' => $user2->id,
+            'due_value' => 20,
+            'due_from' => (Carbon::now())->subMinutes(30),
+            'due_at' => (Carbon::now())->subMinutes(20)
+        ]);
+        $response = $this->actingAs($user1)->getJson('/api/balance-due-unpaid/');
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonFragment([
+                'balance_due_unpaid' => 11
+            ]);
+    }
 }
