@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\Main\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
 use App\Http\Controllers\Api\Main\BookDonationController;
 use App\Http\Controllers\Api\Main\BorrowController;
+use App\Http\Controllers\Api\Main\PaymentController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -40,6 +41,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('borrow/{exemplar}', [BorrowController::class, 'borrow']);
     Route::get('borrowed-list', [BorrowController::class, 'index']);
     Route::patch('giveback/{exemplar_id}', [BorrowController::class, 'giveback']);
+    Route::get('all-payments-total', [PaymentController::class, 'allPaymentsTotal']);
+    Route::get('balance-due-open', [PaymentController::class, 'balanceDueOpen']);
+    Route::get('balance-due-unpaid', [PaymentController::class, 'balanceDueUnpaid']);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
