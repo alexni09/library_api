@@ -501,4 +501,18 @@ class PaymentTest extends TestCase {
                 'paid_at' => null
             ]);
     }
+
+    public function testUnauthenticatedCannotMakeAPayment() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 223455,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(10)
+        ]);
+        $response = $this->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 345345]);
+        $response->assertStatus(401);
+    }
 }
