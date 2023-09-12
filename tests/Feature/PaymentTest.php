@@ -21,7 +21,7 @@ class PaymentTest extends TestCase {
         (new ExemplarSeeder)->run();
     }
 
-    public function testTotalBalanceDueIsSound() {
+    public function testTotalBalanceDueUnpaidIsSound() {
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
         $user3 = User::factory()->create();
@@ -69,9 +69,9 @@ class PaymentTest extends TestCase {
             'due_from' => (Carbon::now())->subMinutes(30),
             'due_at' => (Carbon::now())->subMinutes(20)
         ]);
-        $this->assertEquals($user1->balanceDue(),111);
-        $this->assertEquals($user2->balanceDue(),2020);
-        $this->assertEquals($user3->balanceDue(),30000);
-        $this->assertEquals($user4->balanceDue(),0);
+        $this->assertEquals($user1->balanceDueUnpaid(),111);
+        $this->assertEquals($user2->balanceDueUnpaid(),2020);
+        $this->assertEquals($user3->balanceDueUnpaid(),30000);
+        $this->assertEquals($user4->balanceDueUnpaid(),0);
     }
 }

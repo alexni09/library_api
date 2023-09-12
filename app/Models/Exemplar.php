@@ -47,8 +47,8 @@ class Exemplar extends Model {
         else return $this->fine_per_delay + $returnedTS->diffInMinutes($borrowedTS) * $this->fine_per_minute;
     }
 
-    public function hasAnOpenPaymentBeforeDueDate():bool {
-        return Payment::hasAnOpenPaymentBeforeDueDate($this->id);
+    public function hasAnUnpaidPaymentBeforeDueDate():bool {
+        return Payment::hasAnUnpaidPaymentBeforeDueDate($this->id);
     }
 
     public function isCurrentlyBorrowed():bool {

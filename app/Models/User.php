@@ -51,6 +51,7 @@ class User extends Authenticatable {
     public function payments() { return $this->hasMany(Payment::class); }
 
     /* Misc */
-    public function balanceDue():int { return Payment::balanceDue($this->id); }
+    public function balanceDueOpen():int { return Payment::balanceDueOpen($this->id); }
+    public function balanceDueUnpaid():int { return Payment::balanceDueUnpaid($this->id); }
     public function hasOpenPayments():bool { return Payment::hasOpenPayments($this->id); }
 }

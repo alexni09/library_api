@@ -138,7 +138,7 @@ class BorrowTest extends TestCase {
             'exemplar_id' => $exemplar->id,
             'paid_at' => null
         ]);
-        $this->assertTrue(Payment::hasAnOpenPaymentBeforeDueDate($exemplar->id));
+        $this->assertTrue(Payment::hasAnUnpaidPaymentBeforeDueDate($exemplar->id));
         $response = $this->actingAs($user)->patchJson('/api/giveback/' . strval($exemplar->id));
         $response->assertStatus(404);
     }
