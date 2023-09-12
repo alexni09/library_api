@@ -38,8 +38,8 @@ class PaymentController extends Controller {
     }
 
     public function listAllPayments():AnonymousResourceCollection|Response {
-        $payments = Payment::where('user_id', Auth::id())->get();
-        if ($payments->isEmpty()) {
+        $payments = Payment::allPaymentsList(Auth::id());
+        if (!isset($payments)) {
             Misc::monitor('post',Response::HTTP_NO_CONTENT);
             return response()->noContent();
         }

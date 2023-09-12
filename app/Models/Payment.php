@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class Payment extends Model {
     protected $fillable = ['exemplar_id','user_id','due_value','due_from','due_at','paid_at'];
@@ -16,6 +17,16 @@ class Payment extends Model {
     public function user() { return $this->belongsTo(User::class); }
 
     /* Misc */
+    public static function allPaymentsList(int $user_id):EloquentCollection|null {
+        $payments = Payment::where('user_id', $user_id)->get();
+        if ($payments->isEmpty()) return null; else return $payments;
+    } 
+
+    public static function balanceDueUnpaidList(int $user_id):EloquentCollection|null {
+        $payments = Payment::where('user_id', $user_id)->whereNull('paid_at')->get();
+        if ($payments->isEmpty()) return null; else return $payments;
+    } 
+
     public static function allPaymentsTotal(int $user_id):int {
         $sdv = self::selectRaw('sum(due_value) as sdv')
             ->where('user_id',$user_id)->get()[0]->sdv;
