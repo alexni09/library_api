@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->unique(['paid_at','user_id','due_at','id']);
             $table->unique(['paid_at','exemplar_id','due_at','id']);
             $table->index(['paid_at','user_id','due_value']);
+            $table->index(['user_id','due_value']);
         });
     }
 
