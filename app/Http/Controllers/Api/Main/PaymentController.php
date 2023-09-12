@@ -10,7 +10,6 @@ use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Payment;
 use App\Http\Resources\PaymentResource;
@@ -57,5 +56,54 @@ class PaymentController extends Controller {
 
     public function listBalanceDueOpen():AnonymousResourceCollection|Response {
         return $this->list(Payment::balanceDueOpenList(Auth::id()));
+    }
+
+    public function pay(Request $request, Payment $payment):JsonResponse {
+        $validator = Validator::make($request->all(), [
+            'money' => [ 'required', 'integer', 'min:'.strval($payment->due_value) ]
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('patch',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        if ($payment->user_id !== Auth::id()) {
+            Misc::monitor('patch',Response::HTTP_FORBIDDEN);
+            return response()->json([
+                'errors' => 'It is not allowed to pay for someone else\'s invoices.'
+            ], Response::HTTP_FORBIDDEN);
+        }
+        if ($payment->paid_at !== null) {
+            Misc::monitor('patch',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => 'Already paid.'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        $money = intval($validator->validated()['money']);
+        $change = $money - $payment->due_value;
+        switch(rand(1,5)) {
+            case 1: $message = 'Thank you!'; break;
+            case 2: $message = 'Payment received with thanks!'; break; 
+            case 3: $message = 'Thank you for your business.'; break;
+            case 4: $message = 'Payment received. Thank you!'; break;
+            case 5: $message = 'Thanks.'; break;
+        }
+        $payment->update([ 'paid_at' => (Carbon::now())->toDateTimeString() ]);
+        Misc::monitor('patch',Response::HTTP_OK);
+        Misc::makeMoney($payment->due_value);
+        return response()->json([
+            'data' => [
+                'id' => $payment->id,
+                'exemplar_id' => $payment->exemplar_id,
+                'due_value' => $payment->due_value,
+                'received' => $money,
+                'change' => $change,
+                'due_from' => $payment->due_from,
+                'due_at' => $payment->due_at,
+                'paid_at' => $payment->paid_at,
+                'message' => $message
+            ] 
+        ], Response::HTTP_OK);
     }
 }

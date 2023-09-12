@@ -11,7 +11,12 @@ class Misc {
     const LIST_METHOD = 'list_method';
     const LIST_STATUS = 'list_status';
     const LIST_URL = 'list_url';
+    const MONEY = 'money';
     const MAX_MONITORED_LINES = 30;
+
+    public static function accumulatedMoney():int {
+        return intval(Redis::get(self::MONEY));
+    }
 
     public static function condition():int {
         $r = rand(1,10);
@@ -36,6 +41,10 @@ class Misc {
 
     public static function list_url():array {
         return Redis::lrange(self::LIST_URL,0,-1);
+    }
+
+    public static function makeMoney(int $money):void {
+        Redis::incrby(self::MONEY, $money);
     }
 
     public static function monitor(string $method, int $status):void {
