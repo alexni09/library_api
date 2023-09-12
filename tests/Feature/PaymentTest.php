@@ -401,6 +401,52 @@ class PaymentTest extends TestCase {
             ]);
     }
 
+    public function testUnauthenticatedCannotAccessListBalanceDueOpen() {
+        $response = $this->getJson('/api/list-balance-due-open/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserReceivesListBalanceDueOpenCorrectly() {
+        $user = User::factory()->create();
+        $exemplars = Exemplar::where('borrowable',true)->limit(3)->get();
+        $past30 = (Carbon::now())->subMinutes(30);
+        $past20 = (Carbon::now())->subMinutes(20);
+        $future20 = (Carbon::now())->addMinutes(20);
+        $past25 = (Carbon::now())->subMinutes(25);
+        Payment::create([
+            'exemplar_id' => $exemplars[0]->id,
+            'user_id' => $user->id,
+            'due_value' => 2,
+            'due_from' => $past30,
+            'due_at' => $past20
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[1]->id,
+            'user_id' => $user->id,
+            'due_value' => 20,
+            'due_from' => $past30,
+            'due_at' => $future20
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[2]->id,
+            'user_id' => $user->id,
+            'due_value' => 200,
+            'due_from' => $past30,
+            'due_at' => $past20,
+            'paid_at' => $past25
+        ]);
+        $response = $this->actingAs($user)->getJson('/api/list-balance-due-open/');
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount(1,'data')
+            ->assertJsonFragment([
+                'exemplar_id' => $exemplars[0]->id,
+                'due_value' => 2,
+                'due_from' => $past30->toDateTimeString(),
+                'due_at' => $past20->toDateTimeString(),
+                'paid_at' => null
+            ]);
+    }
 
     public function testUnauthenticatedCannotAccessListBalanceDueUnpaid() {
         $response = $this->getJson('/api/list-balance-due-unpaid/');
