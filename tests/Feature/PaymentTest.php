@@ -400,4 +400,65 @@ class PaymentTest extends TestCase {
                 'balance_due_unpaid' => 11
             ]);
     }
+
+    public function testUnauthenticatedCannotAccessListAllPayments() {
+        $response = $this->getJson('/api/list-all-payments/');
+        $response->assertStatus(401);
+    }
+
+    public function testUserReceivesListAllPaymentsCorrectly() {
+        $user = User::factory()->create();
+        $exemplars = Exemplar::where('borrowable',true)->limit(3)->get();
+        $past30 = (Carbon::now())->subMinutes(30);
+        $past20 = (Carbon::now())->subMinutes(20);
+        $future20 = (Carbon::now())->addMinutes(20);
+        $past25 = (Carbon::now())->subMinutes(25);
+        Payment::create([
+            'exemplar_id' => $exemplars[0]->id,
+            'user_id' => $user->id,
+            'due_value' => 2,
+            'due_from' => $past30,
+            'due_at' => $past20
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[1]->id,
+            'user_id' => $user->id,
+            'due_value' => 20,
+            'due_from' => $past30,
+            'due_at' => $future20
+        ]);
+        Payment::create([
+            'exemplar_id' => $exemplars[2]->id,
+            'user_id' => $user->id,
+            'due_value' => 200,
+            'due_from' => $past30,
+            'due_at' => $past20,
+            'paid_at' => $past25
+        ]);
+        $response = $this->actingAs($user)->getJson('/api/list-all-payments/');
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount(3,'data')
+            ->assertJsonFragment([
+                'exemplar_id' => $exemplars[0]->id,
+                'due_value' => 2,
+                'due_from' => $past30->toDateTimeString(),
+                'due_at' => $past20->toDateTimeString(),
+                'paid_at' => null
+            ])
+            ->assertJsonFragment([
+                'exemplar_id' => $exemplars[1]->id,
+                'due_value' => 20,
+                'due_from' => $past30->toDateTimeString(),
+                'due_at' => $future20->toDateTimeString(),
+                'paid_at' => null
+            ])
+            ->assertJsonFragment([
+                'exemplar_id' => $exemplars[2]->id,
+                'due_value' => 200,
+                'due_from' => $past30->toDateTimeString(),
+                'due_at' => $past20->toDateTimeString(),
+                'paid_at' => $past25->toDateTimeString()
+            ]);
+    }
 }
