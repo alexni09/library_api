@@ -1,8 +1,19 @@
 <script setup>
 import { onMounted, ref, toRaw, onBeforeUnmount } from 'vue'
 import dayjs from 'dayjs'
-var myInterval = null
+var myInterval1 = null
+var myInterval2 = null
 const lines = ref(null)
+const accumulatedMoney = ref(0)
+const fetchAccumulatedMoney = () => {
+    axios.get('/api/money')
+        .then((response) => {
+            accumulatedMoney.value = toRaw(response.data.money)
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+}
 const fetchLines = () => {
     axios.get('/api/monitor')
         .then((response) => {
@@ -13,14 +24,22 @@ const fetchLines = () => {
         })
 }
 onMounted(() => {
+    fetchAccumulatedMoney()
     fetchLines()
-    myInterval = setInterval(fetchLines, 5000)
+    myInterval1 = setInterval(fetchLines, 5000)
+    myInterval2 = setInterval(fetchAccumulatedMoney, 3500)
 })
-onBeforeUnmount(() => clearInterval(myInterval))
+onBeforeUnmount(() => { 
+    clearInterval(myInterval1)
+    clearInterval(myInterval2)
+})
 </script>
 <template>
     <div class="flex justify-center">
-        <h1 class="mt-2 mb-3 font-bold text-3xl">library_api</h1>
+        <h1 class="mt-2 mb-2 font-bold text-4xl">:: library_api ::</h1>
+    </div>
+    <div class="flex justify-center">
+        <h3 class="mb-4 font-bold text-2xl">Accumulated: {{ accumulatedMoney }}</h3>
     </div>
     <div class="flex justify-center">
         <table class="bg-zinc-50 border border-zinc-500">
