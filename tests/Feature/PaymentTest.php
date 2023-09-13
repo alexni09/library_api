@@ -11,6 +11,7 @@ use App\Models\Exemplar;
 use Carbon\Carbon;
 use Database\Seeders\ExemplarSeeder;
 use Database\Seeders\CategorySeeder;
+use Illuminate\Support\Facades\DB;
 
 class PaymentTest extends TestCase {
     use RefreshDatabase;
@@ -514,5 +515,75 @@ class PaymentTest extends TestCase {
         ]);
         $response = $this->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 345345]);
         $response->assertStatus(401);
+    }
+
+    public function testUserCannotPayIfAlreadyPaid() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 223455,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(30),
+            'paid_at' => (Carbon::now())->subMinutes(10)
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 345345]);
+        $response->assertStatus(422);
+    }
+
+    public function testUserCannotPaySomeoneElses() {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user1->id,
+            'due_value' => 223455,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(30)
+        ]);
+        $response = $this->actingAs($user2)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 345345]);
+        $response->assertStatus(403);
+    }
+
+    public function testUserCannotUnderpay() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 223455,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(30)
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 45]);
+        $response->assertStatus(422);
+    }
+
+    public function testUserCanPayCorrectly() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 123456,
+            'due_from' => (Carbon::now())->subMinutes(40),
+            'due_at' => (Carbon::now())->subMinutes(25)
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 234567]);
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonFragment([
+                'id' => $payment->id,
+                'exemplar_id' => $exemplar->id,
+                'due_value' => 123456,
+                'received' => 234567,
+                'change' => 111111,
+                'due_from' => $payment->due_from->toDateTimeString(),
+                'due_at' => $payment->due_at->toDateTimeString()
+            ]);
+        $flag = (bool) DB::table('payments')->selectRaw('count(*) as qty')->where('id',$payment->id)->whereNotNull('paid_at')->get()[0]->qty;
+        $this->assertTrue($flag);
     }
 }
