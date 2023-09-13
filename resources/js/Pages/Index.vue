@@ -1,14 +1,18 @@
 <script setup>
 import { onMounted, ref, toRaw, onBeforeUnmount } from 'vue'
 import dayjs from 'dayjs'
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+})
 var myInterval1 = null
 var myInterval2 = null
 const lines = ref(null)
-const accumulatedMoney = ref(0)
+const accumulatedMoney = ref("")
 const fetchAccumulatedMoney = () => {
     axios.get('/api/money')
         .then((response) => {
-            accumulatedMoney.value = toRaw(response.data.money)
+            accumulatedMoney.value = formatter.format(response.data.money / 100)
         })
         .catch(function (error) {
             console.log(error)
@@ -39,7 +43,7 @@ onBeforeUnmount(() => {
         <h1 class="mt-2 mb-2 font-bold text-4xl">:: library_api ::</h1>
     </div>
     <div class="flex justify-center">
-        <h3 class="mb-4 font-bold text-2xl">Accumulated: {{ accumulatedMoney }}</h3>
+        <h3 class="mb-4 font-medium text-2xl">Accumulated: <i class="mr-0.5">F</i>{{ accumulatedMoney }}</h3>
     </div>
     <div class="flex justify-center">
         <table class="bg-zinc-50 border border-zinc-500">
