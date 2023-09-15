@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder {
     use WithoutModelEvents;
 
     public function run(): void {
-        //$this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
         //$this->call(CategorySeeder::class);
         //$this->call(ExemplarSeeder::class);
     }
