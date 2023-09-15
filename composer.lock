@@ -1131,6 +1131,7 @@
                 "ext-openssl": "*",
                 "ext-session": "*",
                 "ext-tokenizer": "*",
+                "fakerphp/faker": "^1.21",
                 "fruitcake/php-cors": "^1.2",
                 "guzzlehttp/uri-template": "^1.0",
                 "laravel/prompts": "^0.1",
@@ -1207,7 +1208,6 @@
                 "aws/aws-sdk-php": "^3.235.5",
                 "doctrine/dbal": "^3.5.1",
                 "ext-gmp": "*",
-                "fakerphp/faker": "^1.21",
                 "guzzlehttp/guzzle": "^7.5",
                 "league/flysystem-aws-s3-v3": "^3.0",
                 "league/flysystem-ftp": "^3.0",
@@ -3119,12 +3119,12 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.1",
+                "fakerphp/faker": "^1.21"
             },
             "require-dev": {
                 "captainhook/plugin-composer": "^5.3",
                 "ergebnis/composer-normalize": "^2.28.3",
-                "fakerphp/faker": "^1.21",
                 "hamcrest/hamcrest-php": "^2.0",
                 "jangregor/phpstan-prophecy": "^1.0",
                 "mockery/mockery": "^1.5",
