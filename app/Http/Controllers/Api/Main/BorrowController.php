@@ -41,10 +41,10 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         if (Payment::hasOpenPayments($user_id)) {
-            Misc::monitor('post',Response::HTTP_UNPROCESSABLE_ENTITY);
+            Misc::monitor('post', 402);  /* Payment Required */
             return response()->json([
                 'errors' => 'This borrowing is suspended because of open payments.'
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            ], 402);
         }
         $now = Carbon::now();
         $due = (Carbon::now())->addMinutes($exemplar->rental_maximum_minutes);

@@ -237,6 +237,6 @@ class BorrowTest extends TestCase {
         ]);
         $exemplar2 = Exemplar::where('borrowable',true)->where('condition',2)->first();
         $response = $this->actingAs($user)->postJson('/api/borrow/' . strval($exemplar2->id));
-        $response->assertStatus(422);
+        $response->assertStatus(402);
     }
 }
