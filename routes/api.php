@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\Main\BookDonationController;
 use App\Http\Controllers\Api\Main\BorrowController;
 use App\Http\Controllers\Api\Main\PaymentController;
 use App\Http\Controllers\Api\Main\MoneyController;
+use App\Http\Controllers\Api\Main\CountController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -67,3 +68,5 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
 Route::get('monitor', MonitorController::class);
 
 Route::get('money', MoneyController::class);
+
+Route::get('count', CountController::class);
