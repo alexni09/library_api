@@ -25,7 +25,6 @@ Route::post('auth/login', LoginController::class);
 Route::get('categories', [CategoryController::class, 'index']);
 Route::get('categories/{category}', [CategoryController::class, 'show']);
 
-Route::get('books', [BookController::class, 'index']);
 Route::get('books-by-category/{category_id}', [BookController::class, 'booksByCategory']);
 Route::get('books/{book}', [BookController::class, 'show']);
 
@@ -56,6 +55,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('categories', [CategoryController::class, 'store']);
     Route::put('categories/{category}', [CategoryController::class, 'update']);
     Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
+    Route::get('books', [BookController::class, 'index']);
     Route::post('books', [BookController::class, 'store']);
     Route::put('books/{book}', [BookController::class, 'update']);
     Route::delete('books/{book}', [BookController::class, 'destroy']);

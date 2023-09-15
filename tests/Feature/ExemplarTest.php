@@ -115,7 +115,7 @@ class ExemplarTest extends TestCase {
             'book_id' => $book->id,
             'condition' => $condition
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotUpdateAnExemplar(): void {
@@ -188,7 +188,7 @@ class ExemplarTest extends TestCase {
         $response = $this->actingAs($user)->putJson('/api/exemplars/' . strval($exemplar->id), [
             'condition' => 1
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotDeleteAnExemplar(): void {
@@ -212,6 +212,6 @@ class ExemplarTest extends TestCase {
             'is_admin' => false
         ]);
         $response = $this->actingAs($user)->deleteJson('/api/exemplars/' . strval($exemplar->id));
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 }

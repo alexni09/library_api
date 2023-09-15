@@ -20,14 +20,30 @@ class BookTest extends TestCase {
         (new CategorySeeder)->run();
     }
 
-    public function testPublicUserCanListBooks(): void {
+    public function testUnauthenticatedUserCannotListAllBooks(): void {
         $response = $this->getJson('/api/books');
+        $response->assertStatus(401);
+    }
+
+    public function testAdminCanListAllBooks(): void {
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+        $response = $this->actingAs($user)->getJson('/api/books');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
             ->assertJsonCount(CategorySeeder::HOW_MANY_TO_SEED * BookSeeder::HOW_MANY_TO_SEED, 'data')
             ->assertJsonStructure(['data' => [
                 ['*' => 'id', 'name', 'rating_value', 'rating_name', 'category_id', 'category_name']
             ]]);
+    }
+
+    public function testNonAdminCannotListAllBooks(): void {
+        $user = User::factory()->create([
+            'is_admin' => false
+        ]);
+        $response = $this->actingAs($user)->getJson('/api/books');
+        $response->assertStatus(403);
     }
 
     public function testPublicUserCanShowABook(): void {
@@ -92,7 +108,7 @@ class BookTest extends TestCase {
             'rating' => $rating,
             'category_id' => $category->id
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotUpdateABook(): void {
@@ -164,7 +180,7 @@ class BookTest extends TestCase {
         $response = $this->actingAs($user)->putJson('/api/books/' . strval($book->id), [
             'rating' => $rating
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotDeleteABook(): void {
@@ -199,13 +215,13 @@ class BookTest extends TestCase {
             'is_admin' => false
         ]);
         $response = $this->actingAs($user)->deleteJson('/api/books/' . strval($book->id));
-        $response->assertStatus(422);
+        $response->assertStatus(403);
         $this->assertDatabaseHas('books', [
             'id' => $book->id
         ]);
     }
 
-    public function testUserCanListAllBooksFromACategory(): void {
+    public function testPublicUserCanListAllBooksFromACategory(): void {
         $category = Category::withCount('books')->latest()->first();
         $books = Book::where('category_id', $category->id)->get();
         $response = $this->getJson('/api/books-by-category/' . strval($category->id));
@@ -224,7 +240,7 @@ class BookTest extends TestCase {
         }
     }
 
-    public function testUserListsEmptyCategoryAndGetsNoContent(): void {
+    public function testPublicUserListsEmptyCategoryAndGetsNoContent(): void {
         $category = Category::factory()->create();
         $response = $this->getJson('/api/books-by-category/' . strval($category->id));
         $response->assertStatus(204);

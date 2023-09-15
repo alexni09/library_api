@@ -16,10 +16,10 @@ class EnsureUserIsAdmin {
     public function handle(Request $request, Closure $next): Response {
         if (auth()->user()?->is_admin) return $next($request);
         else {
-            Misc::monitor($request->method(),422);
+            Misc::monitor($request->method(), Response::HTTP_FORBIDDEN);
             return response()->json([
                 'errors' => ['general' => ['This operation is restricted to admins.']]
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            ], Response::HTTP_FORBIDDEN);
         }
     }
 }

@@ -72,7 +72,7 @@ class CategoryTest extends TestCase {
         $response = $this->actingAs($user)->postJson('/api/categories/', [
             'name' => $name
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotUpdateACategory(): void {
@@ -124,7 +124,7 @@ class CategoryTest extends TestCase {
         $response = $this->actingAs($user)->putJson('/api/categories/' . strval($category->id), [
             'name' => $name2
         ]);
-        $response->assertStatus(422);
+        $response->assertStatus(403);
     }
 
     public function testUnauthenticatedUserCannotDeleteACategory(): void {
@@ -184,7 +184,7 @@ class CategoryTest extends TestCase {
             'name' => $name3
         ]);
         $response = $this->actingAs($user)->deleteJson('/api/categories/' . strval($category2->id));
-        $response->assertStatus(422);
+        $response->assertStatus(403);
         $this->assertDatabaseHas('categories', [
             'id' => $category1->id,
             'name' => $name1
