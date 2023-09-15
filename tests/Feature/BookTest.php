@@ -204,4 +204,29 @@ class BookTest extends TestCase {
             'id' => $book->id
         ]);
     }
+
+    public function testUserCanListAllBooksFromACategory(): void {
+        $category = Category::withCount('books')->latest()->first();
+        $books = Book::where('category_id', $category->id)->get();
+        $response = $this->getJson('/api/books-by-category/' . strval($category->id));
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount($category->books_count, 'data');
+        foreach ($books as $book) {
+            $response->assertJsonFragment([
+                'id' => $book->id,
+                'name' => $book->name,
+                'rating_value' => $book->rating->value,
+                'rating_name' => $book->rating->name,
+                'category_id' => $category->id,
+                'category_name' => $category->name
+            ]);
+        }
+    }
+
+    public function testUserListsEmptyCategoryAndGetsNoContent(): void {
+        $category = Category::factory()->create();
+        $response = $this->getJson('/api/books-by-category/' . strval($category->id));
+        $response->assertStatus(204);
+    }
 }
