@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->nullable()->setNullOnDelete()->cascadeOnUpdate()->default(null);
             $table->unsignedMediumInteger('rental_maximum_minutes')->default(1);
             $table->unsignedMediumInteger('payment_maximum_minutes')->default(1);
-            $table->unsignedMediumInteger('fee')->default(6000);               /* one shot */
+            $table->unsignedMediumInteger('fee')->default(600);               /* one shot */
             $table->unsignedMediumInteger('fine_per_delay')->default(2200);    /* one shot */
             $table->unsignedMediumInteger('fine_per_minute')->default(55);
             $table->unsignedMediumInteger('fine_per_loss')->default(260000);   /* one shot */

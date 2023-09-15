@@ -26,6 +26,7 @@ Route::get('categories', [CategoryController::class, 'index']);
 Route::get('categories/{category}', [CategoryController::class, 'show']);
 
 Route::get('books', [BookController::class, 'index']);
+Route::get('books-by-category/{category_id}', [BookController::class, 'booksByCategory']);
 Route::get('books/{book}', [BookController::class, 'show']);
 
 Route::get('exemplars/{exemplar}', [ExemplarController::class, 'show']);

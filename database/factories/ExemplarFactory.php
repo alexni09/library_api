@@ -29,7 +29,12 @@ class ExemplarFactory extends Factory {
         return [
             'borrowable' => rand(1,5) < 5,
             'condition' => Misc::condition(),
-            'book_id' => ExemplarSeeder::$bookList[rand(0, count(ExemplarSeeder::$bookList) - 1)]
+            'book_id' => ExemplarSeeder::$bookList[rand(0, count(ExemplarSeeder::$bookList) - 1)],
+            'fee' => 300 + 100 * rand(1,6),
+            'fine_per_delay' => 1100 + 100 * rand(1,7),
+            'fine_per_minute' => 40 + 5 * rand(1,20),
+            'fine_per_loss' => 10000 + 20000 * rand(1,17),
+            'fine_per_damage' => 3000 + 4000 * rand(2,5)
         ];
     }
 }

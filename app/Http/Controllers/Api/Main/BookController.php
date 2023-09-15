@@ -11,6 +11,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
+use App\Models\Category;
 
 class BookController extends Controller {
     public function index():AnonymousResourceCollection {
@@ -67,5 +68,14 @@ class BookController extends Controller {
         $book->delete();
         Misc::monitor('delete',Response::HTTP_NO_CONTENT);
         return response()->noContent();
+    }
+
+    public function booksByCategory(int $category_id):Response|AnonymousResourceCollection {
+        if (Category::withCount('books')->find($category_id)->books_count === 0) {
+            Misc::monitor('get',Response::HTTP_NO_CONTENT);
+            return response()->noContent();
+        }
+        Misc::monitor('get',Response::HTTP_OK);
+        return BookResource::collection(Book::where('category_id',$category_id)->get());
     }
 }
