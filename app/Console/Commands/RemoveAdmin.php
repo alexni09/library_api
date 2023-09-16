@@ -30,10 +30,12 @@ class RemoveAdmin extends Command {
             $this->error('The specified email was not found in the users table.');
             $this->newline();
             $this->line('Failed.');
+            return -1;
         } else {
             $user->is_admin = false;
             $user->save();
             $this->info('Success!');
+            return 0;
         }
     }
 }
