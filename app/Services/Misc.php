@@ -11,6 +11,7 @@ class Misc {
     const LIST_METHOD = 'list_method';
     const LIST_STATUS = 'list_status';
     const LIST_URL = 'list_url';
+    const LIST_IP = 'list_ip';
     const MONEY = 'money';
     const MAX_MONITORED_LINES = 30;
 
@@ -29,6 +30,10 @@ class Misc {
     }
     public static function list_datetime():array {
         return Redis::lrange(self::LIST_DATETIME,0,-1);
+    }
+
+    public static function list_ip():array {
+        return Redis::lrange(self::LIST_IP,0,-1);
     }
 
     public static function list_method():array {
@@ -51,11 +56,13 @@ class Misc {
         $l = 1 + intval(Redis::llen('list_url'));
         Redis::multi();
         Redis::lpush(self::LIST_DATETIME,strval(Carbon::now()));
+        Redis::lpush(self::LIST_IP,request()->ip());
         Redis::lpush(self::LIST_METHOD,Str::upper($method));
         Redis::lpush(self::LIST_URL,request()->fullUrl());
         Redis::lpush(self::LIST_STATUS,strval($status));
         if ($l > self::MAX_MONITORED_LINES) {
             Redis::rpop(self::LIST_DATETIME, $l - self::MAX_MONITORED_LINES);
+            Redis::rpop(self::LIST_IP, $l - self::MAX_MONITORED_LINES);
             Redis::rpop(self::LIST_METHOD, $l - self::MAX_MONITORED_LINES);
             Redis::rpop(self::LIST_URL, $l - self::MAX_MONITORED_LINES);
             Redis::rpop(self::LIST_STATUS, $l - self::MAX_MONITORED_LINES);

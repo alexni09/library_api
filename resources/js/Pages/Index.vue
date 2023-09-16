@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
 </script>
 <template>
     <div class="flex justify-center">
-        <h1 class="mt-2 mb-2 font-bold text-4xl">:: library_api ::</h1>
+        <h1 class="mt-2 mb-2 font-bold text-4xl">:<span class="ml-1">:</span> library_api <span class="mr-1">:</span>:</h1>
     </div>
     <div class="flex justify-center">
         <h3 class="mb-4 font-medium text-2xl">Accumulated: <i class="mr-0.5">F</i>{{ accumulatedMoney }}</h3>
@@ -51,15 +51,17 @@ onBeforeUnmount(() => {
                 <th class="p-1 bg-zinc-300 font-semibold border-b border-zinc-500 whitespace-nowrap">When ?</th>
                 <th class="thStyle">Method</th>
                 <th class="thStyle">URL</th>
+                <th class="thStyle">IP</th>
                 <th class="thStyle">Status</th>
             </tr>
             <tr v-if="lines?.length === 0">
-                <td colspan="4" class="p-1 font-medium italic whitespace-nowrap">No Records Found!</td>
+                <td colspan="5" class="p-1 font-medium italic whitespace-nowrap">No Records Found!</td>
             </tr>
             <tr v-for="line in lines" :key="line.id" :class="{ 'bg-zinc-200': line.id % 6 > 2 }">
                 <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                 <td class="tdStyle">{{ line.method }}</td>
                 <td class="tdStyle">{{ line.url }}</td>
+                <td class="tdStyle">{{ line.ip }}</td>
                 <td class="tdStyle">{{ line.status }}</td>
             </tr>
         </table>

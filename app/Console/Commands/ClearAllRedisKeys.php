@@ -27,6 +27,7 @@ class ClearAllRedisKeys extends Command {
     public function handle() {
         Redis::multi();
         Redis::del(Misc::LIST_DATETIME);
+        Redis::del(Misc::LIST_IP);
         Redis::del(Misc::LIST_METHOD);
         Redis::del(Misc::LIST_STATUS);
         Redis::del(Misc::LIST_URL);
