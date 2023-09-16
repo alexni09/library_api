@@ -14,7 +14,6 @@ class CountController extends Controller {
         $count_category = Redis::get('count_category');
         $count_book = Redis::get('count_book');
         $count_exemplar = Redis::get('count_exemplar');
-        Misc::monitor('get',Response::HTTP_OK);
         return response()->json([
             'data' => [
                 'category_count' => $count_category,

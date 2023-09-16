@@ -5,10 +5,12 @@ const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
 })
-var myInterval1 = null
-var myInterval2 = null
+var intervalLines = null
+var intervalAccumulatedMoney = null
+var intervalStatistics = null
 const lines = ref(null)
 const accumulatedMoney = ref("")
+const statistics = ref(null)
 const fetchAccumulatedMoney = () => {
     axios.get('/api/money')
         .then((response) => {
@@ -27,15 +29,27 @@ const fetchLines = () => {
             console.log(error)
         })
 }
+const fetchStatistics = () => {
+    axios.get('/api/count')
+        .then((response) => {
+            statistics.value = toRaw(response.data.data)
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+}
 onMounted(() => {
     fetchAccumulatedMoney()
     fetchLines()
-    myInterval1 = setInterval(fetchLines, 5000)
-    myInterval2 = setInterval(fetchAccumulatedMoney, 3500)
+    fetchStatistics()
+    intervalLines = setInterval(fetchLines, 5000)
+    intervalAccumulatedMoney = setInterval(fetchAccumulatedMoney, 3500)
+    intervalStatistics = setInterval(fetchStatistics, 60000)
 })
-onBeforeUnmount(() => { 
-    clearInterval(myInterval1)
-    clearInterval(myInterval2)
+onBeforeUnmount(() => {
+    clearInterval(intervalLines)
+    clearInterval(intervalAccumulatedMoney)
+    clearInterval(intervalStatistics)
 })
 </script>
 <template>
@@ -65,6 +79,14 @@ onBeforeUnmount(() => {
                 <td class="tdStyle">{{ line.status }}</td>
             </tr>
         </table>
+    </div>
+    <div class="flex justify-center">
+        <div class="justify-center">
+            <h4 class="mt-3 font-bold text-lg">Statistics:<span class="ml-2 italic text-sm font-semibold">(updated hourly)</span></h4>
+            <p class="font-normal text-base"><i>category_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.category_count }}</span></p>
+            <p class="font-normal text-base"><i>book_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.book_count }}</span></p>
+            <p class="font-normal text-base"><i>exemplar_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.exemplar_count }}</span></p>
+        </div>
     </div>
 </template>
 <style lang="postcss" scoped>
