@@ -16,9 +16,6 @@ class ExemplarSeeder extends Seeder {
         self::$bookList = Book::select('id')->get()->pluck('id')->toArray();
     }
 
-    /**
-     * Run the database seeds.
-     */
     public function run(): void {
         self::prepare();
         Exemplar::factory(CategorySeeder::HOW_MANY_TO_SEED * BookSeeder::HOW_MANY_TO_SEED * self::HOW_MANY_TO_SEED)->create();

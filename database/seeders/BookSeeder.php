@@ -10,7 +10,6 @@ class BookSeeder extends Seeder {
     const HOW_MANY_TO_SEED = 10;   /*  how many books to seed per category  */
 
     public function run(): void {
-        /* Those books are seeded on CategorySeeder */
-        //Book::factory(self::HOW_MANY_TO_SEED)->create();
+        /*  Those books are seeded on CategorySeeder  */
     }
 }

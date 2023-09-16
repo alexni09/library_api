@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 use App\Services\Misc;
 
 class ExemplarExtraSeeder extends Seeder {
+    /*  
+        Production only.
+    */
     const HOW_MANY_TO_SEED = 100000;        /*  an absolute minimum value  */
     const HOW_MANY_RANDOM_TO_SEED = 3999;   /*  an absolute maximum value  */
 

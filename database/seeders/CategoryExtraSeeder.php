@@ -10,6 +10,9 @@ class CategoryExtraSeeder extends Seeder {
     const HOW_MANY_TO_SEED = 1000;
 
     public function run(): void {
+        /*  
+            Production only.
+        */
         Category::factory(self::HOW_MANY_TO_SEED)->hasBooks(BookExtraSeeder::HOW_MANY_TO_SEED)->create();
     }
 }
