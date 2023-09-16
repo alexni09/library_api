@@ -245,4 +245,10 @@ class BookTest extends TestCase {
         $response = $this->getJson('/api/books-by-category/' . strval($category->id));
         $response->assertStatus(204);
     }
+
+    public function testPublicUserListsInexistantCategoryAndGetsNotFound(): void {
+        $category = Category::factory()->create();
+        $response = $this->getJson('/api/books-by-category/12345678');
+        $response->assertStatus(404);
+    }
 }

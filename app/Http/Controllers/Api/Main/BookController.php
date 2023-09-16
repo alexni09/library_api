@@ -70,7 +70,17 @@ class BookController extends Controller {
         return response()->noContent();
     }
 
-    public function booksByCategory(int $category_id):Response|AnonymousResourceCollection {
+    public function booksByCategory(int $category_id, Request $request):JsonResponse|Response|AnonymousResourceCollection {
+        $request->merge([ 'category_id' => $category_id ]);
+        $validator = Validator::make($request->all(), [
+            'category_id' => ['required', 'integer', 'min:1', 'exists:categories,id']
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('get',Response::HTTP_NOT_FOUND);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_NOT_FOUND);
+        }
         if (Category::withCount('books')->find($category_id)->books_count === 0) {
             Misc::monitor('get',Response::HTTP_NO_CONTENT);
             return response()->noContent();
