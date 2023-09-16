@@ -11,8 +11,8 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exemplar_id')->constrained()->cascadeOnUpdate()->setNullOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->setNullOnDelete();
+            $table->foreignId('exemplar_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->unsignedMediumInteger('due_value');
             $table->timestamp('due_from');
             $table->timestamp('due_at');

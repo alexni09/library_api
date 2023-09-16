@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->boolean('borrowable')->default(true);
             $table->unsignedTinyInteger('condition')->default(1);
             $table->foreignId('book_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('user_id')->nullable()->setNullOnDelete()->cascadeOnUpdate()->default(null);
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete()->default(null);
             $table->unsignedMediumInteger('rental_maximum_minutes')->default(1);
             $table->unsignedMediumInteger('payment_maximum_minutes')->default(1);
             $table->unsignedMediumInteger('fee')->default(600);               /* one shot */

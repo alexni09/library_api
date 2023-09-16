@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\Main\BorrowController;
 use App\Http\Controllers\Api\Main\PaymentController;
 use App\Http\Controllers\Api\Main\MoneyController;
 use App\Http\Controllers\Api\Main\CountController;
+use App\Http\Controllers\Api\Main\ExemplarLossController;
 
 Route::post('auth/register', RegisterController::class);
 
@@ -50,6 +51,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('list-balance-due-unpaid', [PaymentController::class, 'listBalanceDueUnpaid']);
     Route::get('list-balance-due-open', [PaymentController::class, 'listBalanceDueOpen']);
     Route::patch('pay/{payment}', [PaymentController::class, 'pay']);
+    Route::delete('exemplar-loss/{exemplar_id}', ExemplarLossController::class);
 });
 
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {

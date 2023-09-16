@@ -83,9 +83,9 @@ onBeforeUnmount(() => {
     <div class="flex justify-center">
         <div class="justify-center">
             <h4 class="mt-3 font-bold text-lg">Statistics:<span class="ml-2 italic text-sm font-semibold">(updated hourly)</span></h4>
-            <p class="font-normal text-base"><i>category_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.category_count }}</span></p>
-            <p class="font-normal text-base"><i>book_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.book_count }}</span></p>
-            <p class="font-normal text-base"><i>exemplar_count:</i> <span class="ml-0.5 font-semibold">{{ statistics.exemplar_count }}</span></p>
+            <p class="font-normal text-base"><i>category_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.category_count }}</span></p>
+            <p class="font-normal text-base"><i>book_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.book_count }}</span></p>
+            <p class="font-normal text-base"><i>exemplar_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.exemplar_count }}</span></p>
         </div>
     </div>
 </template>
