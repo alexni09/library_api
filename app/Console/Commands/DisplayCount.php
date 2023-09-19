@@ -24,10 +24,10 @@ class DisplayCount extends Command {
      * Execute the console command.
      */
     public function handle() {
-        $this->info('# of categories: ' . Redis::get('category_count'));
-        $this->info('# of books: ' . Redis::get('book_count'));
-        $this->info('# of exemplars: ' . Redis::get('exemplar_count'));
-        $this->info('database size: ' . Redis::get('mysql_count'));
+        $this->info('# of categories: ' . Redis::get('count_category'));
+        $this->info('# of books: ' . Redis::get('count_book'));
+        $this->info('# of exemplars: ' . Redis::get('count_exemplar'));
+        $this->info('database size: ' . Redis::get('count_mysql'));
         return 0;
     }
 }
