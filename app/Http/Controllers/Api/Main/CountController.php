@@ -14,11 +14,13 @@ class CountController extends Controller {
         $count_category = Redis::get('count_category');
         $count_book = Redis::get('count_book');
         $count_exemplar = Redis::get('count_exemplar');
+        $count_mysql = Redis::get('count_mysql');
         return response()->json([
             'data' => [
                 'category_count' => $count_category,
                 'book_count' => $count_book,
-                'exemplar_count' => $count_exemplar
+                'exemplar_count' => $count_exemplar,
+                'mysql_count' => $count_mysql
             ]
         ], Response::HTTP_OK);
     }

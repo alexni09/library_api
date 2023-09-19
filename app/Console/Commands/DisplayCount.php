@@ -27,6 +27,7 @@ class DisplayCount extends Command {
         $this->info('# of categories: ' . Redis::get('category_count'));
         $this->info('# of books: ' . Redis::get('book_count'));
         $this->info('# of exemplars: ' . Redis::get('exemplar_count'));
+        $this->info('database size: ' . Redis::get('mysql_count'));
         return 0;
     }
 }
