@@ -89,6 +89,7 @@ onBeforeUnmount(() => {
             <p class="font-normal text-base"><i>database_size:</i> <span class="ml-0.5 font-semibold">{{ statistics?.mysql_count }}</span></p>
         </div>
     </div>
+    <div class="h-20" />
 </template>
 <style lang="postcss" scoped>
 .tdStyle {
