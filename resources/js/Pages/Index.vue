@@ -86,6 +86,7 @@ onBeforeUnmount(() => {
             <p class="font-normal text-base"><i>category_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.category_count }}</span></p>
             <p class="font-normal text-base"><i>book_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.book_count }}</span></p>
             <p class="font-normal text-base"><i>exemplar_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.exemplar_count }}</span></p>
+            <p class="font-normal text-base"><i>database_size:</i> <span class="ml-0.5 font-semibold">{{ statistics?.mysql_count }}</span></p>
         </div>
     </div>
 </template>
