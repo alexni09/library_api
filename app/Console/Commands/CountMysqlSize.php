@@ -26,6 +26,6 @@ class CountMysqlSize extends Command {
      */
     public function handle() {
         $total_sum = DB::table('information_schema.tables')->selectRaw('sum(data_length) + sum(index_length) as total_sum')->first()->total_sum;
-        Redis::set('count_mysql', strval(number_format($total_value / 1073741824, 2)) . 'GB');
+        Redis::set('count_mysql', strval(number_format($total_sum / 1073741824, 2)) . 'GB');
     }
 }
