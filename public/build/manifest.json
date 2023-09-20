@@ -7,7 +7,7 @@
     "css": [
       "assets/Index-8f47e350.css"
     ],
-    "file": "assets/Index-9527fe96.js",
+    "file": "assets/Index-6d9ae3fc.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -15,17 +15,17 @@
     "src": "resources/js/Pages/Index.vue"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a1dbb685.css",
+    "file": "assets/app-30b7ecb7.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-a1dbb685.css"
+      "assets/app-30b7ecb7.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/Index.vue"
     ],
-    "file": "assets/app-545cbbcf.js",
+    "file": "assets/app-114dc9b5.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
