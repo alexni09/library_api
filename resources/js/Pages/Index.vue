@@ -9,6 +9,9 @@ var intervalLines = null
 var intervalAccumulatedMoney = null
 var intervalStatistics = null
 const lines = ref(null)
+const lines1 = ref(null)
+const lines2 = ref(null)
+const lines3 = ref(null)
 const accumulatedMoney = ref("")
 const statistics = ref(null)
 const fetchAccumulatedMoney = () => {
@@ -24,6 +27,19 @@ const fetchLines = () => {
     axios.get('/api/monitor')
         .then((response) => {
             lines.value = toRaw(response.data.data)
+            if (lines.value.length < 60) {
+                lines1.value = lines.value.slice()
+                lines2.value = null
+                lines3.value = null
+            } else if (lines.value.length >= 60 && lines.value.length < 90) {
+                lines1.value = lines.value.slice(0, Math.floor(lines.value.length / 2))
+                lines2.value = lines.value.slice(Math.floor(lines.value.length / 2, lines.value.length))
+                lines3.value = null
+            } else {
+                lines1.value = lines.value.slice(0, Math.floor(lines.value.length / 3))
+                lines2.value = lines.value.slice(Math.floor(lines.value.length / 3), Math.floor(lines.value.length * 2 / 3))
+                lines3.value = lines.value.slice(Math.floor(lines.value.length * 2 / 3, lines.value.length))
+            }
         })
         .catch(function (error) {
             console.log(error)
@@ -69,17 +85,84 @@ onBeforeUnmount(() => {
                     <th class="thStyle">IP</th>
                     <th class="thStyle">Status</th>
                 </tr>
-                <tr v-if="lines?.length === 0">
+                <tr v-if="lines1?.length === 0">
                     <td colspan="5" class="p-1 font-medium italic whitespace-nowrap">No Records Found!</td>
                 </tr>
-                <tr v-for="line in lines" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
+                <tr v-for="line in lines1" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
-                    <td class="tdStyle">{{ line.method }}</td>
-                    <td class="tdStyle">{{ line.url }}</td>
-                    <td class="tdStyle">{{ line.ip }}</td>
-                    <td class="tdStyle">{{ line.status }}</td>
+                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
+                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
             </table>
+        </div>
+        <div v-if="lines?.length >= 60">
+            <div class="flex justify-center">
+                <div class="mt-5 relative z-0 w-[640px] h-20 bg-lime-100 border-2 border-lime-600 rounded-md shadow-md cursor-pointer" onclick="window.open('https://owlsearch.games', '_blank')" >
+                    <img src="https://owlsearch.games/images/logo/owl56.jpg" class="absolute z-10 top-[9px] left-5 mt-[1px] p-[2px] block h-14 border-2 border-emerald-950 bg-black rounded-2xl opacity-95" />
+                    <span class="absolute z-10 left-28 top-[3px] text-2xl font-bold font-sans text-green-900">Owl&nbsp;Search&nbsp;Games</span>
+                    <span class="absolute z-10 left-28 top-[30px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Turbospeed&nbsp;your&nbsp;Brain!</span>
+                    <span class="absolute z-10 left-28 top-[47px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Play&nbsp;without&nbsp;Ads!</span>
+                    <button class="absolute left-[410px] top-[17px] z-20 px-9 py-2 bg-green-600 border border-green-900 rounded-lg text-lime-200 font-bold font-sans shadow-lg" >&#10148;&nbsp;Play&nbsp;Now!</button>
+                    <div class="motion-safe:animate-ping absolute z-10 left-[451px] top-[21px] w-[113px] h-[34px] bg-red-600/100 rounded-lg" />
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="mt-0.5 mb-4 font-black text-xs uppercase">Please support our sponsor.</div>
+            </div>
+        </div>
+        <div v-if="lines?.length >= 60" class="flex justify-center">
+            <table class="bg-stone-50 border border-stone-500">
+                <tr v-for="line in lines2" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
+                    <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
+                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
+                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
+                </tr>
+            </table>
+        </div>
+        <div v-if="lines?.length >= 90">
+            <div class="flex justify-center">
+                <div class="mt-5 relative z-0 w-[640px] h-20 bg-lime-100 border-2 border-lime-600 rounded-md shadow-md cursor-pointer" onclick="window.open('https://owlsearch.games', '_blank')" >
+                    <img src="https://owlsearch.games/images/logo/owl56.jpg" class="absolute z-10 top-[9px] left-5 mt-[1px] p-[2px] block h-14 border-2 border-emerald-950 bg-black rounded-2xl opacity-95" />
+                    <span class="absolute z-10 left-28 top-[3px] text-2xl font-bold font-sans text-green-900">Owl&nbsp;Search&nbsp;Games</span>
+                    <span class="absolute z-10 left-28 top-[30px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Turbospeed&nbsp;your&nbsp;Brain!</span>
+                    <span class="absolute z-10 left-28 top-[47px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Play&nbsp;without&nbsp;Ads!</span>
+                    <button class="absolute left-[410px] top-[17px] z-20 px-9 py-2 bg-green-600 border border-green-900 rounded-lg text-lime-200 font-bold font-sans shadow-lg" >&#10148;&nbsp;Play&nbsp;Now!</button>
+                    <div class="motion-safe:animate-ping absolute z-10 left-[451px] top-[21px] w-[113px] h-[34px] bg-red-600/100 rounded-lg" />
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="mt-0.5 mb-4 font-black text-xs uppercase">Please support our sponsor.</div>
+            </div>
+        </div>
+        <div v-if="lines?.length >= 90" class="flex justify-center">
+            <table class="bg-stone-50 border border-stone-500">
+                <tr v-for="line in lines3" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
+                    <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
+                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
+                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
+                </tr>
+            </table>
+        </div>
+        <div v-if="lines?.length < 60">
+            <div class="flex justify-center">
+                <div class="mt-5 relative z-0 w-[640px] h-20 bg-lime-100 border-2 border-lime-600 rounded-md shadow-md cursor-pointer" onclick="window.open('https://owlsearch.games', '_blank')" >
+                    <img src="https://owlsearch.games/images/logo/owl56.jpg" class="absolute z-10 top-[9px] left-5 mt-[1px] p-[2px] block h-14 border-2 border-emerald-950 bg-black rounded-2xl opacity-95" />
+                    <span class="absolute z-10 left-28 top-[3px] text-2xl font-bold font-sans text-green-900">Owl&nbsp;Search&nbsp;Games</span>
+                    <span class="absolute z-10 left-28 top-[30px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Turbospeed&nbsp;your&nbsp;Brain!</span>
+                    <span class="absolute z-10 left-28 top-[47px] text-base font-bold font-sans text-green-800">&#10149;&nbsp;Play&nbsp;without&nbsp;Ads!</span>
+                    <button class="absolute left-[410px] top-[17px] z-20 px-9 py-2 bg-green-600 border border-green-900 rounded-lg text-lime-200 font-bold font-sans shadow-lg" >&#10148;&nbsp;Play&nbsp;Now!</button>
+                    <div class="motion-safe:animate-ping absolute z-10 left-[451px] top-[21px] w-[113px] h-[34px] bg-red-600/100 rounded-lg" />
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="mt-0.5 font-black text-xs uppercase">Please support our sponsor.</div>
+            </div>
         </div>
         <div class="flex justify-center">
             <div class="justify-center">
@@ -94,9 +177,6 @@ onBeforeUnmount(() => {
     </div>
 </template>
 <style lang="postcss" scoped>
-.tdStyle {
-    @apply px-1 border-l border-stone-500;
-}
 .thStyle {
     @apply p-1 bg-stone-300 font-semibold border-l border-b border-stone-500;
 }
