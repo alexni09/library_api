@@ -57,7 +57,7 @@ class Misc {
         Redis::lpush(self::LIST_DATETIME,strval(Carbon::now()));
         Redis::lpush(self::LIST_IP,request()->ip());
         Redis::lpush(self::LIST_METHOD,Str::upper($method));
-        Redis::lpush(self::LIST_URL,request()->fullUrl());
+        Redis::lpush(self::LIST_URL,str_replace('%3F','',request()->fullUrl()));
         Redis::lpush(self::LIST_STATUS,strval($status));
         if ($l > env('MAX_MONITORED_LINES',60)) {
             Redis::rpop(self::LIST_DATETIME, $l - env('MAX_MONITORED_LINES',60));
