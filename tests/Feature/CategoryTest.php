@@ -37,12 +37,12 @@ class CategoryTest extends TestCase {
         }
     }
 
-    public function testPublicUserCannotListCategoryZero(): void {
+    public function testPublicUserCannotListFromCategoryZero(): void {
         $response = $this->getJson('/api/categories?start=0');
         $response->assertStatus(422);
     }
 
-    public function testPublicUserCannotListTheLastCategoryButNotAfterIt(): void {
+    public function testPublicUserCanListTheLastCategoryButNotAfterIt(): void {
         $last_id = $this->category_max;
         $response1 = $this->getJson('/api/categories?start=' . $last_id);
         $response1->assertStatus(200)
