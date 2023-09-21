@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
 
 class CategoryController extends Controller {
-    public function index():AnonymousResourceCollection {
+    public function index(Request $request):AnonymousResourceCollection|JsonResponse {
+        $category_max = Category::latest('id')->first()->id;
+        $validator = Validator::make($request->all(), [
+            'start' => [ 'nullable', 'integer', 'min:1', 'max:' . $category_max ]
+        ]);
+        if ($validator->fails()) {
+            Misc::monitor('post',Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        $start = $request['start'] ?? 1;
         Misc::monitor('get',Response::HTTP_OK);
-        return CategoryResource::collection(Category::all());
+        return CategoryResource::collection(Category::where('id', '>=', $start)->limit(env('CATEGORY_CHUNK',200))->get());
     }
 
     public function show(Category $category):CategoryResource {
