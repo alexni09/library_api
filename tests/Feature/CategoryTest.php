@@ -61,6 +61,8 @@ class CategoryTest extends TestCase {
         $first_id = rand($this->category_min + 1, $this->category_max - $this->category_chunk - 1);
         $response = $this->getJson('/api/categories?start=' . $first_id);
         $response->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount($this->category_chunk, 'data')
             ->assertJsonStructure(['data' => [
                 ['*' => 'id', 'name']
             ]]);
