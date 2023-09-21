@@ -24,7 +24,7 @@ class CategoryTest extends TestCase {
         $this->category_chunk = intval(env('CATEGORY_CHUNK', 10));
     }
 
-    public function testPublicUserCanListCategories(): void {
+    public function testPublicUserListsCategoriesFromStart(): void {
         $response = $this->getJson('/api/categories');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
@@ -40,6 +40,33 @@ class CategoryTest extends TestCase {
     public function testPublicUserCannotListCategoryZero(): void {
         $response = $this->getJson('/api/categories?start=0');
         $response->assertStatus(422);
+    }
+
+    public function testPublicUserCannotListTheLastCategoryButNotAfterIt(): void {
+        $last_id = $this->category_max;
+        $response1 = $this->getJson('/api/categories?start=' . $last_id);
+        $response1->assertStatus(200)
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount(1, 'data')
+            ->assertJsonStructure(['data' => [
+                ['*' => 'id', 'name']
+            ]])
+            ->assertJsonFragment([ 'id' => $last_id ]);
+        $last_id++;
+        $response2 = $this->getJson('/api/categories?start=' . $last_id);
+        $response2->assertStatus(422);
+    }
+
+    public function testPublicUserListsCategoriesFromMiddle(): void {
+        $first_id = rand($this->category_min + 1, $this->category_max - $this->category_chunk - 1);
+        $response = $this->getJson('/api/categories?start=' . $first_id);
+        $response->assertStatus(200)
+            ->assertJsonStructure(['data' => [
+                ['*' => 'id', 'name']
+            ]]);
+        for ($i = $first_id; $i < $first_id + $this->category_chunk && $i <= $this->category_max; $i++) {
+            $response->assertJsonFragment([ 'id' => $i ]);
+        }
     }
 
     public function testPublicUserCanShowACategory(): void {
