@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
                 <tr v-for="line in lines1" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 w-[540px] border-l border-stone-500">{{ line.url }}</td>
                     <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
@@ -117,7 +117,7 @@ onBeforeUnmount(() => {
                 <tr v-for="line in lines2" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 w-[540px] border-l border-stone-500">{{ line.url }}</td>
                     <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
@@ -143,7 +143,7 @@ onBeforeUnmount(() => {
                 <tr v-for="line in lines3" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[480px] border-l border-stone-500">{{ line.url }}</td>
+                    <td class="px-1 w-[540px] border-l border-stone-500">{{ line.url }}</td>
                     <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
