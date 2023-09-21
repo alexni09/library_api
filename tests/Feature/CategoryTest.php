@@ -12,19 +12,29 @@ use App\Models\User;
 class CategoryTest extends TestCase {
     use RefreshDatabase;
 
+    protected $category_min = null;
+    protected $category_max = null;
+    protected $category_chunk = null;
+
     protected function setUp(): void {
         parent::setUp();
         (new CategorySeeder)->run();
+        $this->category_min = Category::first()->id;
+        $this->category_max = Category::latest('id')->first()->id;
+        $this->category_chunk = intval(env('CATEGORY_CHUNK', 10));
     }
 
     public function testPublicUserCanListCategories(): void {
         $response = $this->getJson('/api/categories');
         $response->assertStatus(200)
             ->assertJsonStructure(['data'])
-            ->assertJsonCount(CategorySeeder::HOW_MANY_TO_SEED, 'data')
+            ->assertJsonCount($this->category_chunk, 'data')
             ->assertJsonStructure(['data' => [
                 ['*' => 'id', 'name']
             ]]);
+        for ($i = 0; $i < $this->category_chunk; $i++) {
+            $response->assertJsonFragment([ 'id' => ($i + $this->category_min) ]);
+        }
     }
 
     public function testPublicUserCanShowACategory(): void {
