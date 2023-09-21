@@ -37,6 +37,11 @@ class CategoryTest extends TestCase {
         }
     }
 
+    public function testPublicUserCannotListCategoryZero(): void {
+        $response = $this->getJson('/api/categories?start=0');
+        $response->assertStatus(422);
+    }
+
     public function testPublicUserCanShowACategory(): void {
         $first = Category::first();
         $response = $this->getJson('/api/categories/' . strval($first->id));
