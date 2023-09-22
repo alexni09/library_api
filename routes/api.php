@@ -11,7 +11,7 @@ use App\Http\Controllers\Api\WhoAmIController;
 use App\Http\Controllers\Api\Main\CategoryController;
 use App\Http\Controllers\Api\Main\BookController;
 use App\Http\Controllers\Api\Main\ExemplarController;
-use App\Http\Controllers\Api\Main\MonitorController;
+use App\Http\Controllers\Api\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
 use App\Http\Controllers\Api\Main\BookDonationController;
 use App\Http\Controllers\Api\Main\BorrowController;
