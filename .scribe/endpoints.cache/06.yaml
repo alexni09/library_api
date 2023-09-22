@@ -24,12 +24,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 1
+      exemplar_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -93,12 +93,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: et
+        example: totam
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: et
+      exemplar_id: totam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -106,7 +106,7 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 8
+        example: 4
         type: integer
         enumValues: []
         custom: []
@@ -114,13 +114,13 @@ endpoints:
         name: condition
         description: 'Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 2
+        example: 4
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 8
-      condition: 2
+      exemplar_id: 4
+      condition: 4
     fileParameters: []
     responses: []
     responseFields: []

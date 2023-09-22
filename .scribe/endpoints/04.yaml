@@ -27,7 +27,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 38
+        example: 71
         type: integer
         enumValues: []
         custom: []
@@ -40,12 +40,12 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 38
+      book_id: 71
       condition: 1
     fileParameters: []
     responses:
       -
-        status: 200
+        status: 201
         content: '{"data":{"id":123,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":1,"condition_name":"LikeNew"}}'
         headers: []
         description: ''
@@ -66,7 +66,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g38DaVZ5v1bE664hacdekPf'
+      - 'Bearer EdeDvV6Zfb36kc8a4P15hga'
     controller: null
     method: null
     route: null

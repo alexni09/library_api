@@ -10,11 +10,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User donates a book'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -26,7 +27,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 36
+        example: 58
         type: integer
         enumValues: []
         custom: []
@@ -34,7 +35,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: quis
+        example: temporibus
         type: string
         enumValues: []
         custom: []
@@ -42,27 +43,48 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 5
+        example: 1
         type: integer
         enumValues: []
         custom: []
       condition:
         name: condition
-        description: 'Must be at least 1. Must not be greater than 4.'
+        description: 'The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
         required: true
         example: 4
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 36
-      name: quis
-      rating: 5
+      category_id: 58
+      name: temporibus
+      rating: 1
       condition: 4
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":123,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":4,"condition_name":"Damaged"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Category not found.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 53DEb8V6cZvaPfhe1kd46ag'
     controller: null
     method: null
     route: null
