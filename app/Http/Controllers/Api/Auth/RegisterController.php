@@ -13,6 +13,16 @@ use Illuminate\Validation\Rules\Password;
  * @group Auth
  */
 class RegisterController extends Controller {
+    /**
+     * User Registration
+     * 
+     * @unauthenticated
+     * 
+     * @bodyParam password_confirmation string required Must have the same value as password. No-example
+     * 
+     * @response 201 {"access_token":"1|laravel_sanctum_iB5fCwdUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cc1"}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
     public function __invoke(Request $request) {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],

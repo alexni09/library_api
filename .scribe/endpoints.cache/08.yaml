@@ -12,24 +12,25 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User loses an exemplar'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       exemplar_id:
         name: exemplar_id
-        description: 'The ID of the exemplar.'
+        description: 'integer The ID of the lost exemplar.'
         required: true
-        example: aperiam
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: aperiam
+      exemplar_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -37,16 +38,31 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 85
+        example: 81
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 85
+      exemplar_id: 81
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"user_id":4,"old_exemplar_id":27,"lost_or_destroyed":"2023-09-22T21:36:04.817027Z","due":"2023-09-22T21:35:50.000000Z","fine_per_loss_or_destruction":230000,"payment_due":"2023-09-22T21:37:04.817027Z"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Exemplar not found or not borrowed by the user.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a64cbhk15Zf3vVDgEa8e6dP'
     controller: null
     method: null
     route: null

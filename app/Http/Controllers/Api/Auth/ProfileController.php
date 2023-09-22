@@ -10,13 +10,25 @@ use Illuminate\Validation\Rule;
  * @group Auth
  */
 class ProfileController extends Controller {
-    public function show(Request $request)
-    {
+    /**
+     * Show Profile
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"name":"Mister X Y Z","email":"misterxyz@sample.website"}
+     */
+    public function show(Request $request) {
         return response()->json($request->user()->only('name', 'email'));
     }
- 
-    public function update(Request $request)
-    {
+    /**
+     * Update Profile
+     * 
+     * @authenticated
+     * 
+     * @response 202 {"name":"Mister A B C","email":"misterabc@sample.site"}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
+    public function update(Request $request) {
         $validatedData = $request->validate([
             'name' => ['required', 'string'],
             'email' => ['required', 'email', Rule::unique('users')->ignore(auth()->user())],

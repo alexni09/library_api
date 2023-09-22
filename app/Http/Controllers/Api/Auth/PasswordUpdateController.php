@@ -11,8 +11,17 @@ use Illuminate\Validation\Rules\Password;
  * @group Auth
  */
 class PasswordUpdateController extends Controller {
-    public function __invoke(Request $request)
-    {
+    /**
+     * Password Update
+     * 
+     * @authenticated
+     * 
+     * @bodyParam password_confirmation string required Must have the same value as password. No-example
+     * 
+     * @response 202 {"message":"Your password has been updated."}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
+    public function __invoke(Request $request) {
         $request->validate([
             'current_password' => ['required', 'current_password'],
             'password'         => ['required', 'confirmed', Password::defaults()],

@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User Registration'
       description: ''
       authenticated: false
       custom: []
@@ -28,7 +28,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: wnyaucmilnyvmlvkhvdgaycpk
+        example: qedsvh
         type: string
         enumValues: []
         custom: []
@@ -36,7 +36,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: william.emmerich@example.org
+        example: turcotte.johnathon@example.com
         type: string
         enumValues: []
         custom: []
@@ -44,16 +44,37 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: quis
+        example: quas
+        type: string
+        enumValues: []
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'Must have the same value as password.'
+        required: true
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: wnyaucmilnyvmlvkhvdgaycpk
-      email: william.emmerich@example.org
-      password: quis
+      name: qedsvh
+      email: turcotte.johnathon@example.com
+      password: quas
+      password_confirmation: null
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"access_token":"1|laravel_sanctum_iB5fCwdUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cc1"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -69,7 +90,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: Login
       description: ''
       authenticated: false
       custom: []
@@ -85,7 +106,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: yfay@example.net
+        example: vgreenholt@example.net
         type: string
         enumValues: []
         custom: []
@@ -93,15 +114,27 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: numquam
+        example: praesentium
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: yfay@example.net
-      password: numquam
+      email: vgreenholt@example.net
+      password: praesentium
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"access_token":"13|laravel_sanctum_iB5fCWeUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cz1"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Incorrect credentials or validation Errors.'
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -117,11 +150,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Who Am I'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -131,9 +165,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1567,"name":"Mister Y Z","email":"misteryz@sample.biz"}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6hcD5f6ZdPb4Ea13egkVva8'
     controller: null
     method: null
     route: null
@@ -147,11 +190,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Show Profile'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -161,9 +205,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"name":"Mister X Y Z","email":"misterxyz@sample.website"}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer v8bDVPk4a36fZ6ecd1g5haE'
     controller: null
     method: null
     route: null
@@ -177,11 +230,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update Profile'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -193,7 +247,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: ut
+        example: ex
         type: string
         enumValues: []
         custom: []
@@ -201,17 +255,32 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: tfadel@example.net
+        example: hlueilwitz@example.net
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: ut
-      email: tfadel@example.net
+      name: ex
+      email: hlueilwitz@example.net
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 202
+        content: '{"name":"Mister A B C","email":"misterabc@sample.site"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer k34D86aEdcbZ5P6aVe1hgvf'
     controller: null
     method: null
     route: null
@@ -225,11 +294,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Password Update'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -241,7 +311,7 @@ endpoints:
         name: current_password
         description: ''
         required: true
-        example: soluta
+        example: facere
         type: string
         enumValues: []
         custom: []
@@ -249,17 +319,41 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: quibusdam
+        example: ut
+        type: string
+        enumValues: []
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'Must have the same value as password.'
+        required: true
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      current_password: soluta
-      password: quibusdam
+      current_password: facere
+      password: ut
+      password_confirmation: null
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 202
+        content: '{"message":"Your password has been updated."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4eb68vEa6D1agZVdcP53hkf'
     controller: null
     method: null
     route: null
@@ -273,11 +367,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: Logout
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -287,9 +382,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6e38V15D6kaEgvhZacbf4dP'
     controller: null
     method: null
     route: null

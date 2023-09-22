@@ -8,8 +8,14 @@ use Illuminate\Http\Request;
  * @group Auth
  */
 class LogoutController extends Controller {
-    public function __invoke(Request $request)
-    {
+    /**
+     * Logout
+     * 
+     * @authenticated
+     * 
+     * @response 204
+     */
+    public function __invoke(Request $request) {
         $request->user()->currentAccessToken()->delete();
  
         return response()->noContent();

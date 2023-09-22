@@ -12,8 +12,15 @@ use Illuminate\Validation\ValidationException;
  * @group Auth
  */ 
 class LoginController extends Controller {
-    public function __invoke(Request $request)
-    {
+    /**
+     * Login
+     * 
+     * @unauthenticated
+     * 
+     * @response 201 {"access_token":"13|laravel_sanctum_iB5fCWeUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cz1"}
+     * @response 422 scenario="Incorrect credentials or validation Errors." {"errors": [list]}
+     */
+    public function __invoke(Request $request) {
         $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],

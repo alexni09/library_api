@@ -22,7 +22,7 @@ class ExemplarDonationController extends Controller {
      *
      * @bodyParam condition integer required The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 1
      * 
-     * @response 200 {"data":[{"id":337,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":1,"condition_name":"LikeNew"},{"id":487,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":2,"condition_name":"Good"}]}
+     * @response 200 {"data":{"id":123,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":1,"condition_name":"LikeNew"}}
      * @response 404 scenario="Book not found." {"errors": [list]}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */

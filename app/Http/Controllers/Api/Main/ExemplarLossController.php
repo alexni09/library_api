@@ -17,6 +17,16 @@ use Carbon\Carbon;
  * @group ExemplarLoss
  */
 class ExemplarLossController extends Controller {
+    /**
+     * User loses an exemplar
+     * 
+     * @authenticated
+     * 
+     * @urlParam exemplar_id required integer The ID of the lost exemplar. No-example
+     *
+     * @response 200 {"data":{"user_id":4,"old_exemplar_id":27,"lost_or_destroyed":"2023-09-22T21:36:04.817027Z","due":"2023-09-22T21:35:50.000000Z","fine_per_loss_or_destruction":230000,"payment_due":"2023-09-22T21:37:04.817027Z"}}
+     * @response 404 scenario="Exemplar not found or not borrowed by the user." {"errors": [list]}
+     */
     public function __invoke(int $exemplar_id, Request $request):JsonResponse {
         $request->merge([ 'exemplar_id' => $exemplar_id ]);
         $validator = Validator::make($request->all(), [
