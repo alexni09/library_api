@@ -91,12 +91,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: quam
+        example: sed
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: quam
+      exemplar_id: sed
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -104,7 +104,7 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 3
+        example: 79
         type: integer
         enumValues: []
         custom: []
@@ -117,7 +117,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 3
+      exemplar_id: 79
       condition: 2
     fileParameters: []
     responses: []

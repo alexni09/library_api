@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Fetch Books By Category'
+      title: 'Fetch Books By category_id'
       description: ''
       authenticated: false
       custom: []
@@ -24,12 +24,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: sunt
+        example: illum
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: sunt
+      category_id: illum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -37,12 +37,12 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 17
+        example: 2
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 17
+      category_id: 2
     fileParameters: []
     responses:
       -
@@ -108,6 +108,12 @@ endpoints:
         headers: []
         description: ''
         custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -149,7 +155,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5cad361e4ZkhPvgbEf8V6Da'
+      - 'Bearer Ev5bDh83PaZdf4e61cag6kV'
     controller: null
     method: null
     route: null
@@ -180,7 +186,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: kgwidcclky
+        example: upqsdqnw
         type: string
         enumValues: []
         custom: []
@@ -188,7 +194,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         custom: []
@@ -196,14 +202,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 60
+        example: 29
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: kgwidcclky
-      rating: 1
-      category_id: 60
+      name: upqsdqnw
+      rating: 2
+      category_id: 29
     fileParameters: []
     responses:
       -
@@ -222,7 +228,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aa8cP1b5ghed436EkfZv6DV'
+      - 'Bearer gv65Dah8kV6eab4Ed1ZfcP3'
     controller: null
     method: null
     route: null
@@ -262,7 +268,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: ivykbtxsdsxidylsiwrragwz
+        example: qmxrl
         type: string
         enumValues: []
         custom: []
@@ -270,7 +276,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 2
+        example: 3
         type: integer
         enumValues: []
         custom: []
@@ -278,14 +284,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 4
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: ivykbtxsdsxidylsiwrragwz
-      rating: 2
-      category_id: 4
+      name: qmxrl
+      rating: 3
+      category_id: 1
     fileParameters: []
     responses:
       -
@@ -304,7 +310,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g35cbeD48av1kE66aZfdhVP'
+      - 'Bearer Vda5Pv6DfkZg8ahc634Eeb1'
     controller: null
     method: null
     route: null
@@ -349,11 +355,17 @@ endpoints:
         headers: []
         description: ''
         custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Vb5Zfa86g6d1D4vhEake3cP'
+      - 'Bearer agfvcadb3PZ85VE664Dehk1'
     controller: null
     method: null
     route: null

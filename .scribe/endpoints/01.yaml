@@ -26,12 +26,12 @@ endpoints:
         name: start
         description: 'Must be at least 1.'
         required: false
-        example: 24
+        example: 17
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      start: 24
+      start: 17
     fileParameters: []
     responses:
       -
@@ -39,6 +39,12 @@ endpoints:
         content: '{ "data": [ { "id": 4, "name": "Odit illum magnam ut et et." }, { "id": 8, "name": "Iure aut ab tempore sed." } ] }'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
         custom: []
     responseFields: []
     auth: []
@@ -81,9 +87,15 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":63,"name":"Itaque quo libero mollitia."}}'
+        content: '{"data":{"id":42,"name":"Molestiae illo sit eos eum."}}'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
         custom: []
     responseFields: []
     auth: []
@@ -117,12 +129,12 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: hkysqe
+        example: sqjohqwfwuzjbpcmtsmypcxj
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: hkysqe
+      name: sqjohqwfwuzjbpcmtsmypcxj
     fileParameters: []
     responses:
       -
@@ -131,11 +143,17 @@ endpoints:
         headers: []
         description: ''
         custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ZdEvPV351kehacgD8f6b46a'
+      - 'Bearer 6g41e3hfvak5DVbEad68cZP'
     controller: null
     method: null
     route: null
@@ -175,25 +193,31 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: xmasradzahfw
+        example: kewketvogyaqhwx
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: xmasradzahfw
+      name: kewketvogyaqhwx
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":64,"name":"Voluptatem et aliquam rerum."}}'
+        content: '{"data":{"id":43,"name":"Eos modi quam quis suscipit."}}'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5hEav1b48gaPk6cZe3VDd6f'
+      - 'Bearer v4g8Ef5bha6aVPc36Z1deDk'
     controller: null
     method: null
     route: null
@@ -238,11 +262,17 @@ endpoints:
         headers: []
         description: ''
         custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer gePhf156bac8a3kDV64vZdE'
+      - 'Bearer 643dvba8geh1kPD5fV6EaZc'
     controller: null
     method: null
     route: null

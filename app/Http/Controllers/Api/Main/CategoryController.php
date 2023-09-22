@@ -21,6 +21,7 @@ class CategoryController extends Controller {
      * @unauthenticated
      * 
      * @response 200 { "data": [ { "id": 4, "name": "Odit illum magnam ut et et." }, { "id": 8, "name": "Iure aut ab tempore sed." } ] }
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function index(Request $request):AnonymousResourceCollection|JsonResponse {
         $category_max = Category::latest('id')->first()->id;
@@ -44,6 +45,7 @@ class CategoryController extends Controller {
      * 
      * @apiResource App\Http\Resources\CategoryResource
      * @apiResourceModel App\Models\Category
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function show(Category $category):CategoryResource {
         Misc::monitor('get',Response::HTTP_OK);
@@ -57,6 +59,7 @@ class CategoryController extends Controller {
      * @authenticated
      *
      * @response 201 {"data":{"id":8,"name":"Iure aut ab tempore sed."}}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function store(Request $request):CategoryResource|JsonResponse {
         $validator = Validator::make($request->all(), [
@@ -81,6 +84,7 @@ class CategoryController extends Controller {
      * 
      * @apiResource App\Http\Resources\CategoryResource
      * @apiResourceModel App\Models\Category
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function update(Request $request, Category $category):CategoryResource|JsonResponse {
         $validator = Validator::make($request->all(), [
@@ -104,6 +108,7 @@ class CategoryController extends Controller {
      * @authenticated
      * 
      * @response 204
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function destroy(Category $category):Response {
         $category->delete();

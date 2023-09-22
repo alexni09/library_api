@@ -35,6 +35,7 @@ class BookController extends Controller {
      * @unauthenticated
      * 
      * @response 200 {"data":{"id":51,"name":"Totam et et libero quis.","rating_value":2,"rating_name":"Bad","category_id":6,"category_name":"Optio at eius qui ipsa."}}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function show(Book $book):BookResource {
         Misc::monitor('get',Response::HTTP_OK);
@@ -106,6 +107,7 @@ class BookController extends Controller {
      * @authenticated
      *
      * @response 204
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function destroy(Book $book):Response {
         $book->delete();
@@ -113,7 +115,7 @@ class BookController extends Controller {
         return response()->noContent();
     }
     /**
-     * Fetch Books By Category
+     * Fetch Books By category_id
      * 
      * @unauthenticated
      * 

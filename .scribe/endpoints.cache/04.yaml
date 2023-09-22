@@ -28,7 +28,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 19
+        example: 83
         type: integer
         enumValues: []
         custom: []
@@ -41,7 +41,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 19
+      book_id: 83
       condition: 2
     fileParameters: []
     responses: []

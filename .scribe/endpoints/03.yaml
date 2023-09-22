@@ -40,6 +40,12 @@ endpoints:
         headers: []
         description: ''
         custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -67,12 +73,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: ratione
+        example: blanditiis
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: ratione
+      book_id: blanditiis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -80,29 +86,29 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 80
+        example: 49
         type: integer
         enumValues: []
         custom: []
       condition:
         name: condition
-        description: 'Must be at least 1. Must not be greater than 4.'
+        description: 'optional Worst condition acceptable (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
         required: false
-        example: 3
+        example: 2
         type: integer
         enumValues: []
         custom: []
       borrowable:
         name: borrowable
-        description: ''
+        description: 'optional Set it to false if unborrowable exemplars are acceptable to be listed. Default is true.'
         required: false
         example: true
         type: boolean
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 80
-      condition: 3
+      book_id: 49
+      condition: 2
       borrowable: true
     fileParameters: []
     responses:
@@ -145,11 +151,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Create Exemplar'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -161,34 +168,49 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 67
+        example: 79
         type: integer
         enumValues: []
         custom: []
       condition:
         name: condition
-        description: 'Must be at least 1. Must not be greater than 4.'
+        description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
       borrowable:
         name: borrowable
-        description: ''
+        description: 'optional If false then this exemplar cannot leave the library. Default is true.'
         required: false
         example: true
         type: boolean
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 67
-      condition: 2
+      book_id: 79
+      condition: 1
       borrowable: true
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":6,"borrowable":1,"book_id":167,"book_name":"Quo sint qui corporis.","condition_value":2,"condition_name":"Good"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Z41vb6heVEafga6kD85cdP3'
     controller: null
     method: null
     route: null
@@ -202,11 +224,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Update Exemplar'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -227,7 +250,7 @@ endpoints:
         name: book_id
         description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
         required: false
-        example: 83
+        example: 44
         type: integer
         enumValues: []
         custom: []
@@ -235,7 +258,7 @@ endpoints:
         name: condition
         description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 4
+        example: 2
         type: integer
         enumValues: []
         custom: []
@@ -249,30 +272,45 @@ endpoints:
         custom: []
       user_id:
         name: user_id
-        description: '* ?borrowable=1   ?borrowable=0 */. This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
+        description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
         required: false
-        example: 66
+        example: 64
         type: integer
         enumValues: []
         custom: []
       change_donor:
         name: change_donor
-        description: ''
+        description: 'optional Set this field to true to update the donor. Default is false.'
         required: false
         example: false
         type: boolean
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 83
-      condition: 4
+      book_id: 44
+      condition: 2
       borrowable: true
-      user_id: 66
+      user_id: 64
       change_donor: false
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":6,"borrowable":1,"book_id":167,"book_name":"Quo sint qui corporis.","condition_value":2,"condition_name":"Good"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6ZDah3fec46dvaPbVgkE815'
     controller: null
     method: null
     route: null
@@ -286,11 +324,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Delete Exemplar'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -309,9 +348,24 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ehcE4dvZb136Vk85agPfa6D'
     controller: null
     method: null
     route: null
