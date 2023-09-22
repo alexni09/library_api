@@ -1,0 +1,51 @@
+name: ExemplarLoss
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/exemplar-loss/{exemplar_id}'
+    metadata:
+      groupName: ExemplarLoss
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      exemplar_id:
+        name: exemplar_id
+        description: 'The ID of the exemplar.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      exemplar_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      exemplar_id:
+        name: exemplar_id
+        description: 'Must be at least 1.'
+        required: true
+        example: 51
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      exemplar_id: 51
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

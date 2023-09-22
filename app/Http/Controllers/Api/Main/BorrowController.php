@@ -16,7 +16,9 @@ use Carbon\Carbon;
 use App\Http\Resources\ExemplarResource;
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
-
+/**
+ * @group Borrow
+ */
 class BorrowController extends Controller {
     public function borrow(Exemplar $exemplar):JsonResponse {
         if (!$exemplar->borrowable) {

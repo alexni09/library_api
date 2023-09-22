@@ -1,0 +1,249 @@
+name: Category
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/categories
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Categories'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      start:
+        name: start
+        description: 'Must be at least 1.'
+        required: false
+        example: 24
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      start: 24
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{ "data": [ { "id": 4, "name": "Odit illum magnam ut et et." }, { "id": 8, "name": "Iure aut ab tempore sed." } ] }'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/categories/{category_id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":63,"name":"Itaque quo libero mollitia."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/categories
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Category'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: hkysqe
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: hkysqe
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"id":8,"name":"Iure aut ab tempore sed."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZdEvPV351kehacgD8f6b46a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/categories/{category_id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Category'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: xmasradzahfw
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: xmasradzahfw
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":64,"name":"Voluptatem et aliquam rerum."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5hEav1b48gaPk6cZe3VDd6f'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/categories/{category_id}'
+    metadata:
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Category'
+      description: '<small class="badge badge-purple">admin</small>'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer gePhf156bac8a3kDV64vZdE'
+    controller: null
+    method: null
+    route: null
+    custom: []

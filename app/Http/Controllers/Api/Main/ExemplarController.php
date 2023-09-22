@@ -12,8 +12,20 @@ use App\Services\Misc;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Database\Eloquent\Builder;
-
+/**
+ * @group Exemplar
+ */
 class ExemplarController extends Controller {
+    /**
+     * Fetch Exemplars by book_id
+     * 
+     * @unauthenticated
+     * 
+     * @response 200 {"data":[{"id":337,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":1,"condition_name":"LikeNew"},{"id":487,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":2,"condition_name":"Good"}]}
+     * @response 204 scenario="No exemplars found for the given book_id."
+     * @response 404 scenario="Book not found." {"errors": [list]}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
     public function index(int $book_id, Request $request):AnonymousResourceCollection|JsonResponse|Response {
         $request->merge([ 'book_id' => $book_id ]);
         $validator = Validator::make($request->all(), [
@@ -22,10 +34,12 @@ class ExemplarController extends Controller {
             'borrowable' => [ 'nullable', 'boolean' ]  /* ?borrowable=1   ?borrowable=0 */
         ]);
         if ($validator->fails()) {
-            Misc::monitor('get',Response::HTTP_NOT_FOUND);
+            if ($validator->errors()->has('book_id')) $response = Response::HTTP_NOT_FOUND;
+            else $response = Response::HTTP_UNPROCESSABLE_ENTITY;
+            Misc::monitor('get', $response);
             return response()->json([
                 'errors' => $validator->errors()
-            ], Response::HTTP_NOT_FOUND);
+            ], $response);
         }
         $condition = isset($request['condition']) ? intval($request['condition']) : null;
         $borrowable = isset($request['borrowable']) ? boolval($request['borrowable']) : true;
@@ -42,7 +56,13 @@ class ExemplarController extends Controller {
             return ExemplarResource::collection($exemplars);
         }
     }
-
+    /**
+     * Show Exemplar
+     * 
+     * @unauthenticated
+     * 
+     * @response 200 {"data":{"id":5,"borrowable":1,"book_id":167,"book_name":"Quo sint qui corporis.","condition_value":2,"condition_name":"Good"}}
+     */
     public function show(Exemplar $exemplar):ExemplarResource {
         Misc::monitor('get',Response::HTTP_OK);
         return ExemplarResource::make($exemplar);

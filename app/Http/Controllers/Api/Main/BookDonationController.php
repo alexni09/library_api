@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+/**
+ * @group BookDonation
+ */
 class BookDonationController extends Controller {
     public function __invoke(Request $request):ExemplarResource|JsonResponse {
         $validator = Validator::make($request->all(), [

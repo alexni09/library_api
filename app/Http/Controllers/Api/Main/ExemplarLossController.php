@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Payment;
 use Carbon\Carbon;
-
+/**
+ * @group ExemplarLoss
+ */
 class ExemplarLossController extends Controller {
     public function __invoke(int $exemplar_id, Request $request):JsonResponse {
         $request->merge([ 'exemplar_id' => $exemplar_id ]);

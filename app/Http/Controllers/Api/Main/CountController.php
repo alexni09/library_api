@@ -8,7 +8,9 @@ use Illuminate\Http\Response;
 use App\Services\Misc;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Redis;
-
+/**
+ * @group Miscellaneous
+ */
 class CountController extends Controller {
     public function __invoke(Request $request):JsonResponse {
         $count_category = Redis::get('count_category');

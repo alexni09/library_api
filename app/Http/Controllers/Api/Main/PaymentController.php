@@ -14,7 +14,9 @@ use Carbon\Carbon;
 use App\Models\Payment;
 use App\Http\Resources\PaymentResource;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-
+/**
+ * @group Payment
+ */
 class PaymentController extends Controller {
     public function allPaymentsTotal():JsonResponse {
         Misc::monitor('get',Response::HTTP_OK);

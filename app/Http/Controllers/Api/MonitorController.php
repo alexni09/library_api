@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Services\Misc;
-
+/**
+ * @group Miscellaneous
+ */
 class MonitorController extends Controller {
     public function __invoke():JsonResponse {
         $c = count(Misc::list_method());
