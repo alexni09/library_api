@@ -204,12 +204,12 @@ endpoints:
         name: payment_id
         description: 'The ID of the payment.'
         required: true
-        example: 2
+        example: 8
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      payment_id: 2
+      payment_id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -217,12 +217,12 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 9
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 9
+      money: 12
     fileParameters: []
     responses: []
     responseFields: []

@@ -20,6 +20,19 @@ use App\Models\Payment;
  * @group Borrow
  */
 class BorrowController extends Controller {
+    /**
+     * User borrows an exemplar
+     * 
+     * @authenticated
+     * 
+     * @response 201 {"data":{"user_id":4,"exemplar_id":9,"borrowed":"2023-09-22T23:23:04.552027Z","returned":null,"return_due":"2023-09-22T23:24:04.552034Z","maximum_minutes":1}}
+     * @response 402 scenario="Payment required." {"errors": "This borrowing is suspended because of open payments."}
+     * @response 403 scenario="Exemplar cannot leave the library." {"errors": "This exemplar cannot leave the library."}
+     * @response 403 scenario="Maximum borrowings reached for the user." {"errors": "User has reached the maximum borrowable limit (3)."}
+     * @response 403 scenario="Exemplar is currently borrowed." {"errors": "This exemplar is currently borrowed."}
+     * @response 404 scenario="Exemplar not found." {"errors": [list]}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
     public function borrow(Exemplar $exemplar):JsonResponse {
         if (!$exemplar->borrowable) {
             Misc::monitor('post',Response::HTTP_FORBIDDEN);
@@ -43,7 +56,7 @@ class BorrowController extends Controller {
             ], Response::HTTP_FORBIDDEN);
         }
         if (Payment::hasOpenPayments($user_id)) {
-            Misc::monitor('post', 402);  /* Payment Required */
+            Misc::monitor('post', 402);
             return response()->json([
                 'errors' => 'This borrowing is suspended because of open payments.'
             ], 402);
@@ -63,7 +76,14 @@ class BorrowController extends Controller {
             ]
         ], Response::HTTP_CREATED);
     }
-
+    /**
+     * User lists his/hers unreturned exemplars
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":[{"id":5,"borrowable":1,"book_id":61,"book_name":"Id fugit aut rem suscipit.","condition_value":2,"condition_name":"Good"},{"id":7,"borrowable":1,"book_id":93,"book_name":"Libero saepe aut facilis.","condition_value":1,"condition_name":"LikeNew"},{"id":8,"borrowable":1,"book_id":165,"book_name":"Ut ratione eos sed sunt.","condition_value":1,"condition_name":"LikeNew"}]}
+     * @response 204 scenario="User has no unreturned exemplars."
+     */
     public function index():AnonymousResourceCollection|Response {
         $user_id = Auth::id();
         $user = User::withCount('unreturned')->find($user_id);
@@ -75,7 +95,17 @@ class BorrowController extends Controller {
         Misc::monitor('get',Response::HTTP_OK);
         return ExemplarResource::collection($user2->unreturned()->get());
     }
-
+    /**
+     * User gives back an exemplar
+     * 
+     * @authenticated
+     *
+     * @bodyParam condition integer optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 4
+     * 
+     * @response 200 {"data":{"id":2376,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":2,"condition_name":"Good"}}
+     * @response 404 scenario="Exemplar not found." {"errors": [list]}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
     public function giveback(int $exemplar_id, Request $request):JsonResponse {
         $request->merge([ 'exemplar_id' => $exemplar_id ]);
         $validator = Validator::make($request->all(), [
@@ -83,10 +113,12 @@ class BorrowController extends Controller {
             'condition' => [ 'nullable', 'integer', 'min:1', 'max:4' ]
         ]);
         if ($validator->fails()) {
-            Misc::monitor('patch',Response::HTTP_NOT_FOUND);
+            if ($validator->errors()->has('exemplar_id')) $response = Response::HTTP_NOT_FOUND;
+            else $response = Response::HTTP_UNPROCESSABLE_ENTITY;
+            Misc::monitor('patch', $response);
             return response()->json([
                 'errors' => $validator->errors()
-            ], Response::HTTP_NOT_FOUND);
+            ], $response);
         }
         $exemplar = Exemplar::with('unreturned')->find($exemplar_id);
         $exemplar_user = DB::table('exemplar_user')->where('exemplar_id', $exemplar_id)->where('user_id', Auth::id())->whereNull('returned')->first();

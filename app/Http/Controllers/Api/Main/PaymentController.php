@@ -18,20 +18,39 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  * @group Payment
  */
 class PaymentController extends Controller {
+    /**
+     * User receives a sum of all payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":{"all_payments_total":56789}}
+     */
     public function allPaymentsTotal():JsonResponse {
         Misc::monitor('get',Response::HTTP_OK);
         return response()->json([
             'data' => [ 'all_payments_total' => Auth::User()->allPaymentsTotal() ]
         ], Response::HTTP_OK);
     }
-
+    /**
+     * User receives a sum of all open payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":{"all_payments_total":12345}}
+     */
     public function balanceDueOpen():JsonResponse {
         Misc::monitor('get',Response::HTTP_OK);
         return response()->json([
             'data' => [ 'balance_due_open' => Auth::User()->balanceDueOpen() ]
         ], Response::HTTP_OK);
     }
-
+    /**
+     * User receives a sum of all unpaid payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":{"all_payments_total":7891}}
+     */
     public function balanceDueUnpaid():JsonResponse {
         Misc::monitor('get',Response::HTTP_OK);
         return response()->json([

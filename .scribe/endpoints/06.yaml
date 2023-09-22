@@ -10,11 +10,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User borrows an exemplar'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -22,20 +23,65 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 2
+      exemplar_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 201
+        content: '{"data":{"user_id":4,"exemplar_id":9,"borrowed":"2023-09-22T23:23:04.552027Z","returned":null,"return_due":"2023-09-22T23:24:04.552034Z","maximum_minutes":1}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 402
+        content: '{"errors": "This borrowing is suspended because of open payments."}'
+        headers: []
+        description: 'Payment required.'
+        custom: []
+      -
+        status: 403
+        content: '{"errors": "This exemplar cannot leave the library."}'
+        headers: []
+        description: 'Exemplar cannot leave the library.'
+        custom: []
+      -
+        status: 403
+        content: '{"errors": "User has reached the maximum borrowable limit (3)."}'
+        headers: []
+        description: 'Maximum borrowings reached for the user.'
+        custom: []
+      -
+        status: 403
+        content: '{"errors": "This exemplar is currently borrowed."}'
+        headers: []
+        description: 'Exemplar is currently borrowed.'
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Exemplar not found.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer af86P5VcgDbe13vk4ZhE6da'
     controller: null
     method: null
     route: null
@@ -49,11 +95,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User lists his/hers unreturned exemplars'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -63,9 +110,24 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":5,"borrowable":1,"book_id":61,"book_name":"Id fugit aut rem suscipit.","condition_value":2,"condition_name":"Good"},{"id":7,"borrowable":1,"book_id":93,"book_name":"Libero saepe aut facilis.","condition_value":1,"condition_name":"LikeNew"},{"id":8,"borrowable":1,"book_id":165,"book_name":"Ut ratione eos sed sunt.","condition_value":1,"condition_name":"LikeNew"}]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'User has no unreturned exemplars.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer h6Zb3ac4Dag86k1devVf5PE'
     controller: null
     method: null
     route: null
@@ -79,11 +141,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User gives back an exemplar'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -91,12 +154,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: totam
+        example: voluptatibus
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: totam
+      exemplar_id: voluptatibus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -104,25 +167,46 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 4
+        example: 40
         type: integer
         enumValues: []
         custom: []
       condition:
         name: condition
-        description: 'Must be at least 1. Must not be greater than 4.'
+        description: 'optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
         required: false
         example: 4
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 4
+      exemplar_id: 40
       condition: 4
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":2376,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":2,"condition_name":"Good"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Exemplar not found.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer baea6g4vd8VE3hD1fPc5Zk6'
     controller: null
     method: null
     route: null

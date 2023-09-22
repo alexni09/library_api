@@ -22,12 +22,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 11
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 11
+      exemplar_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -73,12 +73,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: harum
+        example: soluta
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: harum
+      book_id: soluta
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -86,7 +86,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 68
+        example: 63
         type: integer
         enumValues: []
         custom: []
@@ -107,7 +107,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 68
+      book_id: 63
       condition: 2
       borrowable: true
     fileParameters: []
@@ -168,7 +168,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 56
+        example: 77
         type: integer
         enumValues: []
         custom: []
@@ -189,7 +189,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 56
+      book_id: 77
       condition: 1
       borrowable: true
     fileParameters: []
@@ -210,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer EZab5Pfk3VcDh1g4edv6a68'
+      - 'Bearer Ddhca6g1fa5Pbev46ZE38kV'
     controller: null
     method: null
     route: null
@@ -237,12 +237,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 8
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 8
+      exemplar_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -250,7 +250,7 @@ endpoints:
         name: book_id
         description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
         required: false
-        example: 45
+        example: 84
         type: integer
         enumValues: []
         custom: []
@@ -258,7 +258,7 @@ endpoints:
         name: condition
         description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 3
+        example: 4
         type: integer
         enumValues: []
         custom: []
@@ -274,7 +274,7 @@ endpoints:
         name: user_id
         description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
         required: false
-        example: 10
+        example: 62
         type: integer
         enumValues: []
         custom: []
@@ -287,10 +287,10 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 45
-      condition: 3
+      book_id: 84
+      condition: 4
       borrowable: true
-      user_id: 10
+      user_id: 62
       change_donor: false
     fileParameters: []
     responses:
@@ -316,7 +316,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a81P3hdDcv6kfb5aEV4e6gZ'
+      - 'Bearer V8cZd53hEbDf6ka614ePgva'
     controller: null
     method: null
     route: null
@@ -343,12 +343,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 16
+      exemplar_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -371,7 +371,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Zvd83b5Pa64Df1EV6ahcegk'
+      - 'Bearer 3e5ka6Dabfd4Pg8Z1VvEhc6'
     controller: null
     method: null
     route: null
