@@ -26,12 +26,12 @@ endpoints:
         name: start
         description: 'Must be at least 1.'
         required: false
-        example: 17
+        example: 41
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      start: 17
+      start: 41
     fileParameters: []
     responses:
       -
@@ -87,15 +87,15 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":42,"name":"Molestiae illo sit eos eum."}}'
+        content: '{"data":{"id":44,"name":"Cumque earum repellendus vel."}}'
         headers: []
         description: ''
         custom: []
       -
-        status: 422
+        status: 404
         content: '{"errors": [list]}'
         headers: []
-        description: 'Validation Errors.'
+        description: 'Category not found.'
         custom: []
     responseFields: []
     auth: []
@@ -129,12 +129,12 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: sqjohqwfwuzjbpcmtsmypcxj
+        example: ygmdp
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: sqjohqwfwuzjbpcmtsmypcxj
+      name: ygmdp
     fileParameters: []
     responses:
       -
@@ -153,7 +153,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6g41e3hfvak5DVbEad68cZP'
+      - 'Bearer E3eaVfchvg8PdZa564Dk16b'
     controller: null
     method: null
     route: null
@@ -193,19 +193,25 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: kewketvogyaqhwx
+        example: lkrzsqbwmjszqufilcg
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: kewketvogyaqhwx
+      name: lkrzsqbwmjszqufilcg
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":43,"name":"Eos modi quam quis suscipit."}}'
+        content: '{"data":{"id":45,"name":"Est nihil et adipisci."}}'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Category not found.'
         custom: []
       -
         status: 422
@@ -217,7 +223,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v4g8Ef5bha6aVPc36Z1deDk'
+      - 'Bearer 8e643agDhEack651fdZPVvb'
     controller: null
     method: null
     route: null
@@ -263,16 +269,16 @@ endpoints:
         description: ''
         custom: []
       -
-        status: 422
+        status: 404
         content: '{"errors": [list]}'
         headers: []
-        description: 'Validation Errors.'
+        description: 'Category not found.'
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 643dvba8geh1kPD5fV6EaZc'
+      - 'Bearer cvdE34aD6beZhVfP1k856ga'
     controller: null
     method: null
     route: null

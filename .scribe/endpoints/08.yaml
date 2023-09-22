@@ -22,12 +22,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: sit
+        example: aperiam
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: sit
+      exemplar_id: aperiam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -35,12 +35,12 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 39
+        example: 85
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 39
+      exemplar_id: 85
     fileParameters: []
     responses: []
     responseFields: []

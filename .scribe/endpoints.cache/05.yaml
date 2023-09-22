@@ -28,7 +28,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 59
+        example: 1
         type: integer
         enumValues: []
         custom: []
@@ -36,7 +36,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: sequi
+        example: voluptate
         type: string
         enumValues: []
         custom: []
@@ -44,7 +44,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 5
+        example: 1
         type: integer
         enumValues: []
         custom: []
@@ -57,9 +57,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 59
-      name: sequi
-      rating: 5
+      category_id: 1
+      name: voluptate
+      rating: 1
       condition: 1
     fileParameters: []
     responses: []

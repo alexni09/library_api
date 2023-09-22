@@ -15,16 +15,29 @@ use Illuminate\Support\Facades\Auth;
  * @group ExemplarDonation
  */
 class ExemplarDonationController extends Controller {
+    /**
+     * User donates an exemplar
+     * 
+     * @authenticated
+     *
+     * @bodyParam condition integer required The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 1
+     * 
+     * @response 200 {"data":[{"id":337,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":1,"condition_name":"LikeNew"},{"id":487,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":2,"condition_name":"Good"}]}
+     * @response 404 scenario="Book not found." {"errors": [list]}
+     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     */
     public function __invoke(Request $request):ExemplarResource|JsonResponse {
         $validator = Validator::make($request->all(), [
             'book_id' => [ 'required', 'integer', 'min:1', 'exists:books,id' ],
             'condition' => [ 'required', 'integer', 'min:1', 'max:4' ]        
         ]);
         if ($validator->fails()) {
-            Misc::monitor('post',Response::HTTP_UNPROCESSABLE_ENTITY);
+            if ($validator->errors()->has('book_id')) $response = Response::HTTP_NOT_FOUND;
+            else $response = Response::HTTP_UNPROCESSABLE_ENTITY;
+            Misc::monitor('post',$response);
             return response()->json([
                 'errors' => $validator->errors()
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            ], $response);
         }
         $exemplar = Exemplar::create([
             'book_id' => $request['book_id'],

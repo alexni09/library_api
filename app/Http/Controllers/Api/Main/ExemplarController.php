@@ -65,7 +65,7 @@ class ExemplarController extends Controller {
      * @unauthenticated
      * 
      * @response 200 {"data":{"id":5,"borrowable":1,"book_id":167,"book_name":"Quo sint qui corporis.","condition_value":2,"condition_name":"Good"}}
-     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     * @response 404 scenario="Exemplar not found." {"errors": [list]}
      */
     public function show(Exemplar $exemplar):ExemplarResource {
         Misc::monitor('get',Response::HTTP_OK);
@@ -115,6 +115,7 @@ class ExemplarController extends Controller {
      * @bodyParam change_donor boolean optional Set this field to true to update the donor. Default is false. Example: false
      * 
      * @response 201 {"data":{"id":6,"borrowable":1,"book_id":167,"book_name":"Quo sint qui corporis.","condition_value":2,"condition_name":"Good"}}
+     * @response 404 scenario="Exemplar not found." {"errors": [list]}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function update(Request $request, Exemplar $exemplar):ExemplarResource|JsonResponse {
@@ -153,7 +154,7 @@ class ExemplarController extends Controller {
      * @authenticated
      *
      * @response 204
-     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     * @response 404 scenario="Exemplar not found." {"errors": [list]}
      */
     public function destroy(Exemplar $exemplar):Response {
         $exemplar->delete();

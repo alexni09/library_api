@@ -45,7 +45,7 @@ class CategoryController extends Controller {
      * 
      * @apiResource App\Http\Resources\CategoryResource
      * @apiResourceModel App\Models\Category
-     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     * @response 404 scenario="Category not found." {"errors": [list]}
      */
     public function show(Category $category):CategoryResource {
         Misc::monitor('get',Response::HTTP_OK);
@@ -84,6 +84,7 @@ class CategoryController extends Controller {
      * 
      * @apiResource App\Http\Resources\CategoryResource
      * @apiResourceModel App\Models\Category
+     * @response 404 scenario="Category not found." {"errors": [list]}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function update(Request $request, Category $category):CategoryResource|JsonResponse {
@@ -108,7 +109,7 @@ class CategoryController extends Controller {
      * @authenticated
      * 
      * @response 204
-     * @response 422 scenario="Validation Errors." {"errors": [list]}
+     * @response 404 scenario="Category not found." {"errors": [list]}
      */
     public function destroy(Category $category):Response {
         $category->delete();

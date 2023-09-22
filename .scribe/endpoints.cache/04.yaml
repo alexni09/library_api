@@ -12,11 +12,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User donates an exemplar'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -28,25 +29,46 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 83
+        example: 42
         type: integer
         enumValues: []
         custom: []
       condition:
         name: condition
-        description: 'Must be at least 1. Must not be greater than 4.'
+        description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 83
-      condition: 2
+      book_id: 42
+      condition: 1
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":337,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":1,"condition_name":"LikeNew"},{"id":487,"borrowable":1,"book_id":11,"book_name":"Qui saepe et nisi enim.","condition_value":2,"condition_name":"Good"}]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Book not found.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Z4avkVPDafc8ghdb63E56e1'
     controller: null
     method: null
     route: null

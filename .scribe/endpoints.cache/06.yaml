@@ -93,12 +93,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: sed
+        example: itaque
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: sed
+      exemplar_id: itaque
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -106,7 +106,7 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 79
+        example: 83
         type: integer
         enumValues: []
         custom: []
@@ -114,13 +114,13 @@ endpoints:
         name: condition
         description: 'Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 79
-      condition: 2
+      exemplar_id: 83
+      condition: 1
     fileParameters: []
     responses: []
     responseFields: []
