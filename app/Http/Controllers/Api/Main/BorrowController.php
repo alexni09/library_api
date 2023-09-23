@@ -102,7 +102,7 @@ class BorrowController extends Controller {
      *
      * @bodyParam condition integer optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 4
      * 
-     * @response 200 {"data":{"id":2376,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":2,"condition_name":"Good"}}
+     * @response 200 {"data":{"user_id":4,"exemplar_id":7,"condition":1,"returned":"2023-09-23T00:06:19.191688Z","due":"2023-09-23T00:07:00.000000Z","fee_per_rental":900,"fine_per_delay":0,"fine_per_damage":0,"total_payment_due":900,"payment_due":"2023-09-23T00:08:00.000000Z"}}
      * @response 404 scenario="Exemplar not found." {"errors": [list]}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */

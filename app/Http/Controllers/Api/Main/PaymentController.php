@@ -66,19 +66,50 @@ class PaymentController extends Controller {
         Misc::monitor('get',Response::HTTP_OK);
         return PaymentResource::collection($payments);
     }
-
+    /**
+     * User lists all payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":[{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55"},{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null}]}
+     * @response 204 scenario="No records found."
+     */
     public function listAllPayments():AnonymousResourceCollection|Response {
         return $this->list(Payment::allPaymentsList(Auth::id()));
     }
-
+    /**
+     * User lists unpaid payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":[{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":null},{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null}]}
+     * @response 204 scenario="No records found."
+     */
     public function listBalanceDueUnpaid():AnonymousResourceCollection|Response {
         return $this->list(Payment::balanceDueUnpaidList(Auth::id()));
     }
-
+    /**
+     * User lists open payments
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":[{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null},{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":null}]}
+     * @response 204 scenario="No records found."
+     */
     public function listBalanceDueOpen():AnonymousResourceCollection|Response {
         return $this->list(Payment::balanceDueOpenList(Auth::id()));
     }
-
+    /**
+     * User pays for borrowing an exemplar
+     * 
+     * @authenticated
+     * 
+     * @response 200 {"data":{"id":1,"exemplar_id":7,"due_value":900,"received":3000,"change":2100,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55","message":"Payment received. Thank you!"}}
+     * @response 403 scenario="Can't pay for someone elses'." {"errors": "It is not allowed to pay for someone else's invoices."}
+     * @response 404 scenario="Payment not found." {"errors": [list]}
+     * @response 422 scenario="Already paid." {"errors": "Already paid."}
+     * @response 422 scenario="Validation Errors. (Includes underpayment attempt.)" {"errors": [list]}
+     */
     public function pay(Request $request, Payment $payment):JsonResponse {
         $validator = Validator::make($request->all(), [
             'money' => [ 'required', 'integer', 'min:'.strval($payment->due_value) ]

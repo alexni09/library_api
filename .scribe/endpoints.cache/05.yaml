@@ -29,7 +29,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 38
+        example: 72
         type: integer
         enumValues: []
         custom: []
@@ -37,7 +37,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: dolorem
+        example: eos
         type: string
         enumValues: []
         custom: []
@@ -45,7 +45,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 2
+        example: 3
         type: integer
         enumValues: []
         custom: []
@@ -58,9 +58,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 38
-      name: dolorem
-      rating: 2
+      category_id: 72
+      name: eos
+      rating: 3
       condition: 4
     fileParameters: []
     responses:
@@ -86,7 +86,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 468db53PVaeZEcgkha16Dvf'
+      - 'Bearer d36acEegDZh8b165fVvPka4'
     controller: null
     method: null
     route: null

@@ -12,11 +12,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User receives a sum of all payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -26,9 +27,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"all_payments_total":56789}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 56k8PaecZd3Dg1a4vhfV6bE'
     controller: null
     method: null
     route: null
@@ -42,11 +52,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User receives a sum of all open payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -56,9 +67,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"all_payments_total":12345}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer heDdVZ8gack6abE54f3v1P6'
     controller: null
     method: null
     route: null
@@ -72,11 +92,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User receives a sum of all unpaid payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -86,9 +107,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"all_payments_total":7891}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer hbcv4PZ3af5V86gdkE1D6ae'
     controller: null
     method: null
     route: null
@@ -102,11 +132,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User lists all payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -116,9 +147,24 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55"},{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null}]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'No records found.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer v5bZ8a63gh6kdEePD1Va4fc'
     controller: null
     method: null
     route: null
@@ -132,11 +178,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User lists unpaid payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -146,9 +193,24 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":null},{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null}]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'No records found.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4E63VfDacZb8ga5h6kdve1P'
     controller: null
     method: null
     route: null
@@ -162,11 +224,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User lists open payments'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -176,9 +239,24 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":2,"exemplar_id":6,"due_value":2170,"due_from":"2023-09-23 00:06:51","due_at":"2023-09-23 00:10:01","paid_at":null},{"id":1,"exemplar_id":7,"due_value":900,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":null}]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'No records found.'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer EcfaeP1h6vdV58b3gD6Z4ka'
     controller: null
     method: null
     route: null
@@ -192,11 +270,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'User pays for borrowing an exemplar'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -204,12 +283,12 @@ endpoints:
         name: payment_id
         description: 'The ID of the payment.'
         required: true
-        example: 8
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      payment_id: 8
+      payment_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -217,16 +296,49 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 12
+        example: 9
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 12
+      money: 9
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":1,"exemplar_id":7,"due_value":900,"received":3000,"change":2100,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55","message":"Payment received. Thank you!"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"errors": "It is not allowed to pay for someone else''s invoices."}'
+        headers: []
+        description: "Can't pay for someone elses'."
+        custom: []
+      -
+        status: 404
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Payment not found.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": "Already paid."}'
+        headers: []
+        description: 'Already paid.'
+        custom: []
+      -
+        status: 422
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Validation Errors. (Includes underpayment attempt.)'
+        custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer f6PD5aVE6v38k4gdbhc1aZe'
     controller: null
     method: null
     route: null

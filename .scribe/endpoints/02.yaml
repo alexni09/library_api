@@ -22,12 +22,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: ut
+        example: rerum
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: ut
+      category_id: rerum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -35,12 +35,12 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 34
+        example: 42
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 34
+      category_id: 42
     fileParameters: []
     responses:
       -
@@ -153,7 +153,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Zc6v68PVaaD3ehd51g4bEkf'
+      - 'Bearer VDvZaa4fPhb3eEd816k5cg6'
     controller: null
     method: null
     route: null
@@ -184,7 +184,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: rxyxfkybesfd
+        example: dkbnzkeukafzwxyl
         type: string
         enumValues: []
         custom: []
@@ -200,14 +200,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 7
+        example: 41
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: rxyxfkybesfd
+      name: dkbnzkeukafzwxyl
       rating: 3
-      category_id: 7
+      category_id: 41
     fileParameters: []
     responses:
       -
@@ -226,7 +226,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer avdek5hf1g483EabDPZ66Vc'
+      - 'Bearer k46ZV3b81EgfDev56aadPhc'
     controller: null
     method: null
     route: null
@@ -266,7 +266,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: tkuekikdbgi
+        example: rct
         type: string
         enumValues: []
         custom: []
@@ -274,7 +274,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 5
+        example: 2
         type: integer
         enumValues: []
         custom: []
@@ -282,14 +282,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 36
+        example: 51
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: tkuekikdbgi
-      rating: 5
-      category_id: 36
+      name: rct
+      rating: 2
+      category_id: 51
     fileParameters: []
     responses:
       -
@@ -314,7 +314,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bcE3vke6d681Zg5PfhaD4aV'
+      - 'Bearer 4aZb5fa61Ed63kPcheV8gDv'
     controller: null
     method: null
     route: null
@@ -369,7 +369,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer cV1h6D3v5adeE8Pg4kab6fZ'
+      - 'Bearer 3g6fZDkeh4b86Pa1dcV5vaE'
     controller: null
     method: null
     route: null

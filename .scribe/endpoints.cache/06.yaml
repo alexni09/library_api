@@ -83,7 +83,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer af86P5VcgDbe13vk4ZhE6da'
+      - 'Bearer 1V48Zgav3ahEPcfkbe5d66D'
     controller: null
     method: null
     route: null
@@ -129,7 +129,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer h6Zb3ac4Dag86k1devVf5PE'
+      - 'Bearer bVZ5aadDv368EPkg61che4f'
     controller: null
     method: null
     route: null
@@ -156,12 +156,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: voluptatibus
+        example: maiores
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: voluptatibus
+      exemplar_id: maiores
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -169,7 +169,7 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 40
+        example: 74
         type: integer
         enumValues: []
         custom: []
@@ -182,13 +182,13 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 40
+      exemplar_id: 74
       condition: 4
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":2376,"borrowable":1,"book_id":98,"book_name":"Ut in nam ea recusandae.","condition_value":2,"condition_name":"Good"}}'
+        content: '{"data":{"user_id":4,"exemplar_id":7,"condition":1,"returned":"2023-09-23T00:06:19.191688Z","due":"2023-09-23T00:07:00.000000Z","fee_per_rental":900,"fine_per_delay":0,"fine_per_damage":0,"total_payment_due":900,"payment_due":"2023-09-23T00:08:00.000000Z"}}'
         headers: []
         description: ''
         custom: []
@@ -208,7 +208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer baea6g4vd8VE3hD1fPc5Zk6'
+      - 'Bearer 8hbeEZv6P3cgDkf5a1da46V'
     controller: null
     method: null
     route: null
