@@ -27,6 +27,20 @@ class Misc {
             default: return 1; break;
         }
     }
+
+    public static function isRefererSafe(string|null $haystack):bool {
+        if (!isset($haystack)) return false;
+        $needleBase = rtrim(env('APP_URL'), '/');
+        if ($haystack === $needleBase) return true;
+        $needle = $needleBase . ':8000';
+        if ($haystack === $needle) return true;
+        $needle = $needleBase . '/';
+        if (substr_compare($haystack, $needle, 0, strlen($needle), true) === 0) return true;
+        $needle = $needleBase . ':8000/'; 
+        if (substr_compare($haystack, $needle, 0, strlen($needle), true) === 0) return true;
+        return false;
+    }
+
     public static function list_datetime():array {
         return Redis::lrange(self::LIST_DATETIME,0,-1);
     }

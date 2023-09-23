@@ -67,8 +67,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::delete('exemplars/{exemplar}', [ExemplarController::class, 'destroy']);
 });
 
-Route::get('monitor', MonitorController::class);
-
-Route::get('money', MoneyController::class);
-
-Route::get('count', CountController::class);
+Route::middleware('referer')->group(function () {
+    Route::get('monitor', MonitorController::class);
+    Route::get('money', MoneyController::class);
+    Route::get('count', CountController::class);
+});
