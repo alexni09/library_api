@@ -70,5 +70,6 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
 Route::middleware('referer')->group(function () {
     Route::get('monitor', MonitorController::class);
     Route::get('money', MoneyController::class);
-    Route::get('count', CountController::class);
 });
+
+Route::get('count', CountController::class);
