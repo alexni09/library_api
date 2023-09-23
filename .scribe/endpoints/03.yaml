@@ -73,12 +73,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: fugiat
+        example: sint
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: fugiat
+      book_id: sint
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -168,7 +168,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 55
+        example: 10
         type: integer
         enumValues: []
         custom: []
@@ -189,7 +189,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 55
+      book_id: 10
       condition: 1
       borrowable: true
     fileParameters: []
@@ -210,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hac1Z4b8ke56gPfEVvD3da6'
+      - 'Bearer aPkh1Ece64gd8fbDaVv3Z65'
     controller: null
     method: null
     route: null
@@ -250,7 +250,7 @@ endpoints:
         name: book_id
         description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
         required: false
-        example: 84
+        example: 56
         type: integer
         enumValues: []
         custom: []
@@ -258,7 +258,7 @@ endpoints:
         name: condition
         description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 3
+        example: 2
         type: integer
         enumValues: []
         custom: []
@@ -266,7 +266,7 @@ endpoints:
         name: borrowable
         description: 'This field is required when none of <code>book_id</code>, <code>condition</code>, and <code>change_donor</code> are present.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         custom: []
@@ -274,7 +274,7 @@ endpoints:
         name: user_id
         description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
         required: false
-        example: 59
+        example: 31
         type: integer
         enumValues: []
         custom: []
@@ -287,10 +287,10 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 84
-      condition: 3
-      borrowable: false
-      user_id: 59
+      book_id: 56
+      condition: 2
+      borrowable: true
+      user_id: 31
       change_donor: false
     fileParameters: []
     responses:
@@ -316,7 +316,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer E1kcZe5D6bP63ha48Vgdvfa'
+      - 'Bearer keVg46ch65fEdD1aZv8ba3P'
     controller: null
     method: null
     route: null
@@ -371,7 +371,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a54Dahkdf1vg3Ze86cPVb6E'
+      - 'Bearer kP6ghZvf3D4Eebaa8561cVd'
     controller: null
     method: null
     route: null

@@ -20,7 +20,6 @@ yarn-error.log
 /app/Http/Requests/StoreCategoryRequest.php
 /app/Http/Requests/StoreBookRequest.php
 /app/Http/Requests/UpdateBookRequest.php
-/public/docs
 /tests/*.txt
 /tests0
 /domains.txt

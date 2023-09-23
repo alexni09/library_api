@@ -1,0 +1,2212 @@
+openapi: 3.0.3
+info:
+  title: library_api
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://libraryapi.site'
+paths:
+  /api/auth/register:
+    post:
+      summary: 'User Registration'
+      operationId: userRegistration
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: 1|laravel_sanctum_iB5fCwdUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cc1
+                properties:
+                  access_token:
+                    type: string
+                    example: 1|laravel_sanctum_iB5fCwdUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cc1
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: bejwx
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: ahmad34@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                password_confirmation:
+                  type: string
+                  description: 'Must have the same value as password.'
+                  example: null
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/login:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: 13|laravel_sanctum_iB5fCWeUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cz1
+                properties:
+                  access_token:
+                    type: string
+                    example: 13|laravel_sanctum_iB5fCWeUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cz1
+        422:
+          description: 'Incorrect credentials or validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: gladyce.wehner@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: rerum
+              required:
+                - email
+                - password
+      security: []
+  /api/whoami:
+    get:
+      summary: 'Who Am I'
+      operationId: whoAmI
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1567
+                  name: 'Mister Y Z'
+                  email: misteryz@sample.biz
+                properties:
+                  id:
+                    type: integer
+                    example: 1567
+                  name:
+                    type: string
+                    example: 'Mister Y Z'
+                  email:
+                    type: string
+                    example: misteryz@sample.biz
+      tags:
+        - Auth
+  /api/profile:
+    get:
+      summary: 'Show Profile'
+      operationId: showProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: 'Mister X Y Z'
+                  email: misterxyz@sample.website
+                properties:
+                  name:
+                    type: string
+                    example: 'Mister X Y Z'
+                  email:
+                    type: string
+                    example: misterxyz@sample.website
+      tags:
+        - Auth
+    put:
+      summary: 'Update Profile'
+      operationId: updateProfile
+      description: ''
+      parameters: []
+      responses:
+        202:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: 'Mister A B C'
+                  email: misterabc@sample.site
+                properties:
+                  name:
+                    type: string
+                    example: 'Mister A B C'
+                  email:
+                    type: string
+                    example: misterabc@sample.site
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: iste
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: janie.wolf@example.org
+              required:
+                - name
+                - email
+  /api/password:
+    put:
+      summary: 'Password Update'
+      operationId: passwordUpdate
+      description: ''
+      parameters: []
+      responses:
+        202:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Your password has been updated.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Your password has been updated.'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: quia
+                password:
+                  type: string
+                  description: ''
+                  example: et
+                password_confirmation:
+                  type: string
+                  description: 'Must have the same value as password.'
+                  example: null
+              required:
+                - current_password
+                - password
+                - password_confirmation
+  /api/auth/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Auth
+  '/api/books-by-category/{category_id}':
+    get:
+      summary: 'Fetch Books By category_id'
+      operationId: fetchBooksByCategoryId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 51
+                      name: 'Totam et et libero quis.'
+                      rating_value: 2
+                      rating_name: Bad
+                      category_id: 6
+                      category_name: 'Optio at eius qui ipsa.'
+                    -
+                      id: 52
+                      name: 'Et saepe ut sint aut magnam.'
+                      rating_value: 3
+                      rating_name: Reasonable
+                      category_id: 6
+                      category_name: 'Optio at eius qui ipsa.'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 51
+                        name: 'Totam et et libero quis.'
+                        rating_value: 2
+                        rating_name: Bad
+                        category_id: 6
+                        category_name: 'Optio at eius qui ipsa.'
+                      -
+                        id: 52
+                        name: 'Et saepe ut sint aut magnam.'
+                        rating_value: 3
+                        rating_name: Reasonable
+                        category_id: 6
+                        category_name: 'Optio at eius qui ipsa.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 51
+                        name:
+                          type: string
+                          example: 'Totam et et libero quis.'
+                        rating_value:
+                          type: integer
+                          example: 2
+                        rating_name:
+                          type: string
+                          example: Bad
+                        category_id:
+                          type: integer
+                          example: 6
+                        category_name:
+                          type: string
+                          example: 'Optio at eius qui ipsa.'
+        204:
+          description: 'No books found for the given category_id.'
+        404:
+          description: 'Category not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 12
+              required:
+                - category_id
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: sed
+        required: true
+        schema:
+          type: string
+  '/api/books/{book_id}':
+    get:
+      summary: 'Show Book'
+      operationId: showBook
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 51
+                    name: 'Totam et et libero quis.'
+                    rating_value: 2
+                    rating_name: Bad
+                    category_id: 6
+                    category_name: 'Optio at eius qui ipsa.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 51
+                      name:
+                        type: string
+                        example: 'Totam et et libero quis.'
+                      rating_value:
+                        type: integer
+                        example: 2
+                      rating_name:
+                        type: string
+                        example: Bad
+                      category_id:
+                        type: integer
+                        example: 6
+                      category_name:
+                        type: string
+                        example: 'Optio at eius qui ipsa.'
+        404:
+          description: 'Book not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Book
+      security: []
+    put:
+      summary: 'Update Book'
+      operationId: updateBook
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 51
+                    name: 'Totam et et libero quis.'
+                    rating_value: 2
+                    rating_name: Bad
+                    category_id: 6
+                    category_name: 'Optio at eius qui ipsa.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 51
+                      name:
+                        type: string
+                        example: 'Totam et et libero quis.'
+                      rating_value:
+                        type: integer
+                        example: 2
+                      rating_name:
+                        type: string
+                        example: Bad
+                      category_id:
+                        type: integer
+                        example: 6
+                      category_name:
+                        type: string
+                        example: 'Optio at eius qui ipsa.'
+        404:
+          description: 'Book not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Book
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
+                  example: nzostkysrsnxkybwlundefy
+                rating:
+                  type: integer
+                  description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
+                  example: 4
+                category_id:
+                  type: integer
+                  description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
+                  example: 28
+    delete:
+      summary: 'Delete Book'
+      operationId: deleteBook
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        204:
+          description: ''
+        404:
+          description: 'Book not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Book
+    parameters:
+      -
+        in: path
+        name: book_id
+        description: 'The ID of the book.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/books:
+    get:
+      summary: 'List All Books'
+      operationId: listAllBooks
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 51
+                      name: 'Totam et et libero quis.'
+                      rating_value: 2
+                      rating_name: Bad
+                      category_id: 6
+                      category_name: 'Optio at eius qui ipsa.'
+                    -
+                      id: 52
+                      name: 'Et saepe ut sint aut magnam.'
+                      rating_value: 3
+                      rating_name: Reasonable
+                      category_id: 6
+                      category_name: 'Optio at eius qui ipsa.'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 51
+                        name: 'Totam et et libero quis.'
+                        rating_value: 2
+                        rating_name: Bad
+                        category_id: 6
+                        category_name: 'Optio at eius qui ipsa.'
+                      -
+                        id: 52
+                        name: 'Et saepe ut sint aut magnam.'
+                        rating_value: 3
+                        rating_name: Reasonable
+                        category_id: 6
+                        category_name: 'Optio at eius qui ipsa.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 51
+                        name:
+                          type: string
+                          example: 'Totam et et libero quis.'
+                        rating_value:
+                          type: integer
+                          example: 2
+                        rating_name:
+                          type: string
+                          example: Bad
+                        category_id:
+                          type: integer
+                          example: 6
+                        category_name:
+                          type: string
+                          example: 'Optio at eius qui ipsa.'
+      tags:
+        - Book
+    post:
+      summary: 'Store Book'
+      operationId: storeBook
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 51
+                    name: 'Totam et et libero quis.'
+                    rating_value: 2
+                    rating_name: Bad
+                    category_id: 6
+                    category_name: 'Optio at eius qui ipsa.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 51
+                      name:
+                        type: string
+                        example: 'Totam et et libero quis.'
+                      rating_value:
+                        type: integer
+                        example: 2
+                      rating_name:
+                        type: string
+                        example: Bad
+                      category_id:
+                        type: integer
+                        example: 6
+                      category_name:
+                        type: string
+                        example: 'Optio at eius qui ipsa.'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qcfjgccdyujrxqxyjwwdppd
+                rating:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 5.'
+                  example: 5
+                category_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 33
+              required:
+                - name
+                - rating
+                - category_id
+  /api/books/donate:
+    post:
+      summary: 'User donates a book'
+      operationId: userDonatesABook
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 123
+                    borrowable: 1
+                    book_id: 98
+                    book_name: 'Ut in nam ea recusandae.'
+                    condition_value: 4
+                    condition_name: Damaged
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 123
+                      borrowable:
+                        type: integer
+                        example: 1
+                      book_id:
+                        type: integer
+                        example: 98
+                      book_name:
+                        type: string
+                        example: 'Ut in nam ea recusandae.'
+                      condition_value:
+                        type: integer
+                        example: 4
+                      condition_name:
+                        type: string
+                        example: Damaged
+        404:
+          description: 'Category not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - BookDonation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 86
+                name:
+                  type: string
+                  description: ''
+                  example: repellendus
+                rating:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 5.'
+                  example: 4
+                condition:
+                  type: integer
+                  description: 'The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
+                  example: 4
+              required:
+                - category_id
+                - name
+                - rating
+                - condition
+  '/api/borrow/{exemplar_id}':
+    post:
+      summary: 'User borrows an exemplar'
+      operationId: userBorrowsAnExemplar
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    user_id: 4
+                    exemplar_id: 9
+                    borrowed: '2023-09-22T23:23:04.552027Z'
+                    returned: null
+                    return_due: '2023-09-22T23:24:04.552034Z'
+                    maximum_minutes: 1
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 4
+                      exemplar_id:
+                        type: integer
+                        example: 9
+                      borrowed:
+                        type: string
+                        example: '2023-09-22T23:23:04.552027Z'
+                      returned:
+                        type: string
+                        example: null
+                      return_due:
+                        type: string
+                        example: '2023-09-22T23:24:04.552034Z'
+                      maximum_minutes:
+                        type: integer
+                        example: 1
+        402:
+          description: 'Payment required.'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors: 'This borrowing is suspended because of open payments.'
+                properties:
+                  errors:
+                    type: string
+                    example: 'This borrowing is suspended because of open payments.'
+        403:
+          description: 'Exemplar is currently borrowed.'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors: 'This exemplar is currently borrowed.'
+                properties:
+                  errors:
+                    type: string
+                    example: 'This exemplar is currently borrowed.'
+        404:
+          description: 'Exemplar not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Borrow
+    parameters:
+      -
+        in: path
+        name: exemplar_id
+        description: 'The ID of the exemplar.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/borrowed-list:
+    get:
+      summary: 'User lists his/hers unreturned exemplars'
+      operationId: userListsHishersUnreturnedExemplars
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 5
+                      borrowable: 1
+                      book_id: 61
+                      book_name: 'Id fugit aut rem suscipit.'
+                      condition_value: 2
+                      condition_name: Good
+                    -
+                      id: 7
+                      borrowable: 1
+                      book_id: 93
+                      book_name: 'Libero saepe aut facilis.'
+                      condition_value: 1
+                      condition_name: LikeNew
+                    -
+                      id: 8
+                      borrowable: 1
+                      book_id: 165
+                      book_name: 'Ut ratione eos sed sunt.'
+                      condition_value: 1
+                      condition_name: LikeNew
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 5
+                        borrowable: 1
+                        book_id: 61
+                        book_name: 'Id fugit aut rem suscipit.'
+                        condition_value: 2
+                        condition_name: Good
+                      -
+                        id: 7
+                        borrowable: 1
+                        book_id: 93
+                        book_name: 'Libero saepe aut facilis.'
+                        condition_value: 1
+                        condition_name: LikeNew
+                      -
+                        id: 8
+                        borrowable: 1
+                        book_id: 165
+                        book_name: 'Ut ratione eos sed sunt.'
+                        condition_value: 1
+                        condition_name: LikeNew
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 5
+                        borrowable:
+                          type: integer
+                          example: 1
+                        book_id:
+                          type: integer
+                          example: 61
+                        book_name:
+                          type: string
+                          example: 'Id fugit aut rem suscipit.'
+                        condition_value:
+                          type: integer
+                          example: 2
+                        condition_name:
+                          type: string
+                          example: Good
+        204:
+          description: 'User has no unreturned exemplars.'
+      tags:
+        - Borrow
+  '/api/giveback/{exemplar_id}':
+    patch:
+      summary: 'User gives back an exemplar'
+      operationId: userGivesBackAnExemplar
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    user_id: 4
+                    exemplar_id: 7
+                    condition: 1
+                    returned: '2023-09-23T00:06:19.191688Z'
+                    due: '2023-09-23T00:07:00.000000Z'
+                    fee_per_rental: 900
+                    fine_per_delay: 0
+                    fine_per_damage: 0
+                    total_payment_due: 900
+                    payment_due: '2023-09-23T00:08:00.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 4
+                      exemplar_id:
+                        type: integer
+                        example: 7
+                      condition:
+                        type: integer
+                        example: 1
+                      returned:
+                        type: string
+                        example: '2023-09-23T00:06:19.191688Z'
+                      due:
+                        type: string
+                        example: '2023-09-23T00:07:00.000000Z'
+                      fee_per_rental:
+                        type: integer
+                        example: 900
+                      fine_per_delay:
+                        type: integer
+                        example: 0
+                      fine_per_damage:
+                        type: integer
+                        example: 0
+                      total_payment_due:
+                        type: integer
+                        example: 900
+                      payment_due:
+                        type: string
+                        example: '2023-09-23T00:08:00.000000Z'
+        404:
+          description: 'Exemplar not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Borrow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                exemplar_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 42
+                condition:
+                  type: integer
+                  description: 'optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
+                  example: 4
+              required:
+                - exemplar_id
+    parameters:
+      -
+        in: path
+        name: exemplar_id
+        description: 'The ID of the exemplar.'
+        example: ipsa
+        required: true
+        schema:
+          type: string
+  /api/categories:
+    get:
+      summary: 'List Categories'
+      operationId: listCategories
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      name: 'Odit illum magnam ut et et.'
+                    -
+                      id: 8
+                      name: 'Iure aut ab tempore sed.'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        name: 'Odit illum magnam ut et et.'
+                      -
+                        id: 8
+                        name: 'Iure aut ab tempore sed.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        name:
+                          type: string
+                          example: 'Odit illum magnam ut et et.'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Category
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 56
+      security: []
+    post:
+      summary: 'Create Category'
+      operationId: createCategory
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 8
+                    name: 'Iure aut ab tempore sed.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 8
+                      name:
+                        type: string
+                        example: 'Iure aut ab tempore sed.'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: esgursbewlavxllpiyazkdwkp
+              required:
+                - name
+  '/api/categories/{category_id}':
+    get:
+      summary: 'Show Category'
+      operationId: showCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 30
+                    name: 'Minima quia eum atque enim.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 30
+                      name:
+                        type: string
+                        example: 'Minima quia eum atque enim.'
+        404:
+          description: 'Category not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Category
+      security: []
+    put:
+      summary: 'Update Category'
+      operationId: updateCategory
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 31
+                    name: 'Distinctio cumque eum est.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 31
+                      name:
+                        type: string
+                        example: 'Distinctio cumque eum est.'
+        404:
+          description: 'Category not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: suwpdzoiqnsagpykehfvkt
+              required:
+                - name
+    delete:
+      summary: 'Delete Category'
+      operationId: deleteCategory
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        204:
+          description: ''
+        404:
+          description: 'Category not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Category
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/exemplars/{exemplar_id}':
+    get:
+      summary: 'Show Exemplar'
+      operationId: showExemplar
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 5
+                    borrowable: 1
+                    book_id: 167
+                    book_name: 'Quo sint qui corporis.'
+                    condition_value: 2
+                    condition_name: Good
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 5
+                      borrowable:
+                        type: integer
+                        example: 1
+                      book_id:
+                        type: integer
+                        example: 167
+                      book_name:
+                        type: string
+                        example: 'Quo sint qui corporis.'
+                      condition_value:
+                        type: integer
+                        example: 2
+                      condition_name:
+                        type: string
+                        example: Good
+        404:
+          description: 'Exemplar not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Exemplar
+      security: []
+    put:
+      summary: 'Update Exemplar'
+      operationId: updateExemplar
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 6
+                    borrowable: 1
+                    book_id: 167
+                    book_name: 'Quo sint qui corporis.'
+                    condition_value: 2
+                    condition_name: Good
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                      borrowable:
+                        type: integer
+                        example: 1
+                      book_id:
+                        type: integer
+                        example: 167
+                      book_name:
+                        type: string
+                        example: 'Quo sint qui corporis.'
+                      condition_value:
+                        type: integer
+                        example: 2
+                      condition_name:
+                        type: string
+                        example: Good
+        404:
+          description: 'Exemplar not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Exemplar
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: integer
+                  description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
+                  example: 56
+                condition:
+                  type: integer
+                  description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
+                  example: 2
+                borrowable:
+                  type: boolean
+                  description: 'This field is required when none of <code>book_id</code>, <code>condition</code>, and <code>change_donor</code> are present.'
+                  example: true
+                user_id:
+                  type: integer
+                  description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
+                  example: 31
+                change_donor:
+                  type: boolean
+                  description: 'optional Set this field to true to update the donor. Default is false.'
+                  example: false
+    delete:
+      summary: 'Delete Exemplar'
+      operationId: deleteExemplar
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        204:
+          description: ''
+        404:
+          description: 'Exemplar not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Exemplar
+    parameters:
+      -
+        in: path
+        name: exemplar_id
+        description: 'The ID of the exemplar.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/exemplars/list/{book_id}':
+    get:
+      summary: 'Fetch Exemplars by book_id'
+      operationId: fetchExemplarsByBookId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 337
+                      borrowable: 1
+                      book_id: 11
+                      book_name: 'Qui saepe et nisi enim.'
+                      condition_value: 1
+                      condition_name: LikeNew
+                    -
+                      id: 487
+                      borrowable: 1
+                      book_id: 11
+                      book_name: 'Qui saepe et nisi enim.'
+                      condition_value: 2
+                      condition_name: Good
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 337
+                        borrowable: 1
+                        book_id: 11
+                        book_name: 'Qui saepe et nisi enim.'
+                        condition_value: 1
+                        condition_name: LikeNew
+                      -
+                        id: 487
+                        borrowable: 1
+                        book_id: 11
+                        book_name: 'Qui saepe et nisi enim.'
+                        condition_value: 2
+                        condition_name: Good
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 337
+                        borrowable:
+                          type: integer
+                          example: 1
+                        book_id:
+                          type: integer
+                          example: 11
+                        book_name:
+                          type: string
+                          example: 'Qui saepe et nisi enim.'
+                        condition_value:
+                          type: integer
+                          example: 1
+                        condition_name:
+                          type: string
+                          example: LikeNew
+        204:
+          description: 'No exemplars found for the given book_id.'
+        404:
+          description: 'Book not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Exemplar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 48
+                condition:
+                  type: integer
+                  description: 'optional Worst condition acceptable (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
+                  example: 2
+                borrowable:
+                  type: boolean
+                  description: 'optional Set it to false if unborrowable exemplars are acceptable to be listed. Default is true.'
+                  example: true
+              required:
+                - book_id
+      security: []
+    parameters:
+      -
+        in: path
+        name: book_id
+        description: 'The ID of the book.'
+        example: sint
+        required: true
+        schema:
+          type: string
+  /api/exemplars:
+    post:
+      summary: 'Create Exemplar'
+      operationId: createExemplar
+      description: '<small class="badge badge-purple">admin</small>'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 6
+                    borrowable: 1
+                    book_id: 167
+                    book_name: 'Quo sint qui corporis.'
+                    condition_value: 2
+                    condition_name: Good
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                      borrowable:
+                        type: integer
+                        example: 1
+                      book_id:
+                        type: integer
+                        example: 167
+                      book_name:
+                        type: string
+                        example: 'Quo sint qui corporis.'
+                      condition_value:
+                        type: integer
+                        example: 2
+                      condition_name:
+                        type: string
+                        example: Good
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Exemplar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 10
+                condition:
+                  type: integer
+                  description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
+                  example: 1
+                borrowable:
+                  type: boolean
+                  description: 'optional If false then this exemplar cannot leave the library. Default is true.'
+                  example: true
+              required:
+                - book_id
+                - condition
+  /api/exemplars/donate:
+    post:
+      summary: 'User donates an exemplar'
+      operationId: userDonatesAnExemplar
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 123
+                    borrowable: 1
+                    book_id: 98
+                    book_name: 'Ut in nam ea recusandae.'
+                    condition_value: 1
+                    condition_name: LikeNew
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 123
+                      borrowable:
+                        type: integer
+                        example: 1
+                      book_id:
+                        type: integer
+                        example: 98
+                      book_name:
+                        type: string
+                        example: 'Ut in nam ea recusandae.'
+                      condition_value:
+                        type: integer
+                        example: 1
+                      condition_name:
+                        type: string
+                        example: LikeNew
+        404:
+          description: 'Book not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - ExemplarDonation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                book_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 36
+                condition:
+                  type: integer
+                  description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
+                  example: 1
+              required:
+                - book_id
+                - condition
+  '/api/exemplar-loss/{exemplar_id}':
+    delete:
+      summary: 'User loses an exemplar'
+      operationId: userLosesAnExemplar
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    user_id: 4
+                    old_exemplar_id: 27
+                    lost_or_destroyed: '2023-09-22T21:36:04.817027Z'
+                    due: '2023-09-22T21:35:50.000000Z'
+                    fine_per_loss_or_destruction: 230000
+                    payment_due: '2023-09-22T21:37:04.817027Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 4
+                      old_exemplar_id:
+                        type: integer
+                        example: 27
+                      lost_or_destroyed:
+                        type: string
+                        example: '2023-09-22T21:36:04.817027Z'
+                      due:
+                        type: string
+                        example: '2023-09-22T21:35:50.000000Z'
+                      fine_per_loss_or_destruction:
+                        type: integer
+                        example: 230000
+                      payment_due:
+                        type: string
+                        example: '2023-09-22T21:37:04.817027Z'
+        404:
+          description: 'Exemplar not found or not borrowed by the user.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - ExemplarLoss
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                exemplar_id:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 26
+              required:
+                - exemplar_id
+    parameters:
+      -
+        in: path
+        name: exemplar_id
+        description: 'integer The ID of the lost exemplar.'
+        example: null
+        required: true
+        schema:
+          type: string
+  /api/all-payments-total:
+    get:
+      summary: 'User receives a sum of all payments'
+      operationId: userReceivesASumOfAllPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    all_payments_total: 56789
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      all_payments_total:
+                        type: integer
+                        example: 56789
+      tags:
+        - Payment
+  /api/balance-due-open:
+    get:
+      summary: 'User receives a sum of all open payments'
+      operationId: userReceivesASumOfAllOpenPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    all_payments_total: 12345
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      all_payments_total:
+                        type: integer
+                        example: 12345
+      tags:
+        - Payment
+  /api/balance-due-unpaid:
+    get:
+      summary: 'User receives a sum of all unpaid payments'
+      operationId: userReceivesASumOfAllUnpaidPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    all_payments_total: 7891
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      all_payments_total:
+                        type: integer
+                        example: 7891
+      tags:
+        - Payment
+  /api/list-all-payments:
+    get:
+      summary: 'User lists all payments'
+      operationId: userListsAllPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      exemplar_id: 7
+                      due_value: 900
+                      due_from: '2023-09-23 00:07:00'
+                      due_at: '2023-09-23 00:08:00'
+                      paid_at: '2023-09-23 00:24:55'
+                    -
+                      id: 2
+                      exemplar_id: 6
+                      due_value: 2170
+                      due_from: '2023-09-23 00:06:51'
+                      due_at: '2023-09-23 00:10:01'
+                      paid_at: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        exemplar_id: 7
+                        due_value: 900
+                        due_from: '2023-09-23 00:07:00'
+                        due_at: '2023-09-23 00:08:00'
+                        paid_at: '2023-09-23 00:24:55'
+                      -
+                        id: 2
+                        exemplar_id: 6
+                        due_value: 2170
+                        due_from: '2023-09-23 00:06:51'
+                        due_at: '2023-09-23 00:10:01'
+                        paid_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        exemplar_id:
+                          type: integer
+                          example: 7
+                        due_value:
+                          type: integer
+                          example: 900
+                        due_from:
+                          type: string
+                          example: '2023-09-23 00:07:00'
+                        due_at:
+                          type: string
+                          example: '2023-09-23 00:08:00'
+                        paid_at:
+                          type: string
+                          example: '2023-09-23 00:24:55'
+        204:
+          description: 'No records found.'
+      tags:
+        - Payment
+  /api/list-balance-due-unpaid:
+    get:
+      summary: 'User lists unpaid payments'
+      operationId: userListsUnpaidPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      exemplar_id: 7
+                      due_value: 900
+                      due_from: '2023-09-23 00:07:00'
+                      due_at: '2023-09-23 00:08:00'
+                      paid_at: null
+                    -
+                      id: 2
+                      exemplar_id: 6
+                      due_value: 2170
+                      due_from: '2023-09-23 00:06:51'
+                      due_at: '2023-09-23 00:10:01'
+                      paid_at: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        exemplar_id: 7
+                        due_value: 900
+                        due_from: '2023-09-23 00:07:00'
+                        due_at: '2023-09-23 00:08:00'
+                        paid_at: null
+                      -
+                        id: 2
+                        exemplar_id: 6
+                        due_value: 2170
+                        due_from: '2023-09-23 00:06:51'
+                        due_at: '2023-09-23 00:10:01'
+                        paid_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        exemplar_id:
+                          type: integer
+                          example: 7
+                        due_value:
+                          type: integer
+                          example: 900
+                        due_from:
+                          type: string
+                          example: '2023-09-23 00:07:00'
+                        due_at:
+                          type: string
+                          example: '2023-09-23 00:08:00'
+                        paid_at:
+                          type: string
+                          example: null
+        204:
+          description: 'No records found.'
+      tags:
+        - Payment
+  /api/list-balance-due-open:
+    get:
+      summary: 'User lists open payments'
+      operationId: userListsOpenPayments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 2
+                      exemplar_id: 6
+                      due_value: 2170
+                      due_from: '2023-09-23 00:06:51'
+                      due_at: '2023-09-23 00:10:01'
+                      paid_at: null
+                    -
+                      id: 1
+                      exemplar_id: 7
+                      due_value: 900
+                      due_from: '2023-09-23 00:07:00'
+                      due_at: '2023-09-23 00:08:00'
+                      paid_at: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        exemplar_id: 6
+                        due_value: 2170
+                        due_from: '2023-09-23 00:06:51'
+                        due_at: '2023-09-23 00:10:01'
+                        paid_at: null
+                      -
+                        id: 1
+                        exemplar_id: 7
+                        due_value: 900
+                        due_from: '2023-09-23 00:07:00'
+                        due_at: '2023-09-23 00:08:00'
+                        paid_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        exemplar_id:
+                          type: integer
+                          example: 6
+                        due_value:
+                          type: integer
+                          example: 2170
+                        due_from:
+                          type: string
+                          example: '2023-09-23 00:06:51'
+                        due_at:
+                          type: string
+                          example: '2023-09-23 00:10:01'
+                        paid_at:
+                          type: string
+                          example: null
+        204:
+          description: 'No records found.'
+      tags:
+        - Payment
+  '/api/pay/{payment_id}':
+    patch:
+      summary: 'User pays for borrowing an exemplar'
+      operationId: userPaysForBorrowingAnExemplar
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    exemplar_id: 7
+                    due_value: 900
+                    received: 3000
+                    change: 2100
+                    due_from: '2023-09-23 00:07:00'
+                    due_at: '2023-09-23 00:08:00'
+                    paid_at: '2023-09-23 00:24:55'
+                    message: 'Payment received. Thank you!'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      exemplar_id:
+                        type: integer
+                        example: 7
+                      due_value:
+                        type: integer
+                        example: 900
+                      received:
+                        type: integer
+                        example: 3000
+                      change:
+                        type: integer
+                        example: 2100
+                      due_from:
+                        type: string
+                        example: '2023-09-23 00:07:00'
+                      due_at:
+                        type: string
+                        example: '2023-09-23 00:08:00'
+                      paid_at:
+                        type: string
+                        example: '2023-09-23 00:24:55'
+                      message:
+                        type: string
+                        example: 'Payment received. Thank you!'
+        403:
+          description: "Can't pay for someone elses'."
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors: "It is not allowed to pay for someone else's invoices."
+                properties:
+                  errors:
+                    type: string
+                    example: "It is not allowed to pay for someone else's invoices."
+        404:
+          description: 'Payment not found.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+        422:
+          description: 'Validation Errors. (Includes underpayment attempt.)'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
+      tags:
+        - Payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                money:
+                  type: integer
+                  description: ''
+                  example: 7
+              required:
+                - money
+    parameters:
+      -
+        in: path
+        name: payment_id
+        description: 'The ID of the payment.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Auth
+    description: ''
+  -
+    name: Book
+    description: ''
+  -
+    name: BookDonation
+    description: ''
+  -
+    name: Borrow
+    description: ''
+  -
+    name: Category
+    description: ''
+  -
+    name: Exemplar
+    description: ''
+  -
+    name: ExemplarDonation
+    description: ''
+  -
+    name: ExemplarLoss
+    description: ''
+  -
+    name: Payment
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token either by <b>registering</b> or by <b>logging in</b>.'
+security:
+  -
+    default: []

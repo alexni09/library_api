@@ -26,7 +26,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: qxidakz
+        example: bejwx
         type: string
         enumValues: []
         custom: []
@@ -34,7 +34,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: lpredovic@example.org
+        example: ahmad34@example.org
         type: string
         enumValues: []
         custom: []
@@ -42,7 +42,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: et
+        example: voluptatem
         type: string
         enumValues: []
         custom: []
@@ -55,9 +55,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: qxidakz
-      email: lpredovic@example.org
-      password: et
+      name: bejwx
+      email: ahmad34@example.org
+      password: voluptatem
       password_confirmation: null
     fileParameters: []
     responses:
@@ -104,7 +104,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: rigoberto.deckow@example.com
+        example: gladyce.wehner@example.net
         type: string
         enumValues: []
         custom: []
@@ -112,13 +112,13 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: officiis
+        example: rerum
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: rigoberto.deckow@example.com
-      password: officiis
+      email: gladyce.wehner@example.net
+      password: rerum
     fileParameters: []
     responses:
       -
@@ -174,7 +174,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g1564aPc8f6VbZDEahdkv3e'
+      - 'Bearer 6hdaDa4g61f3cE58ZvkbePV'
     controller: null
     method: null
     route: null
@@ -214,7 +214,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer e84Pd6Zagk6Vchba1EDvf35'
+      - 'Bearer hgbfa4k851eEa63ZPD6Vvcd'
     controller: null
     method: null
     route: null
@@ -245,7 +245,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: numquam
+        example: iste
         type: string
         enumValues: []
         custom: []
@@ -253,13 +253,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: csmitham@example.com
+        example: janie.wolf@example.org
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: numquam
-      email: csmitham@example.com
+      name: iste
+      email: janie.wolf@example.org
     fileParameters: []
     responses:
       -
@@ -278,7 +278,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer beZEkafh5ca431Vd6vDg86P'
+      - 'Bearer kDP81dg5avEc6aeZhbf643V'
     controller: null
     method: null
     route: null
@@ -309,7 +309,7 @@ endpoints:
         name: current_password
         description: ''
         required: true
-        example: quis
+        example: quia
         type: string
         enumValues: []
         custom: []
@@ -330,7 +330,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      current_password: quis
+      current_password: quia
       password: et
       password_confirmation: null
     fileParameters: []
@@ -351,7 +351,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer kbc66ZEf8evPa1hg4DaVd53'
+      - 'Bearer 6de1kP6EahVfZcv35gD8ab4'
     controller: null
     method: null
     route: null
@@ -391,7 +391,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer e4EhdPg3c6va6a5bV8Zk1Df'
+      - 'Bearer hagVa46Zc8ve63f51bDkPEd'
     controller: null
     method: null
     route: null

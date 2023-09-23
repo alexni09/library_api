@@ -22,12 +22,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: rerum
+        example: sed
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: rerum
+      category_id: sed
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -35,12 +35,12 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 42
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 42
+      category_id: 12
     fileParameters: []
     responses:
       -
@@ -153,7 +153,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer VDvZaa4fPhb3eEd816k5cg6'
+      - 'Bearer Za1v5h64bDfag8EPVk3de6c'
     controller: null
     method: null
     route: null
@@ -184,7 +184,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: dkbnzkeukafzwxyl
+        example: qcfjgccdyujrxqxyjwwdppd
         type: string
         enumValues: []
         custom: []
@@ -192,7 +192,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 3
+        example: 5
         type: integer
         enumValues: []
         custom: []
@@ -200,14 +200,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 41
+        example: 33
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: dkbnzkeukafzwxyl
-      rating: 3
-      category_id: 41
+      name: qcfjgccdyujrxqxyjwwdppd
+      rating: 5
+      category_id: 33
     fileParameters: []
     responses:
       -
@@ -226,7 +226,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k46ZV3b81EgfDev56aadPhc'
+      - 'Bearer b38De6Pf64VEvk51gZdaach'
     controller: null
     method: null
     route: null
@@ -266,7 +266,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: rct
+        example: nzostkysrsnxkybwlundefy
         type: string
         enumValues: []
         custom: []
@@ -274,7 +274,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 2
+        example: 4
         type: integer
         enumValues: []
         custom: []
@@ -282,14 +282,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 51
+        example: 28
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: rct
-      rating: 2
-      category_id: 51
+      name: nzostkysrsnxkybwlundefy
+      rating: 4
+      category_id: 28
     fileParameters: []
     responses:
       -
@@ -314,7 +314,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4aZb5fa61Ed63kPcheV8gDv'
+      - 'Bearer hg64D6aEav8fcZ5VkPed1b3'
     controller: null
     method: null
     route: null
@@ -369,7 +369,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3g6fZDkeh4b86Pa1dcV5vaE'
+      - 'Bearer aD4kgV1Eed63bacZ8f56hvP'
     controller: null
     method: null
     route: null

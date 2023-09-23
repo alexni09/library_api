@@ -36,7 +36,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 56k8PaecZd3Dg1a4vhfV6bE'
+      - 'Bearer D8aP1bVe5gdhZfE66vc3a4k'
     controller: null
     method: null
     route: null
@@ -76,7 +76,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer heDdVZ8gack6abE54f3v1P6'
+      - 'Bearer 6Ze8aEc1Da6kP4bf3vdhg5V'
     controller: null
     method: null
     route: null
@@ -116,7 +116,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hbcv4PZ3af5V86gdkE1D6ae'
+      - 'Bearer k3vh14E6VeDgacb68dPZaf5'
     controller: null
     method: null
     route: null
@@ -162,7 +162,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v5bZ8a63gh6kdEePD1Va4fc'
+      - 'Bearer 6D83vf6ePacVaZEg5h1dbk4'
     controller: null
     method: null
     route: null
@@ -208,7 +208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4E63VfDacZb8ga5h6kdve1P'
+      - 'Bearer khd6fva16gcbZP8eaD4EV53'
     controller: null
     method: null
     route: null
@@ -254,7 +254,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer EcfaeP1h6vdV58b3gD6Z4ka'
+      - 'Bearer P6Egvh63dafeZb85D1kc4Va'
     controller: null
     method: null
     route: null
@@ -294,12 +294,12 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 9
+        example: 7
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 9
+      money: 7
     fileParameters: []
     responses:
       -
@@ -336,7 +336,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f6PD5aVE6v38k4gdbhc1aZe'
+      - 'Bearer 8Dv6VfdPg4Ea6ke3Z15ahbc'
     controller: null
     method: null
     route: null

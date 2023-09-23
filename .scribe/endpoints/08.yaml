@@ -36,12 +36,12 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 40
+        example: 26
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 40
+      exemplar_id: 26
     fileParameters: []
     responses:
       -
@@ -60,7 +60,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Z3h1av64eEV8kc5agd6PDfb'
+      - 'Bearer 1k6fabaeVZEP4h6cD58d3gv'
     controller: null
     method: null
     route: null

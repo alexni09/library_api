@@ -1,0 +1,1708 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/libraryapi.site"
+        }
+    ],
+    "info": {
+        "name": "library_api",
+        "_postman_id": "957f6567-e6c8-4cdd-b533-56a4c0e8843f",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "User Registration",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"bejwx\",\"email\":\"ahmad34@example.org\",\"password\":\"voluptatem\",\"password_confirmation\":null}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"access_token\":\"1|laravel_sanctum_iB5fCwdUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cc1\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gladyce.wehner@example.net\",\"password\":\"rerum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"access_token\":\"13|laravel_sanctum_iB5fCWeUGTlqcOtpoNo7yzGSecNDJn9FK1kSm3EJ90942cz1\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Incorrect credentials or validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Who Am I",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/whoami",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/whoami"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":1567,\"name\":\"Mister Y Z\",\"email\":\"misteryz@sample.biz\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"name\":\"Mister X Y Z\",\"email\":\"misterxyz@sample.website\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profile"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"iste\",\"email\":\"janie.wolf@example.org\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 202,
+                            "body": "{\"name\":\"Mister A B C\",\"email\":\"misterabc@sample.site\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Password Update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/password"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"quia\",\"password\":\"et\",\"password_confirmation\":null}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 202,
+                            "body": "{\"message\":\"Your password has been updated.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Book",
+            "description": "",
+            "item": [
+                {
+                    "name": "Fetch Books By category_id",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books-by-category\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books-by-category\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "sed",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_id\":12}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":51,\"name\":\"Totam et et libero quis.\",\"rating_value\":2,\"rating_name\":\"Bad\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"},{\"id\":52,\"name\":\"Et saepe ut sint aut magnam.\",\"rating_value\":3,\"rating_name\":\"Reasonable\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "No books found for the given category_id."
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Category not found."
+                        }
+                    ]
+                },
+                {
+                    "name": "Show Book",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books\/:book_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books\/:book_id",
+                            "variable": [
+                                {
+                                    "id": "book_id",
+                                    "key": "book_id",
+                                    "value": "1",
+                                    "description": "The ID of the book."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":51,\"name\":\"Totam et et libero quis.\",\"rating_value\":2,\"rating_name\":\"Bad\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Book not found."
+                        }
+                    ]
+                },
+                {
+                    "name": "List All Books",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":51,\"name\":\"Totam et et libero quis.\",\"rating_value\":2,\"rating_name\":\"Bad\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"},{\"id\":52,\"name\":\"Et saepe ut sint aut magnam.\",\"rating_value\":3,\"rating_name\":\"Reasonable\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store Book",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"qcfjgccdyujrxqxyjwwdppd\",\"rating\":5,\"category_id\":33}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":51,\"name\":\"Totam et et libero quis.\",\"rating_value\":2,\"rating_name\":\"Bad\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Book",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books\/:book_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books\/:book_id",
+                            "variable": [
+                                {
+                                    "id": "book_id",
+                                    "key": "book_id",
+                                    "value": "1",
+                                    "description": "The ID of the book."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"nzostkysrsnxkybwlundefy\",\"rating\":4,\"category_id\":28}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":51,\"name\":\"Totam et et libero quis.\",\"rating_value\":2,\"rating_name\":\"Bad\",\"category_id\":6,\"category_name\":\"Optio at eius qui ipsa.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Book not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Book",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books\/:book_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books\/:book_id",
+                            "variable": [
+                                {
+                                    "id": "book_id",
+                                    "key": "book_id",
+                                    "value": "1",
+                                    "description": "The ID of the book."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Book not found."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "BookDonation",
+            "description": "",
+            "item": [
+                {
+                    "name": "User donates a book",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/books\/donate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/books\/donate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_id\":86,\"name\":\"repellendus\",\"rating\":4,\"condition\":4}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":123,\"borrowable\":1,\"book_id\":98,\"book_name\":\"Ut in nam ea recusandae.\",\"condition_value\":4,\"condition_name\":\"Damaged\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Category not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Borrow",
+            "description": "",
+            "item": [
+                {
+                    "name": "User borrows an exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/borrow\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/borrow\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "1",
+                                    "description": "The ID of the exemplar."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"user_id\":4,\"exemplar_id\":9,\"borrowed\":\"2023-09-22T23:23:04.552027Z\",\"returned\":null,\"return_due\":\"2023-09-22T23:24:04.552034Z\",\"maximum_minutes\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 402,
+                            "body": "{\"errors\": \"This borrowing is suspended because of open payments.\"}",
+                            "name": "Payment required."
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"errors\": \"This exemplar cannot leave the library.\"}",
+                            "name": "Exemplar cannot leave the library."
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"errors\": \"User has reached the maximum borrowable limit (3).\"}",
+                            "name": "Maximum borrowings reached for the user."
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"errors\": \"This exemplar is currently borrowed.\"}",
+                            "name": "Exemplar is currently borrowed."
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "User lists his\/hers unreturned exemplars",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/borrowed-list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/borrowed-list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":5,\"borrowable\":1,\"book_id\":61,\"book_name\":\"Id fugit aut rem suscipit.\",\"condition_value\":2,\"condition_name\":\"Good\"},{\"id\":7,\"borrowable\":1,\"book_id\":93,\"book_name\":\"Libero saepe aut facilis.\",\"condition_value\":1,\"condition_name\":\"LikeNew\"},{\"id\":8,\"borrowable\":1,\"book_id\":165,\"book_name\":\"Ut ratione eos sed sunt.\",\"condition_value\":1,\"condition_name\":\"LikeNew\"}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "User has no unreturned exemplars."
+                        }
+                    ]
+                },
+                {
+                    "name": "User gives back an exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/giveback\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/giveback\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "ipsa",
+                                    "description": "The ID of the exemplar."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"exemplar_id\":42,\"condition\":4}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"user_id\":4,\"exemplar_id\":7,\"condition\":1,\"returned\":\"2023-09-23T00:06:19.191688Z\",\"due\":\"2023-09-23T00:07:00.000000Z\",\"fee_per_rental\":900,\"fine_per_delay\":0,\"fine_per_damage\":0,\"total_payment_due\":900,\"payment_due\":\"2023-09-23T00:08:00.000000Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Category",
+            "description": "",
+            "item": [
+                {
+                    "name": "List Categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"start\":56}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{ \"data\": [ { \"id\": 4, \"name\": \"Odit illum magnam ut et et.\" }, { \"id\": 8, \"name\": \"Iure aut ab tempore sed.\" } ] }",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Show Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":30,\"name\":\"Minima quia eum atque enim.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Category not found."
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"esgursbewlavxllpiyazkdwkp\"}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":8,\"name\":\"Iure aut ab tempore sed.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"suwpdzoiqnsagpykehfvkt\"}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":31,\"name\":\"Distinctio cumque eum est.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Category not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Category not found."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Exemplar",
+            "description": "",
+            "item": [
+                {
+                    "name": "Show Exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "1",
+                                    "description": "The ID of the exemplar."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":5,\"borrowable\":1,\"book_id\":167,\"book_name\":\"Quo sint qui corporis.\",\"condition_value\":2,\"condition_name\":\"Good\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found."
+                        }
+                    ]
+                },
+                {
+                    "name": "Fetch Exemplars by book_id",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars\/list\/:book_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars\/list\/:book_id",
+                            "variable": [
+                                {
+                                    "id": "book_id",
+                                    "key": "book_id",
+                                    "value": "sint",
+                                    "description": "The ID of the book."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":48,\"condition\":2,\"borrowable\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":337,\"borrowable\":1,\"book_id\":11,\"book_name\":\"Qui saepe et nisi enim.\",\"condition_value\":1,\"condition_name\":\"LikeNew\"},{\"id\":487,\"borrowable\":1,\"book_id\":11,\"book_name\":\"Qui saepe et nisi enim.\",\"condition_value\":2,\"condition_name\":\"Good\"}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "No exemplars found for the given book_id."
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Book not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":10,\"condition\":1,\"borrowable\":true}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":6,\"borrowable\":1,\"book_id\":167,\"book_name\":\"Quo sint qui corporis.\",\"condition_value\":2,\"condition_name\":\"Good\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "1",
+                                    "description": "The ID of the exemplar."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":56,\"condition\":2,\"borrowable\":true,\"user_id\":31,\"change_donor\":false}"
+                        },
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":6,\"borrowable\":1,\"book_id\":167,\"book_name\":\"Quo sint qui corporis.\",\"condition_value\":2,\"condition_name\":\"Good\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "1",
+                                    "description": "The ID of the exemplar."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "<small class=\"badge badge-purple\">admin<\/small>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ExemplarDonation",
+            "description": "",
+            "item": [
+                {
+                    "name": "User donates an exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplars\/donate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplars\/donate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"book_id\":36,\"condition\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":123,\"borrowable\":1,\"book_id\":98,\"book_name\":\"Ut in nam ea recusandae.\",\"condition_value\":1,\"condition_name\":\"LikeNew\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Book not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ExemplarLoss",
+            "description": "",
+            "item": [
+                {
+                    "name": "User loses an exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/exemplar-loss\/:exemplar_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/exemplar-loss\/:exemplar_id",
+                            "variable": [
+                                {
+                                    "id": "exemplar_id",
+                                    "key": "exemplar_id",
+                                    "value": "",
+                                    "description": "integer The ID of the lost exemplar."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"exemplar_id\":26}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"user_id\":4,\"old_exemplar_id\":27,\"lost_or_destroyed\":\"2023-09-22T21:36:04.817027Z\",\"due\":\"2023-09-22T21:35:50.000000Z\",\"fine_per_loss_or_destruction\":230000,\"payment_due\":\"2023-09-22T21:37:04.817027Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Exemplar not found or not borrowed by the user."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Payment",
+            "description": "",
+            "item": [
+                {
+                    "name": "User receives a sum of all payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/all-payments-total",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/all-payments-total"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"all_payments_total\":56789}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User receives a sum of all open payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/balance-due-open",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/balance-due-open"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"all_payments_total\":12345}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User receives a sum of all unpaid payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/balance-due-unpaid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/balance-due-unpaid"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"all_payments_total\":7891}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User lists all payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/list-all-payments",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/list-all-payments"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"exemplar_id\":7,\"due_value\":900,\"due_from\":\"2023-09-23 00:07:00\",\"due_at\":\"2023-09-23 00:08:00\",\"paid_at\":\"2023-09-23 00:24:55\"},{\"id\":2,\"exemplar_id\":6,\"due_value\":2170,\"due_from\":\"2023-09-23 00:06:51\",\"due_at\":\"2023-09-23 00:10:01\",\"paid_at\":null}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "No records found."
+                        }
+                    ]
+                },
+                {
+                    "name": "User lists unpaid payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/list-balance-due-unpaid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/list-balance-due-unpaid"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"exemplar_id\":7,\"due_value\":900,\"due_from\":\"2023-09-23 00:07:00\",\"due_at\":\"2023-09-23 00:08:00\",\"paid_at\":null},{\"id\":2,\"exemplar_id\":6,\"due_value\":2170,\"due_from\":\"2023-09-23 00:06:51\",\"due_at\":\"2023-09-23 00:10:01\",\"paid_at\":null}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "No records found."
+                        }
+                    ]
+                },
+                {
+                    "name": "User lists open payments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/list-balance-due-open",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/list-balance-due-open"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":2,\"exemplar_id\":6,\"due_value\":2170,\"due_from\":\"2023-09-23 00:06:51\",\"due_at\":\"2023-09-23 00:10:01\",\"paid_at\":null},{\"id\":1,\"exemplar_id\":7,\"due_value\":900,\"due_from\":\"2023-09-23 00:07:00\",\"due_at\":\"2023-09-23 00:08:00\",\"paid_at\":null}]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "No records found."
+                        }
+                    ]
+                },
+                {
+                    "name": "User pays for borrowing an exemplar",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pay\/:payment_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pay\/:payment_id",
+                            "variable": [
+                                {
+                                    "id": "payment_id",
+                                    "key": "payment_id",
+                                    "value": "1",
+                                    "description": "The ID of the payment."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"money\":7}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"exemplar_id\":7,\"due_value\":900,\"received\":3000,\"change\":2100,\"due_from\":\"2023-09-23 00:07:00\",\"due_at\":\"2023-09-23 00:08:00\",\"paid_at\":\"2023-09-23 00:24:55\",\"message\":\"Payment received. Thank you!\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"errors\": \"It is not allowed to pay for someone else's invoices.\"}",
+                            "name": "Can't pay for someone elses'."
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Payment not found."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": \"Already paid.\"}",
+                            "name": "Already paid."
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"errors\": [list]}",
+                            "name": "Validation Errors. (Includes underpayment attempt.)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "type": "string"
+            }
+        ]
+    }
+}

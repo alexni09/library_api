@@ -81,7 +81,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1V48Zgav3ahEPcfkbe5d66D'
+      - 'Bearer P1fZV3ba86gavDc46Ehekd5'
     controller: null
     method: null
     route: null
@@ -127,7 +127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bVZ5aadDv368EPkg61che4f'
+      - 'Bearer ZV6agED6P5fah4vcbkd138e'
     controller: null
     method: null
     route: null
@@ -154,12 +154,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: maiores
+        example: ipsa
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: maiores
+      exemplar_id: ipsa
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -167,7 +167,7 @@ endpoints:
         name: exemplar_id
         description: 'Must be at least 1.'
         required: true
-        example: 74
+        example: 42
         type: integer
         enumValues: []
         custom: []
@@ -180,7 +180,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 74
+      exemplar_id: 42
       condition: 4
     fileParameters: []
     responses:
@@ -206,7 +206,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8hbeEZv6P3cgDkf5a1da46V'
+      - 'Bearer k6vadfe61VbE4h5Pgca3Z8D'
     controller: null
     method: null
     route: null
