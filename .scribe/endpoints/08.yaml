@@ -23,25 +23,17 @@ endpoints:
         name: exemplar_id
         description: 'integer The ID of the lost exemplar.'
         required: true
-        example: null
+        example: '54'
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: null
+      exemplar_id: '54'
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      exemplar_id:
-        name: exemplar_id
-        description: 'Must be at least 1.'
-        required: true
-        example: 26
-        type: integer
-        enumValues: []
-        custom: []
+    bodyParameters: []
     cleanBodyParameters:
-      exemplar_id: 26
+      exemplar_id: 65
     fileParameters: []
     responses:
       -
@@ -60,7 +52,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1k6fabaeVZEP4h6cD58d3gv'
+      - 'Bearer 3dhfb8gD41eav6EPacV6k5Z'
     controller: null
     method: null
     route: null

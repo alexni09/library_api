@@ -26,7 +26,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: bejwx
+        example: bywhioiiou
         type: string
         enumValues: []
         custom: []
@@ -34,7 +34,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: ahmad34@example.org
+        example: miracle66@example.org
         type: string
         enumValues: []
         custom: []
@@ -42,7 +42,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: voluptatem
+        example: fuga
         type: string
         enumValues: []
         custom: []
@@ -55,9 +55,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: bejwx
-      email: ahmad34@example.org
-      password: voluptatem
+      name: bywhioiiou
+      email: miracle66@example.org
+      password: fuga
       password_confirmation: null
     fileParameters: []
     responses:
@@ -104,7 +104,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: gladyce.wehner@example.net
+        example: langosh.makenzie@example.org
         type: string
         enumValues: []
         custom: []
@@ -112,13 +112,13 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: rerum
+        example: non
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: gladyce.wehner@example.net
-      password: rerum
+      email: langosh.makenzie@example.org
+      password: non
     fileParameters: []
     responses:
       -
@@ -174,7 +174,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6hdaDa4g61f3cE58ZvkbePV'
+      - 'Bearer f8Pv6k65ab431dcZaehDEgV'
     controller: null
     method: null
     route: null
@@ -214,7 +214,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hgbfa4k851eEa63ZPD6Vvcd'
+      - 'Bearer de5VvE3ahgDabfkc816PZ64'
     controller: null
     method: null
     route: null
@@ -245,7 +245,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: iste
+        example: est
         type: string
         enumValues: []
         custom: []
@@ -253,13 +253,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: janie.wolf@example.org
+        example: tbernier@example.com
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: iste
-      email: janie.wolf@example.org
+      name: est
+      email: tbernier@example.com
     fileParameters: []
     responses:
       -
@@ -278,7 +278,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer kDP81dg5avEc6aeZhbf643V'
+      - 'Bearer V6k6aa3vgcf8Zd514hPEbDe'
     controller: null
     method: null
     route: null
@@ -309,7 +309,7 @@ endpoints:
         name: current_password
         description: ''
         required: true
-        example: quia
+        example: adipisci
         type: string
         enumValues: []
         custom: []
@@ -317,7 +317,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: et
+        example: sapiente
         type: string
         enumValues: []
         custom: []
@@ -330,8 +330,8 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      current_password: quia
-      password: et
+      current_password: adipisci
+      password: sapiente
       password_confirmation: null
     fileParameters: []
     responses:
@@ -351,7 +351,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6de1kP6EahVfZcv35gD8ab4'
+      - 'Bearer a618V6ZfDg5ab3PkEcvhed4'
     controller: null
     method: null
     route: null
@@ -391,7 +391,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hagVa46Zc8ve63f51bDkPEd'
+      - 'Bearer PZk43Ved8aEgfab65Dcvh61'
     controller: null
     method: null
     route: null

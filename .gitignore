@@ -22,5 +22,6 @@ yarn-error.log
 /app/Http/Requests/UpdateBookRequest.php
 /tests/*.txt
 /tests0
-/domains.txt
-/cron_jobs.txt
+cron_jobs.txt
+domains.txt
+scribe_some_urls.txt

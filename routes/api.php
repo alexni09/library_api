@@ -11,13 +11,13 @@ use App\Http\Controllers\Api\WhoAmIController;
 use App\Http\Controllers\Api\Main\CategoryController;
 use App\Http\Controllers\Api\Main\BookController;
 use App\Http\Controllers\Api\Main\ExemplarController;
-use App\Http\Controllers\Api\MonitorController;
+use App\Http\Controllers\Api\Frontend\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
 use App\Http\Controllers\Api\Main\BookDonationController;
 use App\Http\Controllers\Api\Main\BorrowController;
 use App\Http\Controllers\Api\Main\PaymentController;
-use App\Http\Controllers\Api\Main\MoneyController;
-use App\Http\Controllers\Api\Main\CountController;
+use App\Http\Controllers\Api\Frontend\MoneyController;
+use App\Http\Controllers\Api\Frontend\CountController;
 use App\Http\Controllers\Api\Main\ExemplarLossController;
 
 Route::post('auth/register', RegisterController::class);

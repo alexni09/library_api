@@ -21,6 +21,7 @@ class ExemplarController extends Controller {
      * 
      * @unauthenticated
      *
+     * @urlParam book_id integer required The book's ID. Example: 831
      * @bodyParam condition integer optional Worst condition acceptable (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 2
      * @bodyParam borrowable boolean optional Set it to false if unborrowable exemplars are acceptable to be listed. Default is true. Example: true
      * 

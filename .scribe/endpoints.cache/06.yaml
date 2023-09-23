@@ -25,12 +25,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 1
+        example: 11
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 1
+      exemplar_id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -83,7 +83,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P1fZV3ba86gavDc46Ehekd5'
+      - 'Bearer 3Z8b1gdvh4Va6cfDPaekE56'
     controller: null
     method: null
     route: null
@@ -129,7 +129,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ZV6agED6P5fah4vcbkd138e'
+      - 'Bearer 5gDeb43h81VafPakv6EZdc6'
     controller: null
     method: null
     route: null
@@ -154,25 +154,17 @@ endpoints:
     urlParameters:
       exemplar_id:
         name: exemplar_id
-        description: 'The ID of the exemplar.'
+        description: "The exemplar's ID."
         required: true
-        example: ipsa
-        type: string
-        enumValues: []
-        custom: []
-    cleanUrlParameters:
-      exemplar_id: ipsa
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      exemplar_id:
-        name: exemplar_id
-        description: 'Must be at least 1.'
-        required: true
-        example: 42
+        example: 8247
         type: integer
         enumValues: []
         custom: []
+    cleanUrlParameters:
+      exemplar_id: 8247
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       condition:
         name: condition
         description: 'optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
@@ -182,7 +174,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 42
+      exemplar_id: 76
       condition: 4
     fileParameters: []
     responses:
@@ -208,7 +200,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k6vadfe61VbE4h5Pgca3Z8D'
+      - 'Bearer dPaefvZhD41a6c58gVE36bk'
     controller: null
     method: null
     route: null

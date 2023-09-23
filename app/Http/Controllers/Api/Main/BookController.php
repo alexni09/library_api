@@ -120,6 +120,8 @@ class BookController extends Controller {
      * 
      * @unauthenticated
      * 
+     * @urlParam category_id integer required The category's ID. Example: 82
+     * 
      * @response 200 {"data":[{"id":51,"name":"Totam et et libero quis.","rating_value":2,"rating_name":"Bad","category_id":6,"category_name":"Optio at eius qui ipsa."},{"id":52,"name":"Et saepe ut sint aut magnam.","rating_value":3,"rating_name":"Reasonable","category_id":6,"category_name":"Optio at eius qui ipsa."}]}
      * @response 204 scenario="No books found for the given category_id."
      * @response 404 scenario="Category not found." {"errors": [list]}

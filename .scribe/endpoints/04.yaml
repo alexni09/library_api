@@ -27,7 +27,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 36
+        example: 20
         type: integer
         enumValues: []
         custom: []
@@ -40,7 +40,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 36
+      book_id: 20
       condition: 1
     fileParameters: []
     responses:
@@ -66,7 +66,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer dV5v6efbDh41gk6cZ38aPEa'
+      - 'Bearer b4cdegaPV866EfDhZ51a3vk'
     controller: null
     method: null
     route: null

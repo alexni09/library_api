@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Main;
+namespace App\Http\Controllers\Api\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use App\Services\Misc;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Redis;
 /**
- * @group Miscellaneous
+ * @group Frontend
  */
 class CountController extends Controller {
     public function __invoke(Request $request):JsonResponse {

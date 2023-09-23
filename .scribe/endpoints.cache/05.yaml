@@ -29,7 +29,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 86
+        example: 12
         type: integer
         enumValues: []
         custom: []
@@ -37,7 +37,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: repellendus
+        example: repellat
         type: string
         enumValues: []
         custom: []
@@ -45,7 +45,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 4
+        example: 2
         type: integer
         enumValues: []
         custom: []
@@ -58,9 +58,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 86
-      name: repellendus
-      rating: 4
+      category_id: 12
+      name: repellat
+      rating: 2
       condition: 4
     fileParameters: []
     responses:
@@ -86,7 +86,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k6bgaZeD1ca4dEv68fh35VP'
+      - 'Bearer D3ZhvgPkac8a5EeVf6db461'
     controller: null
     method: null
     route: null

@@ -22,27 +22,19 @@ endpoints:
     urlParameters:
       category_id:
         name: category_id
-        description: 'The ID of the category.'
+        description: "The category's ID."
         required: true
-        example: sed
-        type: string
-        enumValues: []
-        custom: []
-    cleanUrlParameters:
-      category_id: sed
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      category_id:
-        name: category_id
-        description: 'Must be at least 1.'
-        required: true
-        example: 12
+        example: 82
         type: integer
         enumValues: []
         custom: []
+    cleanUrlParameters:
+      category_id: 82
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
     cleanBodyParameters:
-      category_id: 12
+      category_id: 75
     fileParameters: []
     responses:
       -
@@ -90,12 +82,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 1
+        example: 6
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 1
+      book_id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -155,7 +147,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Za1v5h64bDfag8EPVk3de6c'
+      - 'Bearer 3a6VPEcDdv5bf1a6hekZg48'
     controller: null
     method: null
     route: null
@@ -186,7 +178,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: qcfjgccdyujrxqxyjwwdppd
+        example: yjmpcaowxzelbrymaenfmlocv
         type: string
         enumValues: []
         custom: []
@@ -194,7 +186,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 5
+        example: 4
         type: integer
         enumValues: []
         custom: []
@@ -202,14 +194,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 33
+        example: 78
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: qcfjgccdyujrxqxyjwwdppd
-      rating: 5
-      category_id: 33
+      name: yjmpcaowxzelbrymaenfmlocv
+      rating: 4
+      category_id: 78
     fileParameters: []
     responses:
       -
@@ -228,7 +220,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer b38De6Pf64VEvk51gZdaach'
+      - 'Bearer 1vcEb86a54hgka3VDZ6edfP'
     controller: null
     method: null
     route: null
@@ -255,12 +247,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 1
+        example: 3
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 1
+      book_id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -268,7 +260,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: nzostkysrsnxkybwlundefy
+        example: gyovpgcypzhihoqmulfhp
         type: string
         enumValues: []
         custom: []
@@ -276,7 +268,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 4
+        example: 5
         type: integer
         enumValues: []
         custom: []
@@ -284,14 +276,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 28
+        example: 57
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: nzostkysrsnxkybwlundefy
-      rating: 4
-      category_id: 28
+      name: gyovpgcypzhihoqmulfhp
+      rating: 5
+      category_id: 57
     fileParameters: []
     responses:
       -
@@ -316,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hg64D6aEav8fcZ5VkPed1b3'
+      - 'Bearer hVk61PDvcdZ6bE5g4faea83'
     controller: null
     method: null
     route: null
@@ -343,12 +335,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 1
+        example: 9
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 1
+      book_id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -371,7 +363,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aD4kgV1Eed63bacZ8f56hvP'
+      - 'Bearer k5vV1D6bdZE3h6faga84Pce'
     controller: null
     method: null
     route: null
