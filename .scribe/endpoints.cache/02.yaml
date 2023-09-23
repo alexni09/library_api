@@ -34,7 +34,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters:
-      category_id: 75
+      category_id: 86
     fileParameters: []
     responses:
       -
@@ -82,12 +82,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 6
+        example: 2
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 6
+      book_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -147,7 +147,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3a6VPEcDdv5bf1a6hekZg48'
+      - 'Bearer 6c3ke5DV4af61ahvgPdb8ZE'
     controller: null
     method: null
     route: null
@@ -178,7 +178,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: yjmpcaowxzelbrymaenfmlocv
+        example: rfnryzqzmlfqqeptnjuhoh
         type: string
         enumValues: []
         custom: []
@@ -186,7 +186,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 4
+        example: 5
         type: integer
         enumValues: []
         custom: []
@@ -194,14 +194,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 78
+        example: 75
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: yjmpcaowxzelbrymaenfmlocv
-      rating: 4
-      category_id: 78
+      name: rfnryzqzmlfqqeptnjuhoh
+      rating: 5
+      category_id: 75
     fileParameters: []
     responses:
       -
@@ -220,7 +220,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1vcEb86a54hgka3VDZ6edfP'
+      - 'Bearer 68fdg4e3PabvZDEhak165Vc'
     controller: null
     method: null
     route: null
@@ -247,12 +247,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 3
+        example: 17
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 3
+      book_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -260,7 +260,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: gyovpgcypzhihoqmulfhp
+        example: apeka
         type: string
         enumValues: []
         custom: []
@@ -268,7 +268,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 5
+        example: 3
         type: integer
         enumValues: []
         custom: []
@@ -276,14 +276,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 57
+        example: 85
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: gyovpgcypzhihoqmulfhp
-      rating: 5
-      category_id: 57
+      name: apeka
+      rating: 3
+      category_id: 85
     fileParameters: []
     responses:
       -
@@ -308,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hVk61PDvcdZ6bE5g4faea83'
+      - 'Bearer khabZd6aP6cEVe813v54fgD'
     controller: null
     method: null
     route: null
@@ -335,12 +335,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 9
+        example: 10
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 9
+      book_id: 10
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -363,7 +363,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k5vV1D6bdZE3h6faga84Pce'
+      - 'Bearer 4f66Zh1VPabc38ve5adEkDg'
     controller: null
     method: null
     route: null

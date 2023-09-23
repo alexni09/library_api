@@ -104,10 +104,12 @@ class BorrowController extends Controller {
      * @bodyParam condition integer optional The actual exemplar condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged). Example: 4
      * 
      * @response 200 {"data":{"user_id":4,"exemplar_id":7,"condition":1,"returned":"2023-09-23T00:06:19.191688Z","due":"2023-09-23T00:07:00.000000Z","fee_per_rental":900,"fine_per_delay":0,"fine_per_damage":0,"total_payment_due":900,"payment_due":"2023-09-23T00:08:00.000000Z"}}
+     * @response 403 scenario="User tries to return an exemplar in a better shape." {"errors": "Returning an exemplar in a better shape is unnaceptable!" }
+     * @response 404 scenario="User tries to return someone elses'." {"errors": "Exemplar #367 is not borrowed with this user #42." }
      * @response 404 scenario="Exemplar not found." {"errors": [list]}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
-    public function giveback(int $exemplar_id, Request $resquest):JsonResponse {
+    public function giveback(int $exemplar_id, Request $request):JsonResponse {
         $request->merge([ 'exemplar_id' => $exemplar_id ]);
         $validator = Validator::make($request->all(), [
             'exemplar_id' => [ 'required', 'integer', 'min:1', 'exists:exemplars,id' ],
@@ -133,7 +135,7 @@ class BorrowController extends Controller {
         if ($condition < $exemplar->condition->value) {
             Misc::monitor('patch',Response::HTTP_FORBIDDEN);
             return response()->json([
-                'errors' => 'Returning a book in a better shape is impossible!'
+                'errors' => 'Returning an exemplar in a better shape is unnaceptable!'
             ], Response::HTTP_FORBIDDEN);
         }
         $now = Carbon::now();

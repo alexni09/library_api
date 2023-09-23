@@ -27,7 +27,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 12
+        example: 54
         type: integer
         enumValues: []
         custom: []
@@ -35,7 +35,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: repellat
+        example: vel
         type: string
         enumValues: []
         custom: []
@@ -43,7 +43,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
@@ -56,9 +56,9 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 12
-      name: repellat
-      rating: 2
+      category_id: 54
+      name: vel
+      rating: 1
       condition: 4
     fileParameters: []
     responses:
@@ -84,7 +84,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer D3ZhvgPkac8a5EeVf6db461'
+      - 'Bearer 5gPcv4fD3Z66Eea1bdkVa8h'
     controller: null
     method: null
     route: null

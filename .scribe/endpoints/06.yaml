@@ -23,12 +23,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 11
+        example: 14
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 11
+      exemplar_id: 14
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -81,7 +81,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3Z8b1gdvh4Va6cfDPaekE56'
+      - 'Bearer Vb5Pg16e86v34kZhdEfaaDc'
     controller: null
     method: null
     route: null
@@ -127,7 +127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5gDeb43h81VafPakv6EZdc6'
+      - 'Bearer hgf35D1cVadvZeE8bP64a6k'
     controller: null
     method: null
     route: null
@@ -172,7 +172,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 76
+      exemplar_id: 4
       condition: 4
     fileParameters: []
     responses:
@@ -181,6 +181,18 @@ endpoints:
         content: '{"data":{"user_id":4,"exemplar_id":7,"condition":1,"returned":"2023-09-23T00:06:19.191688Z","due":"2023-09-23T00:07:00.000000Z","fee_per_rental":900,"fine_per_delay":0,"fine_per_damage":0,"total_payment_due":900,"payment_due":"2023-09-23T00:08:00.000000Z"}}'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"errors": "Returning an exemplar in a better shape is unnaceptable!" }'
+        headers: []
+        description: 'User tries to return an exemplar in a better shape.'
+        custom: []
+      -
+        status: 404
+        content: '{"errors": "Exemplar #367 is not borrowed with this user #42." }'
+        headers: []
+        description: "User tries to return someone elses'."
         custom: []
       -
         status: 404
@@ -198,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer dPaefvZhD41a6c58gVE36bk'
+      - 'Bearer da6bhf5VD81cka6Z4eg3vPE'
     controller: null
     method: null
     route: null
