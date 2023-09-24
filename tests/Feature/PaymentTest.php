@@ -558,7 +558,35 @@ class PaymentTest extends TestCase {
             'due_at' => (Carbon::now())->subMinutes(30)
         ]);
         $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 45]);
-        $response->assertStatus(422);
+        $response->assertStatus(402);
+    }
+
+    public function testUserCannotPayZero() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 96543,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(30)
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id), [ 'money' => 0]);
+        $response->assertStatus(402);
+    }
+
+    public function testUserCannotMakeNoPayment() {
+        $user = User::factory()->create();
+        $exemplar = Exemplar::where('borrowable',true)->first();
+        $payment = Payment::create([
+            'exemplar_id' => $exemplar->id,
+            'user_id' => $user->id,
+            'due_value' => 1246,
+            'due_from' => (Carbon::now())->subMinutes(50),
+            'due_at' => (Carbon::now())->subMinutes(30)
+        ]);
+        $response = $this->actingAs($user)->patchJson('/api/pay/' . strval($payment->id));
+        $response->assertStatus(402);
     }
 
     public function testUserCanPayCorrectly() {

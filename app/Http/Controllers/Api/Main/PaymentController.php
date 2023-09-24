@@ -105,20 +105,20 @@ class PaymentController extends Controller {
      * @authenticated
      * 
      * @response 200 {"data":{"id":1,"exemplar_id":7,"due_value":900,"received":3000,"change":2100,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55","message":"Payment received. Thank you!"}}
+     * @response 402 scenario="Attempt at underpayment or at no payment." {"errors": [list]}
      * @response 403 scenario="Can't pay for someone elses'." {"errors": "It is not allowed to pay for someone else's invoices."}
      * @response 404 scenario="Payment not found." {"errors": [list]}
      * @response 422 scenario="Already paid." {"errors": "Already paid."}
-     * @response 422 scenario="Validation Errors. (Includes underpayment attempt.)" {"errors": [list]}
      */
     public function pay(Request $request, Payment $payment):JsonResponse {
         $validator = Validator::make($request->all(), [
             'money' => [ 'required', 'integer', 'min:'.strval($payment->due_value) ]
         ]);
         if ($validator->fails()) {
-            Misc::monitor('patch',Response::HTTP_UNPROCESSABLE_ENTITY);
+            Misc::monitor('patch', 402);
             return response()->json([
                 'errors' => $validator->errors()
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            ], 402);
         }
         if ($payment->user_id !== Auth::id()) {
             Misc::monitor('patch',Response::HTTP_FORBIDDEN);
