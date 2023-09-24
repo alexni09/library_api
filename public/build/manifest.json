@@ -1,18 +1,42 @@
 {
   "resources/js/Pages/Index.css": {
-    "file": "assets/Index-ea6b13b8.css",
+    "file": "assets/Index-30e3b9aa.css",
     "src": "resources/js/Pages/Index.css"
   },
   "resources/js/Pages/Index.vue": {
     "css": [
-      "assets/Index-ea6b13b8.css"
+      "assets/Index-30e3b9aa.css"
     ],
-    "file": "assets/Index-f5deece7.js",
+    "file": "assets/Index-7dc27d76.js",
     "imports": [
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Index.vue"
+  },
+  "resources/js/Pages/Tst01.vue": {
+    "file": "assets/Tst01-35c41bd0.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Tst01.vue"
+  },
+  "resources/js/Pages/Tst02.vue": {
+    "file": "assets/Tst02-3bec0fe7.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Tst02.vue"
+  },
+  "resources/js/Pages/Tst03.vue": {
+    "file": "assets/Tst03-4396bbed.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Tst03.vue"
   },
   "resources/js/app.css": {
     "file": "assets/app-cc33470f.css",
@@ -23,9 +47,12 @@
       "assets/app-cc33470f.css"
     ],
     "dynamicImports": [
-      "resources/js/Pages/Index.vue"
+      "resources/js/Pages/Index.vue",
+      "resources/js/Pages/Tst01.vue",
+      "resources/js/Pages/Tst02.vue",
+      "resources/js/Pages/Tst03.vue"
     ],
-    "file": "assets/app-1456076f.js",
+    "file": "assets/app-6d73221f.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, ref, toRaw, onBeforeUnmount } from 'vue'
 import dayjs from 'dayjs'
+const myProps = defineProps({
+    ip_list: Object
+})
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -92,7 +95,10 @@ onBeforeUnmount(() => {
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
                     <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                        <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
+                    </td>
+                    <td v-else class="px-1 border-l border-stone-500">{{ line.ip }}</td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
             </table>
@@ -118,7 +124,9 @@ onBeforeUnmount(() => {
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
                     <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                        <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
+                    </td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
             </table>
@@ -144,7 +152,9 @@ onBeforeUnmount(() => {
                     <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
                     <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
                     <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td class="px-1 border-l border-stone-500">{{ line.ip }}</td>
+                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                        <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
+                    </td>
                     <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
                 </tr>
             </table>
