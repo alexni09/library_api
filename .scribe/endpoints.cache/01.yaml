@@ -28,12 +28,12 @@ endpoints:
         name: start
         description: 'Must be at least 1.'
         required: false
-        example: 81
+        example: 56
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      start: 81
+      start: 56
     fileParameters: []
     responses:
       -
@@ -75,12 +75,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 18
+        example: 6
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 18
+      category_id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -89,7 +89,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1444,"name":"Quis ut nihil corrupti amet."}}'
+        content: '{"data":{"id":1478,"name":"Sit a ad magnam laborum et."}}'
         headers: []
         description: ''
         custom: []
@@ -131,12 +131,12 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: pgzvsogcggeluyi
+        example: dqtlqginpvmddudtt
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: pgzvsogcggeluyi
+      name: dqtlqginpvmddudtt
     fileParameters: []
     responses:
       -
@@ -155,7 +155,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4EZevD8cdV6a1h356Pbgkfa'
+      - 'Bearer aPb1V6h6c3ag4Evfkd85ZDe'
     controller: null
     method: null
     route: null
@@ -182,12 +182,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 18
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 18
+      category_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -195,17 +195,17 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: wbvia
+        example: njnwyfjeamcdkqzvsguxm
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: wbvia
+      name: njnwyfjeamcdkqzvsguxm
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":1445,"name":"Ut quos omnis sed."}}'
+        content: '{"data":{"id":1479,"name":"Et fugit omnis id ut."}}'
         headers: []
         description: ''
         custom: []
@@ -225,7 +225,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Vac4bZk8vD6dPg36Efa1e5h'
+      - 'Bearer DkaPE8Zfa6ecV5v63gbh41d'
     controller: null
     method: null
     route: null
@@ -252,12 +252,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 19
+        example: 18
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 19
+      category_id: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -280,7 +280,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer D6a4d3V6Zk18bcg5ahefvPE'
+      - 'Bearer kEV3ZhDab81adP466efcv5g'
     controller: null
     method: null
     route: null

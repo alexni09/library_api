@@ -29,7 +29,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 54
+        example: 70
         type: integer
         enumValues: []
         custom: []
@@ -37,7 +37,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: vel
+        example: ratione
         type: string
         enumValues: []
         custom: []
@@ -58,8 +58,8 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 54
-      name: vel
+      category_id: 70
+      name: ratione
       rating: 1
       condition: 4
     fileParameters: []
@@ -86,7 +86,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5gPcv4fD3Z66Eea1bdkVa8h'
+      - 'Bearer 6vDhkef83acZ5V1d4agEbP6'
     controller: null
     method: null
     route: null

@@ -25,12 +25,12 @@ endpoints:
         name: exemplar_id
         description: 'The ID of the exemplar.'
         required: true
-        example: 14
+        example: 5
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      exemplar_id: 14
+      exemplar_id: 5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -83,7 +83,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Vb5Pg16e86v34kZhdEfaaDc'
+      - 'Bearer gEaaP18bZ3eh6Dck5dfv64V'
     controller: null
     method: null
     route: null
@@ -129,7 +129,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hgf35D1cVadvZeE8bP64a6k'
+      - 'Bearer 6V64d1kf8egPEabh5vZ3acD'
     controller: null
     method: null
     route: null
@@ -174,7 +174,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 4
+      exemplar_id: 78
       condition: 4
     fileParameters: []
     responses:
@@ -212,7 +212,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer da6bhf5VD81cka6Z4eg3vPE'
+      - 'Bearer h4E8kfeZP6dcav1bVg56aD3'
     controller: null
     method: null
     route: null

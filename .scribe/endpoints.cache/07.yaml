@@ -38,7 +38,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer che3Ea54fD6vZg6b1VdakP8'
+      - 'Bearer hEZ3D65Pfbaka64evVc8d1g'
     controller: null
     method: null
     route: null
@@ -78,7 +78,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bhv4ke5caVDagf1P6638EdZ'
+      - 'Bearer 5PdZ86E1Dgaabec3v6f4Vhk'
     controller: null
     method: null
     route: null
@@ -118,7 +118,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fgkav8cdVP4e6hba5Z631DE'
+      - 'Bearer 3dageDPk6cv65f8Z1VbEah4'
     controller: null
     method: null
     route: null
@@ -164,7 +164,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Z5E68VedvDg6haf3ka4P1bc'
+      - 'Bearer 86b1gh5Pc6ZfaVvD4Ekdea3'
     controller: null
     method: null
     route: null
@@ -210,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer c36Zefv51Da6aVkEb84gdPh'
+      - 'Bearer P4V63E8kDv5feh1Zcgaad6b'
     controller: null
     method: null
     route: null
@@ -256,7 +256,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer dkvVcE5ZefD863b6Pahg14a'
+      - 'Bearer DaE6chVvP6kef5841bZadg3'
     controller: null
     method: null
     route: null
@@ -283,12 +283,12 @@ endpoints:
         name: payment_id
         description: 'The ID of the payment.'
         required: true
-        example: 9
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      payment_id: 9
+      payment_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -296,12 +296,12 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 3
+        example: 10
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 3
+      money: 10
     fileParameters: []
     responses:
       -
@@ -309,6 +309,12 @@ endpoints:
         content: '{"data":{"id":1,"exemplar_id":7,"due_value":900,"received":3000,"change":2100,"due_from":"2023-09-23 00:07:00","due_at":"2023-09-23 00:08:00","paid_at":"2023-09-23 00:24:55","message":"Payment received. Thank you!"}}'
         headers: []
         description: ''
+        custom: []
+      -
+        status: 402
+        content: '{"errors": [list]}'
+        headers: []
+        description: 'Attempt at underpayment or at no payment.'
         custom: []
       -
         status: 403
@@ -328,17 +334,11 @@ endpoints:
         headers: []
         description: 'Already paid.'
         custom: []
-      -
-        status: 422
-        content: '{"errors": [list]}'
-        headers: []
-        description: 'Validation Errors. (Includes underpayment attempt.)'
-        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1h66ab3EV5cdZvakfDe4gP8'
+      - 'Bearer Vhvb36gecPEZ8adD465a1fk'
     controller: null
     method: null
     route: null

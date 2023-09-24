@@ -35,7 +35,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters:
-      exemplar_id: 4
+      exemplar_id: 36
     fileParameters: []
     responses:
       -
@@ -54,7 +54,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Z65be61Vdh8D3gacvEkaf4P'
+      - 'Bearer hvgbkDaPZ63aeV68c15Ed4f'
     controller: null
     method: null
     route: null

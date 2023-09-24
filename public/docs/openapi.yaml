@@ -45,15 +45,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: gtnisxzivisqjugifq
+                  example: ykxrx
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: cole.kovacek@example.com
+                  example: reagan85@example.org
                 password:
                   type: string
                   description: ''
-                  example: deleniti
+                  example: similique
                 password_confirmation:
                   type: string
                   description: 'Must have the same value as password.'
@@ -102,11 +102,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: novella.anderson@example.org
+                  example: umohr@example.org
                 password:
                   type: string
                   description: ''
-                  example: omnis
+                  example: vero
               required:
                 - email
                 - password
@@ -206,11 +206,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: natus
+                  example: quod
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: emilio81@example.org
+                  example: sedrick.nikolaus@example.com
               required:
                 - name
                 - email
@@ -252,11 +252,11 @@ paths:
                 current_password:
                   type: string
                   description: ''
-                  example: ea
+                  example: qui
                 password:
                   type: string
                   description: ''
-                  example: temporibus
+                  example: eaque
                 password_confirmation:
                   type: string
                   description: 'Must have the same value as password.'
@@ -486,15 +486,15 @@ paths:
                 name:
                   type: string
                   description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
-                  example: apeka
+                  example: blptkvuczfelyydajy
                 rating:
                   type: integer
                   description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
-                  example: 3
+                  example: 4
                 category_id:
                   type: integer
                   description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
-                  example: 85
+                  example: 43
     delete:
       summary: 'Delete Book'
       operationId: deleteBook
@@ -517,7 +517,7 @@ paths:
         in: path
         name: book_id
         description: 'The ID of the book.'
-        example: 2
+        example: 9
         required: true
         schema:
           type: integer
@@ -652,15 +652,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rfnryzqzmlfqqeptnjuhoh
+                  example: zvdgqhppiljzlbpmgdzsx
                 rating:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 5.'
-                  example: 5
+                  example: 4
                 category_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 75
+                  example: 81
               required:
                 - name
                 - rating
@@ -734,11 +734,11 @@ paths:
                 category_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 54
+                  example: 70
                 name:
                   type: string
                   description: ''
-                  example: vel
+                  example: ratione
                 rating:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 5.'
@@ -840,7 +840,7 @@ paths:
         in: path
         name: exemplar_id
         description: 'The ID of the exemplar.'
-        example: 14
+        example: 5
         required: true
         schema:
           type: integer
@@ -1096,7 +1096,7 @@ paths:
                 start:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 81
+                  example: 56
       security: []
     post:
       summary: 'Create Category'
@@ -1143,7 +1143,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: pgzvsogcggeluyi
+                  example: dqtlqginpvmddudtt
               required:
                 - name
   '/api/categories/{category_id}':
@@ -1161,18 +1161,18 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 1444
-                    name: 'Quis ut nihil corrupti amet.'
+                    id: 1478
+                    name: 'Sit a ad magnam laborum et.'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 1444
+                        example: 1478
                       name:
                         type: string
-                        example: 'Quis ut nihil corrupti amet.'
+                        example: 'Sit a ad magnam laborum et.'
         404:
           description: 'Category not found.'
           content:
@@ -1197,18 +1197,18 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 1445
-                    name: 'Ut quos omnis sed.'
+                    id: 1479
+                    name: 'Et fugit omnis id ut.'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 1445
+                        example: 1479
                       name:
                         type: string
-                        example: 'Ut quos omnis sed.'
+                        example: 'Et fugit omnis id ut.'
         404:
           description: 'Category not found.'
           content:
@@ -1235,7 +1235,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: wbvia
+                  example: njnwyfjeamcdkqzvsguxm
               required:
                 - name
     delete:
@@ -1260,7 +1260,7 @@ paths:
         in: path
         name: category_id
         description: 'The ID of the category.'
-        example: 18
+        example: 6
         required: true
         schema:
           type: integer
@@ -1393,11 +1393,11 @@ paths:
                 borrowable:
                   type: boolean
                   description: 'This field is required when none of <code>book_id</code>, <code>condition</code>, and <code>change_donor</code> are present.'
-                  example: true
+                  example: false
                 user_id:
                   type: integer
                   description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
-                  example: 25
+                  example: 86
                 change_donor:
                   type: boolean
                   description: 'optional Set this field to true to update the donor. Default is false.'
@@ -1424,7 +1424,7 @@ paths:
         in: path
         name: exemplar_id
         description: 'The ID of the exemplar.'
-        example: 15
+        example: 13
         required: true
         schema:
           type: integer
@@ -1601,7 +1601,7 @@ paths:
                 book_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 44
+                  example: 46
                 condition:
                   type: integer
                   description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
@@ -1682,7 +1682,7 @@ paths:
                 book_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 22
+                  example: 60
                 condition:
                   type: integer
                   description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
@@ -2097,6 +2097,13 @@ paths:
                       message:
                         type: string
                         example: 'Payment received. Thank you!'
+        402:
+          description: 'Attempt at underpayment or at no payment.'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"errors": [list]}'
         403:
           description: "Can't pay for someone elses'."
           content:
@@ -2117,12 +2124,17 @@ paths:
                 type: string
                 example: '{"errors": [list]}'
         422:
-          description: 'Validation Errors. (Includes underpayment attempt.)'
+          description: 'Already paid.'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: '{"errors": [list]}'
+                type: object
+                example:
+                  errors: 'Already paid.'
+                properties:
+                  errors:
+                    type: string
+                    example: 'Already paid.'
       tags:
         - Payment
       requestBody:
@@ -2135,7 +2147,7 @@ paths:
                 money:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 10
               required:
                 - money
     parameters:
@@ -2143,7 +2155,7 @@ paths:
         in: path
         name: payment_id
         description: 'The ID of the payment.'
-        example: 9
+        example: 12
         required: true
         schema:
           type: integer
