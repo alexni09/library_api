@@ -14,9 +14,9 @@ This is a project whose main goal is to make performant queries and api requests
 
 This project simulates a library where the user can list, borrow, return and pay for the borrowing of books.
 
-This project includes the api, whose server is currently running on [libraryapi.site](https://libraryapi.site)[![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467).
+This project includes the api, whose server is currently running on [libraryapi.site](https://libraryapi.site) [![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467).
 
-This project also includes two clients, [genericapiclient.xyz](https://genericapiclient.xyz)[![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467) and [genericapi.xyz](https://genericapi.xyz)[![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467).
+This project also includes two clients, [genericapiclient.xyz](https://genericapiclient.xyz) [![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467) and [genericapi.xyz](https://genericapi.xyz) [![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F24fb8ea7-22a5-426a-bc25-5cef36e4a794&style=plastic)](https://forge.laravel.com/servers/717882/sites/2102467).
 
 The api documentation is available [here](https://libraryapi.site/docs/).
 
@@ -24,4 +24,4 @@ The api documentation is available [here](https://libraryapi.site/docs/).
 
 This is mainly a backend project. However, it has a monitoring page which can be accessed by clicking on the links above.
 
-*This is the api server readme.md file. For the client readme.md, please follow this [link](https://github.com/alexni09/library_client).*
+*This is the api server readme.md file. For the client readme.md file, please follow this [link](https://github.com/alexni09/library_client).*
