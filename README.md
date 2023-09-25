@@ -24,4 +24,4 @@ The api documentation is available [here](https://libraryapi.site/docs/).
 
 This is mainly a backend project. However, it has a monitoring page which can be accessed by clicking on the links above.
 
-*This is the api server readme.md file. For the client readme.md file, please follow this [link](https://github.com/alexni09/library_client).*
+*This is the api server readme.md file. For the client readme.md file, please follow this [link](https://github.com/alexni09/library_client/blob/main/README.md).*
