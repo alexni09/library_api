@@ -195,13 +195,13 @@ onBeforeUnmount(() => {
             </div>
         </div>
         <div class="flex justify-center">
-            <p class="pBelowStyle">
+            <p class="mt-3 w-[840px] text-sm font-medium italic">
                 This site is best wiewed on a larger screen, such as either from a laptop or desktop.
             </p>
         </div>
         <div class="flex justify-center">
-            <p class="pBelowStyle">
-                Also, we may change domain names, so please check 
+            <p class="mt-1 w-[840px] text-sm font-medium italic">
+                Also, domain names may change anytime, so please check 
                 <a href="https://github.com/alexni09/library_api" target="_blank" class="underline">this github repository</a> 
                 to find out where this app is hosted or where it will be hosted next.
             </p>
@@ -210,9 +210,6 @@ onBeforeUnmount(() => {
     </div>
 </template>
 <style lang="postcss" scoped>
-.pBelowStyle {
-    @apply mt-1 w-[840px] text-sm font-medium italic;
-}
 .tableStyle {
     @apply bg-stone-50 border border-stone-500;
 }
