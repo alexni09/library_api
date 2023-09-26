@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
             <h3 class="mb-4 font-medium text-2xl">Accumulated: <i class="mr-0.5">F</i>{{ accumulatedMoney }}</h3>
         </div>
         <div class="flex justify-center">
-            <table class="bg-stone-50 border border-stone-500">
+            <table class="tableStyle">
                 <tr>
                     <th class="p-1 bg-stone-300 font-semibold border-b border-stone-500 whitespace-nowrap">When ?</th>
                     <th class="thStyle">Method</th>
@@ -92,14 +92,14 @@ onBeforeUnmount(() => {
                     <td colspan="5" class="p-1 font-medium italic whitespace-nowrap">No Records Found!</td>
                 </tr>
                 <tr v-for="line in lines1" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
-                    <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
-                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                    <td class="tdDatetimeStyle">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
+                    <td class="tdMethodStyle">{{ line.method }}</td>
+                    <td class="tdUrlStyle">{{ line.url }}</td>
+                    <td v-if="line.ip in ip_list" class="tdIpStyle">
                         <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
                     </td>
-                    <td v-else class="px-1 border-l border-stone-500">{{ line.ip }}</td>
-                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
+                    <td v-else class="tdIpStyle">{{ line.ip }}</td>
+                    <td class="tdStatusStyle">{{ line.status }}</td>
                 </tr>
             </table>
         </div>
@@ -119,15 +119,16 @@ onBeforeUnmount(() => {
             </div>
         </div>
         <div v-if="lines?.length >= 60" class="flex justify-center">
-            <table class="bg-stone-50 border border-stone-500">
+            <table class="tableStyle">
                 <tr v-for="line in lines2" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
-                    <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
-                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                    <td class="tdDatetimeStyle">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
+                    <td class="tdMethodStyle">{{ line.method }}</td>
+                    <td class="tdUrlStyle">{{ line.url }}</td>
+                    <td v-if="line.ip in ip_list" class="tdIpStyle">
                         <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
                     </td>
-                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
+                    <td v-else class="tdIpStyle">{{ line.ip }}</td>
+                    <td class="tdStatusStyle">{{ line.status }}</td>
                 </tr>
             </table>
         </div>
@@ -147,15 +148,16 @@ onBeforeUnmount(() => {
             </div>
         </div>
         <div v-if="lines?.length >= 90" class="flex justify-center">
-            <table class="bg-stone-50 border border-stone-500">
+            <table class="tableStyle">
                 <tr v-for="line in lines3" :key="line.id" :class="{ 'bg-stone-200': line.id % 6 > 2 }">
-                    <td class="px-1 whitespace-nowrap">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
-                    <td class="px-1 w-24 border-l border-stone-500">{{ line.method }}</td>
-                    <td class="px-1 w-[570px] border-l border-stone-500">{{ line.url }}</td>
-                    <td v-if="line.ip in ip_list" class="px-1 border-l border-stone-500">
+                    <td class="tdDatetimeStyle">{{ dayjs(line.datetime + '+00:00').format('YYYY/MM/DD HH:mm:ss') }}</td>
+                    <td class="tdMethodStyle">{{ line.method }}</td>
+                    <td class="tdUrlStyle">{{ line.url }}</td>
+                    <td v-if="line.ip in ip_list" class="tdIpStyle">
                         <a :href="ip_list[line.ip]" target="_blank">{{ line.ip }}</a>
                     </td>
-                    <td class="px-1 w-16 border-l border-stone-500">{{ line.status }}</td>
+                    <td v-else class="tdIpStyle">{{ line.ip }}</td>
+                    <td class="tdStatusStyle">{{ line.status }}</td>
                 </tr>
             </table>
         </div>
@@ -183,10 +185,29 @@ onBeforeUnmount(() => {
                 <p class="font-normal"><i>database_size:</i> <span class="ml-0.5 font-semibold">{{ statistics?.mysql_count }}</span></p>
             </div>
         </div>
-        <div class="h-20" />
+        <div class="flex justify-center text-sm font-medium italic">This site is best wiewed on a larger screen, like either from a laptop or desktop.</div>
+        <div class="h-16" />
     </div>
 </template>
 <style lang="postcss" scoped>
+.tableStyle {
+    @apply bg-stone-50 border border-stone-500;
+}
+.tdDatetimeStyle {
+    @apply px-1 whitespace-nowrap;
+}
+.tdIpStyle {
+    @apply px-1 w-40 border-l border-stone-500;
+}
+.tdMethodStyle {
+    @apply px-1 w-24 border-l border-stone-500;
+}
+.tdStatusStyle {
+    @apply px-1 w-16 border-l border-stone-500;
+}
+.tdUrlStyle {
+    @apply px-1 w-[570px] border-l border-stone-500;
+}
 .thStyle {
     @apply p-1 bg-stone-300 font-semibold border-l border-b border-stone-500;
 }
