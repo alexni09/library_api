@@ -77,7 +77,25 @@ onBeforeUnmount(() => {
             <h1 class="mt-2 mb-2 font-bold text-4xl">:<span class="ml-1">:</span> library_api <span class="mr-1">:</span>:</h1>
         </div>
         <div class="flex justify-center">
-            <h3 class="mb-4 font-medium text-2xl">Accumulated: <i class="mr-0.5">F</i>{{ accumulatedMoney }}</h3>
+            <p class="mb-4 w-[840px] font-medium">
+                This is a digital library with fictitious data. 
+                Its aim is to demonstrate the fastness and robustness of the api responses over a very big database, which currently holds:
+                {{ statistics?.category_count.toLocaleString('en-US') }} categories,
+                {{ statistics?.book_count.toLocaleString('en-US') }} books,
+                {{ statistics?.exemplar_count.toLocaleString('en-US') }} exemplars;
+                and is {{ statistics?.mysql_count }} big.
+                The api customers pay after returning the borrowed book; and when that happens this library makes money.
+                Until now, it has accumulated F{{ accumulatedMoney }}.
+                <span class="italic text-sm font-medium">(These statistics are updated hourly.)</span>
+                <br>
+                The api documentation can be accessed <a href="/docs" target="_blank" class="underline">here</a>.
+                <br>
+                There are two clients for this library.
+                They can be accessed <a href="https://genericapiclient.xyz" target="_blank" class="underline">here</a> 
+                    and <a href="https://genericapi.xyz" target="_blank" class="underline">here</a>.
+                <br>
+                These are the latest api requests, in real time:
+            </p>
         </div>
         <div class="flex justify-center">
             <table class="tableStyle">
@@ -185,7 +203,15 @@ onBeforeUnmount(() => {
                 <p class="font-normal"><i>database_size:</i> <span class="ml-0.5 font-semibold">{{ statistics?.mysql_count }}</span></p>
             </div>
         </div>
-        <div class="flex justify-center text-sm font-medium italic">This site is best wiewed on a larger screen, like either from a laptop or desktop.</div>
+        <div class="flex justify-center">
+            <p class="text-sm font-medium italic">
+                This site is best wiewed on a larger screen, such as either from a laptop or desktop.
+                <br><br>
+                Also, we may change domain names, so please check 
+                <a href="https://github.com/alexni09/library_api" target="_blank" class="underline">this github repository</a> 
+                to find out where this app is hosted or where it will be hosted next.
+            </p>
+        </div>
         <div class="h-16" />
     </div>
 </template>
