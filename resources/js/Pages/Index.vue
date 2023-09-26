@@ -80,9 +80,9 @@ onBeforeUnmount(() => {
             <p class="mb-4 w-[840px] font-medium">
                 This is a digital library with fictitious data. 
                 Its aim is to demonstrate the fastness and robustness of the api responses over a very big database, which currently holds:
-                {{ statistics?.category_count.toLocaleString('en-US') }} categories,
-                {{ statistics?.book_count.toLocaleString('en-US') }} books,
-                {{ statistics?.exemplar_count.toLocaleString('en-US') }} exemplars;
+                {{ Number(statistics?.category_count).toLocaleString('en-US') }} categories,
+                {{ Number(statistics?.book_count).toLocaleString('en-US') }} books,
+                {{ Number(statistics?.exemplar_count).toLocaleString('en-US') }} exemplars;
                 and is {{ statistics?.mysql_count }} big.
                 The api customers pay after returning the borrowed book; and when that happens this library makes money.
                 Until now, it has accumulated F{{ accumulatedMoney }}.
@@ -195,16 +195,7 @@ onBeforeUnmount(() => {
             </div>
         </div>
         <div class="flex justify-center">
-            <div class="justify-center">
-                <h4 class="mt-3 font-bold text-xl">Statistics:<span class="ml-2 italic text-sm font-semibold">(updated hourly)</span></h4>
-                <p class="font-normal"><i>category_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.category_count }}</span></p>
-                <p class="font-normal"><i>book_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.book_count }}</span></p>
-                <p class="font-normal"><i>exemplar_count:</i> <span class="ml-0.5 font-semibold">{{ statistics?.exemplar_count }}</span></p>
-                <p class="font-normal"><i>database_size:</i> <span class="ml-0.5 font-semibold">{{ statistics?.mysql_count }}</span></p>
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <p class="text-sm font-medium italic">
+            <p class="mt-4 text-sm font-medium italic">
                 This site is best wiewed on a larger screen, such as either from a laptop or desktop.
                 <br><br>
                 Also, we may change domain names, so please check 
