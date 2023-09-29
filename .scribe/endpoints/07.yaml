@@ -36,7 +36,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hEZ3D65Pfbaka64evVc8d1g'
+      - 'Bearer EcVZakP6b65eghvad438Df1'
     controller: null
     method: null
     route: null
@@ -76,7 +76,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5PdZ86E1Dgaabec3v6f4Vhk'
+      - 'Bearer kEga5Zba8V61dc3ev4DPhf6'
     controller: null
     method: null
     route: null
@@ -116,7 +116,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3dageDPk6cv65f8Z1VbEah4'
+      - 'Bearer 8vfDkhZc5eVgE41d6a63aPb'
     controller: null
     method: null
     route: null
@@ -162,7 +162,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 86b1gh5Pc6ZfaVvD4Ekdea3'
+      - 'Bearer afe8dagb156kvED3Pc64hVZ'
     controller: null
     method: null
     route: null
@@ -208,7 +208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P4V63E8kDv5feh1Zcgaad6b'
+      - 'Bearer dV5ZDhav3cEP4g6abf1k8e6'
     controller: null
     method: null
     route: null
@@ -254,7 +254,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DaE6chVvP6kef5841bZadg3'
+      - 'Bearer b5vaeDh31dgZ4kVfEaP6c86'
     controller: null
     method: null
     route: null
@@ -281,12 +281,12 @@ endpoints:
         name: payment_id
         description: 'The ID of the payment.'
         required: true
-        example: 12
+        example: 9
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      payment_id: 12
+      payment_id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -294,12 +294,12 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 10
+        example: 18
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 10
+      money: 18
     fileParameters: []
     responses:
       -
@@ -336,7 +336,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Vhvb36gecPEZ8adD465a1fk'
+      - 'Bearer 3hV14gfDbePac8Za6d5E6vk'
     controller: null
     method: null
     route: null

@@ -11,13 +11,10 @@ use App\Http\Controllers\Api\WhoAmIController;
 use App\Http\Controllers\Api\Main\CategoryController;
 use App\Http\Controllers\Api\Main\BookController;
 use App\Http\Controllers\Api\Main\ExemplarController;
-use App\Http\Controllers\Api\Frontend\MonitorController;
 use App\Http\Controllers\Api\Main\ExemplarDonationController;
 use App\Http\Controllers\Api\Main\BookDonationController;
 use App\Http\Controllers\Api\Main\BorrowController;
 use App\Http\Controllers\Api\Main\PaymentController;
-use App\Http\Controllers\Api\Frontend\MoneyController;
-use App\Http\Controllers\Api\Frontend\CountController;
 use App\Http\Controllers\Api\Main\ExemplarLossController;
 
 Route::post('auth/register', RegisterController::class);
@@ -53,23 +50,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('pay/{payment}', [PaymentController::class, 'pay']);
     Route::delete('exemplar-loss/{exemplar_id}', ExemplarLossController::class);
 });
-
-Route::middleware(['auth:sanctum', 'admin'])->group(function () {
-    Route::post('categories', [CategoryController::class, 'store']);
-    Route::put('categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
-    Route::get('books', [BookController::class, 'index']);
-    Route::post('books', [BookController::class, 'store']);
-    Route::put('books/{book}', [BookController::class, 'update']);
-    Route::delete('books/{book}', [BookController::class, 'destroy']);
-    Route::post('exemplars', [ExemplarController::class, 'store']);
-    Route::put('exemplars/{exemplar}', [ExemplarController::class, 'update']);
-    Route::delete('exemplars/{exemplar}', [ExemplarController::class, 'destroy']);
-});
-
-Route::middleware('referer')->group(function () {
-    Route::get('monitor', MonitorController::class);
-    Route::get('money', MoneyController::class);
-});
-
-Route::get('count', CountController::class);

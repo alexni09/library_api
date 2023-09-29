@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "library_api",
-        "_postman_id": "bf668680-a32b-410b-a2dd-682c998556f4",
+        "_postman_id": "3158c8cc-24f9-4c12-8a45-89ba36a50110",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ykxrx\",\"email\":\"reagan85@example.org\",\"password\":\"similique\",\"password_confirmation\":null}"
+                            "raw": "{\"name\":\"vvggvxvkoewhd\",\"email\":\"hauck.viviane@example.com\",\"password\":\"et\",\"password_confirmation\":null}"
                         },
                         "description": "",
                         "auth": {
@@ -85,7 +85,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"umohr@example.org\",\"password\":\"vero\"}"
+                            "raw": "{\"email\":\"sanford.ella@example.net\",\"password\":\"quasi\"}"
                         },
                         "description": "",
                         "auth": {
@@ -193,7 +193,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quod\",\"email\":\"sedrick.nikolaus@example.com\"}"
+                            "raw": "{\"name\":\"non\",\"email\":\"vbergnaum@example.com\"}"
                         },
                         "description": ""
                     },
@@ -234,7 +234,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"qui\",\"password\":\"eaque\",\"password_confirmation\":null}"
+                            "raw": "{\"current_password\":\"natus\",\"password\":\"accusantium\",\"password_confirmation\":null}"
                         },
                         "description": ""
                     },
@@ -358,7 +358,7 @@
                                 {
                                     "id": "book_id",
                                     "key": "book_id",
-                                    "value": "9",
+                                    "value": "5",
                                     "description": "The ID of the book."
                                 }
                             ]
@@ -449,7 +449,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zvdgqhppiljzlbpmgdzsx\",\"rating\":4,\"category_id\":81}"
+                            "raw": "{\"name\":\"pvubgwmdpph\",\"rating\":5,\"category_id\":44}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -498,7 +498,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"blptkvuczfelyydajy\",\"rating\":4,\"category_id\":43}"
+                            "raw": "{\"name\":\"dsfnxdjkuhook\",\"rating\":1,\"category_id\":15}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -535,7 +535,7 @@
                                 {
                                     "id": "book_id",
                                     "key": "book_id",
-                                    "value": "7",
+                                    "value": "1",
                                     "description": "The ID of the book."
                                 }
                             ]
@@ -597,7 +597,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":70,\"name\":\"ratione\",\"rating\":1,\"condition\":4}"
+                            "raw": "{\"category_id\":29,\"name\":\"doloribus\",\"rating\":3,\"condition\":4}"
                         },
                         "description": ""
                     },
@@ -640,7 +640,7 @@
                                 {
                                     "id": "exemplar_id",
                                     "key": "exemplar_id",
-                                    "value": "5",
+                                    "value": "8",
                                     "description": "The ID of the exemplar."
                                 }
                             ]
@@ -837,7 +837,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"start\":56}"
+                            "raw": "{\"start\":55}"
                         },
                         "description": "",
                         "auth": {
@@ -871,7 +871,7 @@
                                 {
                                     "id": "category_id",
                                     "key": "category_id",
-                                    "value": "6",
+                                    "value": "10",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -897,7 +897,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1478,\"name\":\"Sit a ad magnam laborum et.\"}}",
+                            "body": "{\"data\":{\"id\":1478,\"name\":\"Quis maxime aperiam et eius.\"}}",
                             "name": ""
                         },
                         {
@@ -930,7 +930,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"dqtlqginpvmddudtt\"}"
+                            "raw": "{\"name\":\"gqyhpnonquktzizxpljsnl\"}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -961,7 +961,7 @@
                                 {
                                     "id": "category_id",
                                     "key": "category_id",
-                                    "value": "12",
+                                    "value": "8",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -979,7 +979,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"njnwyfjeamcdkqzvsguxm\"}"
+                            "raw": "{\"name\":\"kdofbezchgkwpwvnkkxhbex\"}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -987,7 +987,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1479,\"name\":\"Et fugit omnis id ut.\"}}",
+                            "body": "{\"data\":{\"id\":1479,\"name\":\"At expedita nisi iure ut.\"}}",
                             "name": ""
                         },
                         {
@@ -1016,7 +1016,7 @@
                                 {
                                     "id": "category_id",
                                     "key": "category_id",
-                                    "value": "18",
+                                    "value": "15",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -1068,7 +1068,7 @@
                                 {
                                     "id": "exemplar_id",
                                     "key": "exemplar_id",
-                                    "value": "13",
+                                    "value": "6",
                                     "description": "The ID of the exemplar."
                                 }
                             ]
@@ -1191,7 +1191,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":46,\"condition\":1,\"borrowable\":true}"
+                            "raw": "{\"book_id\":70,\"condition\":1,\"borrowable\":true}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -1222,7 +1222,7 @@
                                 {
                                     "id": "exemplar_id",
                                     "key": "exemplar_id",
-                                    "value": "18",
+                                    "value": "17",
                                     "description": "The ID of the exemplar."
                                 }
                             ]
@@ -1240,7 +1240,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":60,\"condition\":2,\"borrowable\":false,\"user_id\":86,\"change_donor\":false}"
+                            "raw": "{\"book_id\":8,\"condition\":3,\"borrowable\":false,\"user_id\":55,\"change_donor\":false}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -1277,7 +1277,7 @@
                                 {
                                     "id": "exemplar_id",
                                     "key": "exemplar_id",
-                                    "value": "9",
+                                    "value": "3",
                                     "description": "The ID of the exemplar."
                                 }
                             ]
@@ -1339,7 +1339,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":60,\"condition\":1}"
+                            "raw": "{\"book_id\":39,\"condition\":1}"
                         },
                         "description": ""
                     },
@@ -1644,7 +1644,7 @@
                                 {
                                     "id": "payment_id",
                                     "key": "payment_id",
-                                    "value": "12",
+                                    "value": "9",
                                     "description": "The ID of the payment."
                                 }
                             ]
@@ -1662,7 +1662,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"money\":10}"
+                            "raw": "{\"money\":18}"
                         },
                         "description": ""
                     },
