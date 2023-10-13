@@ -25,7 +25,7 @@ class Handler extends ExceptionHandler {
     public function register() {
         $this->renderable(function (NotFoundHttpException $e) {
             if (request()->wantsJson()) {
-                Misc::monitor('post',Response::HTTP_NOT_FOUND);
+                Misc::monitor(strtolower(request()->method()), Response::HTTP_NOT_FOUND);
                 return response()->json([
                     'error' => 'Object not found.'
                 ], Response::HTTP_NOT_FOUND);
