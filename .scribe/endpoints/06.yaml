@@ -67,7 +67,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Exemplar #nnnnnn not found."}'
         headers: []
         description: 'Exemplar not found.'
         custom: []
@@ -81,7 +81,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ecaZbh6P68Ed51g3afk4VvD'
+      - 'Bearer Dgh618bf6EkVZcd4avea35P'
     controller: null
     method: null
     route: null
@@ -127,7 +127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3b8VPfEae665c1khvagDd4Z'
+      - 'Bearer VZdh4aP8k6a5bfgevE361Dc'
     controller: null
     method: null
     route: null
@@ -172,7 +172,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      exemplar_id: 10
+      exemplar_id: 6
       condition: 4
     fileParameters: []
     responses:
@@ -210,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DfcPZ8E3v6ahV5ged41k6ab'
+      - 'Bearer Pcha5b3EVg4Da681v6edZkf'
     controller: null
     method: null
     route: null

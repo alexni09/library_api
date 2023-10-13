@@ -45,15 +45,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: smpjetngnrawutpzfioazlnui
+                  example: dfotmbajdfbndnkfsvqb
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: xkihn@example.org
+                  example: tillman.rosa@example.net
                 password:
                   type: string
                   description: ''
-                  example: fugit
+                  example: quia
                 password_confirmation:
                   type: string
                   description: 'Must have the same value as password.'
@@ -102,11 +102,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: geichmann@example.net
+                  example: jreynolds@example.com
                 password:
                   type: string
                   description: ''
-                  example: ut
+                  example: illo
               required:
                 - email
                 - password
@@ -206,11 +206,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: odio
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: lyda35@example.org
+                  example: ankunding.katelin@example.net
               required:
                 - name
                 - email
@@ -252,11 +252,11 @@ paths:
                 current_password:
                   type: string
                   description: ''
-                  example: omnis
+                  example: at
                 password:
                   type: string
                   description: ''
-                  example: cum
+                  example: provident
                 password_confirmation:
                   type: string
                   description: 'Must have the same value as password.'
@@ -349,10 +349,15 @@ paths:
         404:
           description: 'Category not found.'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: '{"errors": [list]}'
+                type: object
+                example:
+                  error: 'Category #nnnn not found.'
+                properties:
+                  error:
+                    type: string
+                    example: 'Category #nnnn not found.'
       tags:
         - Book
       security: []
@@ -415,11 +420,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Book #nnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Book #nnnnn not found.'
       tags:
         - Book
       security: []
@@ -472,11 +477,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Book #nnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Book #nnnnn not found.'
         422:
           description: 'Validation Errors.'
           content:
@@ -496,7 +501,7 @@ paths:
                 name:
                   type: string
                   description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
-                  example: qdvqaxwlfltavqcdsyfwwpb
+                  example: opuebsyeqxkoaujdwlc
                 rating:
                   type: integer
                   description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
@@ -504,7 +509,7 @@ paths:
                 category_id:
                   type: integer
                   description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
-                  example: 17
+                  example: 21
     delete:
       summary: 'Delete Book'
       operationId: deleteBook
@@ -520,11 +525,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Book #nnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Book #nnnnn not found.'
       tags:
         - Book
     parameters:
@@ -667,15 +672,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: efsofmtzkevplpi
+                  example: lkvxijthkzivbbcvb
                 rating:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 5.'
-                  example: 3
+                  example: 5
                 category_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 75
+                  example: 52
               required:
                 - name
                 - rating
@@ -749,11 +754,11 @@ paths:
                 category_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 89
+                  example: 62
                 name:
                   type: string
                   description: ''
-                  example: tempore
+                  example: exercitationem
                 rating:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 5.'
@@ -841,11 +846,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Exemplar #nnnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Exemplar #nnnnnn not found.'
         422:
           description: 'Validation Errors.'
           content:
@@ -1116,7 +1121,7 @@ paths:
                 start:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 45
+                  example: 90
       security: []
     post:
       summary: 'Create Category'
@@ -1163,7 +1168,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: cdwvztup
+                  example: gnniqbjjmkaa
               required:
                 - name
   '/api/categories/{category_id}':
@@ -1181,18 +1186,18 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 22
-                    name: 'Dolor quidem totam aut.'
+                    id: 26
+                    name: 'Eum harum qui in aut fuga.'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 22
+                        example: 26
                       name:
                         type: string
-                        example: 'Dolor quidem totam aut.'
+                        example: 'Eum harum qui in aut fuga.'
         404:
           description: 'Category not found.'
           content:
@@ -1200,11 +1205,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Category #nnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Category #nnnn not found.'
       tags:
         - Category
       security: []
@@ -1222,18 +1227,18 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 23
-                    name: 'Expedita et quae est rerum.'
+                    id: 27
+                    name: 'Unde aut eos nemo quis.'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 23
+                        example: 27
                       name:
                         type: string
-                        example: 'Expedita et quae est rerum.'
+                        example: 'Unde aut eos nemo quis.'
         404:
           description: 'Category not found.'
           content:
@@ -1241,11 +1246,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Category #nnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Category #nnnn not found.'
         422:
           description: 'Validation Errors.'
           content:
@@ -1265,7 +1270,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: lkmoxlmglhfxtbnhowdtmlea
+                  example: iugqdhngzyrjrfiejfanl
               required:
                 - name
     delete:
@@ -1283,11 +1288,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Category #nnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Category #nnnn not found.'
       tags:
         - Category
     parameters:
@@ -1349,11 +1354,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Exemplar #nnnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Exemplar #nnnnnn not found.'
       tags:
         - Exemplar
       security: []
@@ -1406,11 +1411,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Exemplar #nnnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Exemplar #nnnnnn not found.'
         422:
           description: 'Validation Errors.'
           content:
@@ -1430,19 +1435,19 @@ paths:
                 book_id:
                   type: integer
                   description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
-                  example: 70
+                  example: 20
                 condition:
                   type: integer
                   description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
-                  example: 1
+                  example: 3
                 borrowable:
                   type: boolean
                   description: 'This field is required when none of <code>book_id</code>, <code>condition</code>, and <code>change_donor</code> are present.'
-                  example: false
+                  example: true
                 user_id:
                   type: integer
                   description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
-                  example: 74
+                  example: 78
                 change_donor:
                   type: boolean
                   description: 'optional Set this field to true to update the donor. Default is false.'
@@ -1462,11 +1467,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Exemplar #nnnnnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Exemplar #nnnnnn not found.'
       tags:
         - Exemplar
     parameters:
@@ -1651,7 +1656,7 @@ paths:
                 book_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 21
+                  example: 38
                 condition:
                   type: integer
                   description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
@@ -1732,7 +1737,7 @@ paths:
                 book_id:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 57
+                  example: 90
                 condition:
                   type: integer
                   description: 'The actual condition (1=LikeNew, 2=Good, 3=Worn, 4=Damaged).'
@@ -2173,11 +2178,11 @@ paths:
               schema:
                 type: object
                 example:
-                  error: 'Object not found.'
+                  error: 'Payment #nnn not found.'
                 properties:
                   error:
                     type: string
-                    example: 'Object not found.'
+                    example: 'Payment #nnn not found.'
         422:
           description: 'Already paid.'
           content:
@@ -2202,7 +2207,7 @@ paths:
                 money:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 14
               required:
                 - money
     parameters:
@@ -2210,7 +2215,7 @@ paths:
         in: path
         name: payment_id
         description: 'The ID of the payment.'
-        example: 8
+        example: 15
         required: true
         schema:
           type: integer

@@ -36,7 +36,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3vcePfbaad5Z8ghk4D61EV6'
+      - 'Bearer 6aZ4kfg15Pa36E8hcVbevDd'
     controller: null
     method: null
     route: null
@@ -76,7 +76,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer eP568gbdvhaa3k4EcZf6D1V'
+      - 'Bearer aa36VfgD4Ek8vPZbh51c6de'
     controller: null
     method: null
     route: null
@@ -116,7 +116,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 65a6kfhDecE3V8a4dP1gbvZ'
+      - 'Bearer 148VDa6a536EvhkdPbcefZg'
     controller: null
     method: null
     route: null
@@ -162,7 +162,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 318b46c6D5agZvaPfEdkeVh'
+      - 'Bearer EPaghaZvfkeV46cdD3651b8'
     controller: null
     method: null
     route: null
@@ -208,7 +208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer cb683kZde5afg16PEa4DVhv'
+      - 'Bearer ZdfPgeba64kaV18v3ED56hc'
     controller: null
     method: null
     route: null
@@ -254,7 +254,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8gEbfZ5aVkdv4P361h6caDe'
+      - 'Bearer Z1g4hDc6fVeaa8PkvE563bd'
     controller: null
     method: null
     route: null
@@ -281,12 +281,12 @@ endpoints:
         name: payment_id
         description: 'The ID of the payment.'
         required: true
-        example: 8
+        example: 15
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      payment_id: 8
+      payment_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -294,12 +294,12 @@ endpoints:
         name: money
         description: ''
         required: true
-        example: 17
+        example: 14
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      money: 17
+      money: 14
     fileParameters: []
     responses:
       -
@@ -322,7 +322,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Payment #nnn not found."}'
         headers: []
         description: 'Payment not found.'
         custom: []
@@ -336,7 +336,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Ee6cZvkg145PhD3Vdfa8ab6'
+      - 'Bearer cf1vVZe38haDg46abd5PEk6'
     controller: null
     method: null
     route: null

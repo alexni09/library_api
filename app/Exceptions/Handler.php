@@ -24,10 +24,11 @@ class Handler extends ExceptionHandler {
      */
     public function register() {
         $this->renderable(function (NotFoundHttpException $e) {
+            $errorParts = explode('] ', substr(strstr($e->getMessage(), 'Models\\'), 7));
             if (request()->is('api/*')) {
                 Misc::monitor(strtolower(request()->method()), Response::HTTP_NOT_FOUND);
                 return response()->json([
-                    'error' => 'Object not found.'
+                    'error' => $errorParts[0] . ' #'. $errorParts[1] . ' not found.'
                 ], Response::HTTP_NOT_FOUND);
             }
         });

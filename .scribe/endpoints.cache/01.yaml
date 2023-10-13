@@ -28,12 +28,12 @@ endpoints:
         name: start
         description: 'Must be at least 1.'
         required: false
-        example: 45
+        example: 90
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      start: 45
+      start: 90
     fileParameters: []
     responses:
       -
@@ -89,13 +89,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":22,"name":"Dolor quidem totam aut."}}'
+        content: '{"data":{"id":26,"name":"Eum harum qui in aut fuga."}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Category #nnnn not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -131,12 +131,12 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: cdwvztup
+        example: gnniqbjjmkaa
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: cdwvztup
+      name: gnniqbjjmkaa
     fileParameters: []
     responses:
       -
@@ -155,7 +155,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer h4f6Evbgk6ac1ZV8edaD3P5'
+      - 'Bearer Ehv65ZgefcD3k8Vbda1P64a'
     controller: null
     method: null
     route: null
@@ -195,23 +195,23 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: lkmoxlmglhfxtbnhowdtmlea
+        example: iugqdhngzyrjrfiejfanl
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: lkmoxlmglhfxtbnhowdtmlea
+      name: iugqdhngzyrjrfiejfanl
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":23,"name":"Expedita et quae est rerum."}}'
+        content: '{"data":{"id":27,"name":"Unde aut eos nemo quis."}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Category #nnnn not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -225,7 +225,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer PZvV6hcga41fD6E53d8kbea'
+      - 'Bearer c6Ve653bDv8agfk14hdEPZa'
     controller: null
     method: null
     route: null
@@ -272,7 +272,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Category #nnnn not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -280,7 +280,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 35E4k6fVaDvcePh8gbZd61a'
+      - 'Bearer a3PcfgVk6dDhe1865EvaZb4'
     controller: null
     method: null
     route: null

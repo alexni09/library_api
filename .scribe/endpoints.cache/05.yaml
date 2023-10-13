@@ -29,7 +29,7 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 89
+        example: 62
         type: integer
         enumValues: []
         custom: []
@@ -37,7 +37,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: tempore
+        example: exercitationem
         type: string
         enumValues: []
         custom: []
@@ -58,8 +58,8 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      category_id: 89
-      name: tempore
+      category_id: 62
+      name: exercitationem
       rating: 3
       condition: 4
     fileParameters: []
@@ -86,7 +86,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5a6Vkd6fc38bEv4aDe1PZhg'
+      - 'Bearer DZgcPaVvhE6d8k543e16abf'
     controller: null
     method: null
     route: null

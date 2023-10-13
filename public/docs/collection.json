@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "library_api",
-        "_postman_id": "9f494453-82ad-4b66-8490-8932ba89af78",
+        "_postman_id": "95ddee46-bf08-46ed-b6ee-fbe74689881b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"smpjetngnrawutpzfioazlnui\",\"email\":\"xkihn@example.org\",\"password\":\"fugit\",\"password_confirmation\":null}"
+                            "raw": "{\"name\":\"dfotmbajdfbndnkfsvqb\",\"email\":\"tillman.rosa@example.net\",\"password\":\"quia\",\"password_confirmation\":null}"
                         },
                         "description": "",
                         "auth": {
@@ -85,7 +85,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"geichmann@example.net\",\"password\":\"ut\"}"
+                            "raw": "{\"email\":\"jreynolds@example.com\",\"password\":\"illo\"}"
                         },
                         "description": "",
                         "auth": {
@@ -193,7 +193,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"assumenda\",\"email\":\"lyda35@example.org\"}"
+                            "raw": "{\"name\":\"odio\",\"email\":\"ankunding.katelin@example.net\"}"
                         },
                         "description": ""
                     },
@@ -234,7 +234,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"omnis\",\"password\":\"cum\",\"password_confirmation\":null}"
+                            "raw": "{\"current_password\":\"at\",\"password\":\"provident\",\"password_confirmation\":null}"
                         },
                         "description": ""
                     },
@@ -341,7 +341,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"errors\": [list]}",
+                            "body": "{\"error\":\"Category #nnnn not found.\"}",
                             "name": "Category not found."
                         }
                     ]
@@ -390,7 +390,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Book #nnnnn not found.\"}",
                             "name": "Book not found."
                         }
                     ]
@@ -449,7 +449,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"efsofmtzkevplpi\",\"rating\":3,\"category_id\":75}"
+                            "raw": "{\"name\":\"lkvxijthkzivbbcvb\",\"rating\":5,\"category_id\":52}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -498,7 +498,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"qdvqaxwlfltavqcdsyfwwpb\",\"rating\":5,\"category_id\":17}"
+                            "raw": "{\"name\":\"opuebsyeqxkoaujdwlc\",\"rating\":5,\"category_id\":21}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -512,7 +512,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Book #nnnnn not found.\"}",
                             "name": "Book not found."
                         },
                         {
@@ -564,7 +564,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Book #nnnnn not found.\"}",
                             "name": "Book not found."
                         }
                     ]
@@ -597,7 +597,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":89,\"name\":\"tempore\",\"rating\":3,\"condition\":4}"
+                            "raw": "{\"category_id\":62,\"name\":\"exercitationem\",\"rating\":3,\"condition\":4}"
                         },
                         "description": ""
                     },
@@ -693,7 +693,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Exemplar #nnnnnn not found.\"}",
                             "name": "Exemplar not found."
                         },
                         {
@@ -837,7 +837,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"start\":45}"
+                            "raw": "{\"start\":90}"
                         },
                         "description": "",
                         "auth": {
@@ -897,13 +897,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":22,\"name\":\"Dolor quidem totam aut.\"}}",
+                            "body": "{\"data\":{\"id\":26,\"name\":\"Eum harum qui in aut fuga.\"}}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Category #nnnn not found.\"}",
                             "name": "Category not found."
                         }
                     ]
@@ -930,7 +930,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"cdwvztup\"}"
+                            "raw": "{\"name\":\"gnniqbjjmkaa\"}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -979,7 +979,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"lkmoxlmglhfxtbnhowdtmlea\"}"
+                            "raw": "{\"name\":\"iugqdhngzyrjrfiejfanl\"}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -987,13 +987,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":23,\"name\":\"Expedita et quae est rerum.\"}}",
+                            "body": "{\"data\":{\"id\":27,\"name\":\"Unde aut eos nemo quis.\"}}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Category #nnnn not found.\"}",
                             "name": "Category not found."
                         },
                         {
@@ -1045,7 +1045,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Category #nnnn not found.\"}",
                             "name": "Category not found."
                         }
                     ]
@@ -1100,7 +1100,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Exemplar #nnnnnn not found.\"}",
                             "name": "Exemplar not found."
                         }
                     ]
@@ -1191,7 +1191,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":21,\"condition\":1,\"borrowable\":true}"
+                            "raw": "{\"book_id\":38,\"condition\":1,\"borrowable\":true}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -1240,7 +1240,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":70,\"condition\":1,\"borrowable\":false,\"user_id\":74,\"change_donor\":false}"
+                            "raw": "{\"book_id\":20,\"condition\":3,\"borrowable\":true,\"user_id\":78,\"change_donor\":false}"
                         },
                         "description": "<small class=\"badge badge-purple\">admin<\/small>"
                     },
@@ -1254,7 +1254,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Exemplar #nnnnnn not found.\"}",
                             "name": "Exemplar not found."
                         },
                         {
@@ -1306,7 +1306,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Exemplar #nnnnnn not found.\"}",
                             "name": "Exemplar not found."
                         }
                     ]
@@ -1339,7 +1339,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":57,\"condition\":1}"
+                            "raw": "{\"book_id\":90,\"condition\":1}"
                         },
                         "description": ""
                     },
@@ -1644,7 +1644,7 @@
                                 {
                                     "id": "payment_id",
                                     "key": "payment_id",
-                                    "value": "8",
+                                    "value": "15",
                                     "description": "The ID of the payment."
                                 }
                             ]
@@ -1662,7 +1662,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"money\":17}"
+                            "raw": "{\"money\":14}"
                         },
                         "description": ""
                     },
@@ -1688,7 +1688,7 @@
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"error\":\"Object not found.\"}",
+                            "body": "{\"error\":\"Payment #nnn not found.\"}",
                             "name": "Payment not found."
                         },
                         {

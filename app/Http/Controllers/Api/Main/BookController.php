@@ -35,7 +35,7 @@ class BookController extends Controller {
      * @unauthenticated
      * 
      * @response 200 {"data":{"id":51,"name":"Totam et et libero quis.","rating_value":2,"rating_name":"Bad","category_id":6,"category_name":"Optio at eius qui ipsa."}}
-     * @response 404 scenario="Book not found." {"error":"Object not found."}
+     * @response 404 scenario="Book not found." {"error":"Book #nnnnn not found."}
      */
     public function show(Book $book):BookResource {
         Misc::monitor('get',Response::HTTP_OK);
@@ -75,7 +75,7 @@ class BookController extends Controller {
      * @authenticated
      *
      * @response 200 {"data":{"id":51,"name":"Totam et et libero quis.","rating_value":2,"rating_name":"Bad","category_id":6,"category_name":"Optio at eius qui ipsa."}}
-     * @response 404 scenario="Book not found." {"error":"Object not found."}
+     * @response 404 scenario="Book not found." {"error":"Book #nnnnn not found."}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function update(Request $request, Book $book):BookResource|JsonResponse {
@@ -108,7 +108,7 @@ class BookController extends Controller {
      * @authenticated
      *
      * @response 204
-     * @response 404 scenario="Book not found." {"error":"Object not found."}
+     * @response 404 scenario="Book not found." {"error":"Book #nnnnn not found."}
      */
     public function destroy(Book $book):Response {
         $book->delete();
@@ -124,7 +124,7 @@ class BookController extends Controller {
      * 
      * @response 200 {"data":[{"id":51,"name":"Totam et et libero quis.","rating_value":2,"rating_name":"Bad","category_id":6,"category_name":"Optio at eius qui ipsa."},{"id":52,"name":"Et saepe ut sint aut magnam.","rating_value":3,"rating_name":"Reasonable","category_id":6,"category_name":"Optio at eius qui ipsa."}]}
      * @response 204 scenario="No books found for the given category_id."
-     * @response 404 scenario="Category not found." {"errors": [list]}
+     * @response 404 scenario="Category not found." {"error":"Category #nnnn not found."}
      */
     public function booksByCategory(int $category_id, Request $request):JsonResponse|Response|AnonymousResourceCollection {
         $request->merge([ 'category_id' => $category_id ]);

@@ -30,7 +30,7 @@ class BorrowController extends Controller {
      * @response 403 scenario="Exemplar cannot leave the library." {"errors": "This exemplar cannot leave the library."}
      * @response 403 scenario="Maximum borrowings reached for the user." {"errors": "User has reached the maximum borrowable limit (3)."}
      * @response 403 scenario="Exemplar is currently borrowed." {"errors": "This exemplar is currently borrowed."}
-     * @response 404 scenario="Exemplar not found." {"error":"Object not found."}
+     * @response 404 scenario="Exemplar not found." {"error":"Exemplar #nnnnnn not found."}
      * @response 422 scenario="Validation Errors." {"errors": [list]}
      */
     public function borrow(Exemplar $exemplar):JsonResponse {

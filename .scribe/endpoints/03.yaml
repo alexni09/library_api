@@ -42,7 +42,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Exemplar #nnnnnn not found."}'
         headers: []
         description: 'Exemplar not found.'
         custom: []
@@ -99,7 +99,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 72
+      book_id: 13
       condition: 2
       borrowable: true
     fileParameters: []
@@ -160,7 +160,7 @@ endpoints:
         name: book_id
         description: 'Must be at least 1.'
         required: true
-        example: 21
+        example: 38
         type: integer
         enumValues: []
         custom: []
@@ -181,7 +181,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 21
+      book_id: 38
       condition: 1
       borrowable: true
     fileParameters: []
@@ -202,7 +202,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer D4bkhPg8cZ53E6af6Vdev1a'
+      - 'Bearer EehV8ZDg15k4fdvc6b6Pa3a'
     controller: null
     method: null
     route: null
@@ -242,7 +242,7 @@ endpoints:
         name: book_id
         description: 'This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1.'
         required: false
-        example: 70
+        example: 20
         type: integer
         enumValues: []
         custom: []
@@ -250,7 +250,7 @@ endpoints:
         name: condition
         description: 'This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4.'
         required: false
-        example: 1
+        example: 3
         type: integer
         enumValues: []
         custom: []
@@ -258,7 +258,7 @@ endpoints:
         name: borrowable
         description: 'This field is required when none of <code>book_id</code>, <code>condition</code>, and <code>change_donor</code> are present.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         custom: []
@@ -266,7 +266,7 @@ endpoints:
         name: user_id
         description: 'This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1.'
         required: false
-        example: 74
+        example: 78
         type: integer
         enumValues: []
         custom: []
@@ -279,10 +279,10 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      book_id: 70
-      condition: 1
-      borrowable: false
-      user_id: 74
+      book_id: 20
+      condition: 3
+      borrowable: true
+      user_id: 78
       change_donor: false
     fileParameters: []
     responses:
@@ -294,7 +294,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Exemplar #nnnnnn not found."}'
         headers: []
         description: 'Exemplar not found.'
         custom: []
@@ -308,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5cf31gkedVPaEhZ84vD6b6a'
+      - 'Bearer f534d16ga8EbkaZDPc6evhV'
     controller: null
     method: null
     route: null
@@ -355,7 +355,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"error":"Object not found."}'
+        content: '{"error":"Exemplar #nnnnnn not found."}'
         headers: []
         description: 'Exemplar not found.'
         custom: []
@@ -363,7 +363,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bd6Pha4EvZk685f1Da3Vceg'
+      - 'Bearer DhE66Va4dga8bPZ5vec1kf3'
     controller: null
     method: null
     route: null
