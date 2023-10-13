@@ -34,7 +34,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters:
-      category_id: 90
+      category_id: 87
     fileParameters: []
     responses:
       -
@@ -82,12 +82,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 5
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 5
+      book_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -102,7 +102,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Book not found.'
         custom: []
@@ -147,7 +147,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5a643baecEvPDh6dZV18kgf'
+      - 'Bearer E4DVeg6cvf6P8Zd51haabk3'
     controller: null
     method: null
     route: null
@@ -178,7 +178,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: pvubgwmdpph
+        example: efsofmtzkevplpi
         type: string
         enumValues: []
         custom: []
@@ -186,7 +186,7 @@ endpoints:
         name: rating
         description: 'Must be at least 1. Must not be greater than 5.'
         required: true
-        example: 5
+        example: 3
         type: integer
         enumValues: []
         custom: []
@@ -194,14 +194,14 @@ endpoints:
         name: category_id
         description: 'Must be at least 1.'
         required: true
-        example: 44
+        example: 75
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: pvubgwmdpph
-      rating: 5
-      category_id: 44
+      name: efsofmtzkevplpi
+      rating: 3
+      category_id: 75
     fileParameters: []
     responses:
       -
@@ -220,7 +220,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hcZEP6fbD1v5k6gVd48ea3a'
+      - 'Bearer g6a6Ekdb8Z3aVfeP1c45Dhv'
     controller: null
     method: null
     route: null
@@ -247,12 +247,12 @@ endpoints:
         name: book_id
         description: 'The ID of the book.'
         required: true
-        example: 12
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      book_id: 12
+      book_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -260,7 +260,7 @@ endpoints:
         name: name
         description: 'This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters.'
         required: false
-        example: dsfnxdjkuhook
+        example: qdvqaxwlfltavqcdsyfwwpb
         type: string
         enumValues: []
         custom: []
@@ -268,7 +268,7 @@ endpoints:
         name: rating
         description: 'This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5.'
         required: false
-        example: 1
+        example: 5
         type: integer
         enumValues: []
         custom: []
@@ -276,14 +276,14 @@ endpoints:
         name: category_id
         description: 'This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1.'
         required: false
-        example: 15
+        example: 17
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: dsfnxdjkuhook
-      rating: 1
-      category_id: 15
+      name: qdvqaxwlfltavqcdsyfwwpb
+      rating: 5
+      category_id: 17
     fileParameters: []
     responses:
       -
@@ -294,7 +294,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Book not found.'
         custom: []
@@ -308,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gfD64Vck6vP815hEZaed3ba'
+      - 'Bearer 6VbP3h4D6ke5cadE8v1fgaZ'
     controller: null
     method: null
     route: null
@@ -355,7 +355,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Book not found.'
         custom: []
@@ -363,7 +363,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Eabvh3P86eZf61VD4gd5ack'
+      - 'Bearer aPv5bgf6Z8dk6EeD31ac4hV'
     controller: null
     method: null
     route: null

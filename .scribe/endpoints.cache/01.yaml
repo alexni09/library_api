@@ -28,12 +28,12 @@ endpoints:
         name: start
         description: 'Must be at least 1.'
         required: false
-        example: 55
+        example: 45
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      start: 55
+      start: 45
     fileParameters: []
     responses:
       -
@@ -75,12 +75,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 10
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 10
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -89,13 +89,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1478,"name":"Quis maxime aperiam et eius."}}'
+        content: '{"data":{"id":22,"name":"Dolor quidem totam aut."}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -131,12 +131,12 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: gqyhpnonquktzizxpljsnl
+        example: cdwvztup
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: gqyhpnonquktzizxpljsnl
+      name: cdwvztup
     fileParameters: []
     responses:
       -
@@ -155,7 +155,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Pga8hvceV166ED3bfZd4ka5'
+      - 'Bearer h4f6Evbgk6ac1ZV8edaD3P5'
     controller: null
     method: null
     route: null
@@ -182,12 +182,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 8
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 8
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -195,23 +195,23 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: kdofbezchgkwpwvnkkxhbex
+        example: lkmoxlmglhfxtbnhowdtmlea
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: kdofbezchgkwpwvnkkxhbex
+      name: lkmoxlmglhfxtbnhowdtmlea
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":1479,"name":"At expedita nisi iure ut."}}'
+        content: '{"data":{"id":23,"name":"Expedita et quae est rerum."}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -225,7 +225,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer PD6Vvde41b6gkafhZc85Ea3'
+      - 'Bearer PZvV6hcga41fD6E53d8kbea'
     controller: null
     method: null
     route: null
@@ -252,12 +252,12 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 15
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      category_id: 15
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -272,7 +272,7 @@ endpoints:
         custom: []
       -
         status: 404
-        content: '{"errors": [list]}'
+        content: '{"error":"Object not found."}'
         headers: []
         description: 'Category not found.'
         custom: []
@@ -280,7 +280,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 53hfEvgP8da6aZckeDb461V'
+      - 'Bearer 35E4k6fVaDvcePh8gbZd61a'
     controller: null
     method: null
     route: null

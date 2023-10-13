@@ -23,6 +23,7 @@
         /* starts out as display none and is replaced with js later  */
                     body .content .bash-example code { display: none; }
                     body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
             </style>
 
 
@@ -30,7 +31,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -43,6 +44,7 @@
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
                     </div>
     
     <div class="search">
@@ -240,7 +242,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 29, 2023</li>
+        <li>Last updated: October 13, 2023</li>
     </ul>
 </div>
 
@@ -281,9 +283,9 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"vvggvxvkoewhd\",
-    \"email\": \"hauck.viviane@example.com\",
-    \"password\": \"et\",
+    \"name\": \"smpjetngnrawutpzfioazlnui\",
+    \"email\": \"xkihn@example.org\",
+    \"password\": \"fugit\",
     \"password_confirmation\": null
 }"
 </code></pre></div>
@@ -300,9 +302,9 @@ const headers = {
 };
 
 let body = {
-    "name": "vvggvxvkoewhd",
-    "email": "hauck.viviane@example.com",
-    "password": "et",
+    "name": "smpjetngnrawutpzfioazlnui",
+    "email": "xkihn@example.org",
+    "password": "fugit",
     "password_confirmation": null
 };
 
@@ -311,6 +313,28 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/auth/register';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'smpjetngnrawutpzfioazlnui',
+            'email' =&gt; 'xkihn@example.org',
+            'password' =&gt; 'fugit',
+            'password_confirmation' =&gt; null,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -391,10 +415,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-auth-register"
-               value="vvggvxvkoewhd"
+               value="smpjetngnrawutpzfioazlnui"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vvggvxvkoewhd</code></p>
+<p>Must not be greater than 255 characters. Example: <code>smpjetngnrawutpzfioazlnui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -402,10 +426,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-register"
-               value="hauck.viviane@example.com"
+               value="xkihn@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>hauck.viviane@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>xkihn@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -413,10 +437,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-register"
-               value="et"
+               value="fugit"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>fugit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -448,8 +472,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"sanford.ella@example.net\",
-    \"password\": \"quasi\"
+    \"email\": \"geichmann@example.net\",
+    \"password\": \"ut\"
 }"
 </code></pre></div>
 
@@ -465,8 +489,8 @@ const headers = {
 };
 
 let body = {
-    "email": "sanford.ella@example.net",
-    "password": "quasi"
+    "email": "geichmann@example.net",
+    "password": "ut"
 };
 
 fetch(url, {
@@ -474,6 +498,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/auth/login';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'geichmann@example.net',
+            'password' =&gt; 'ut',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -554,10 +598,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-login"
-               value="sanford.ella@example.net"
+               value="geichmann@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>sanford.ella@example.net</code></p>
+<p>Must be a valid email address. Example: <code>geichmann@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -565,10 +609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-login"
-               value="quasi"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>quasi</code></p>
+<p>Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -607,6 +651,23 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/whoami';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -724,6 +785,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/profile';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-profile">
@@ -822,8 +900,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"non\",
-    \"email\": \"vbergnaum@example.com\"
+    \"name\": \"assumenda\",
+    \"email\": \"lyda35@example.org\"
 }"
 </code></pre></div>
 
@@ -840,8 +918,8 @@ const headers = {
 };
 
 let body = {
-    "name": "non",
-    "email": "vbergnaum@example.com"
+    "name": "assumenda",
+    "email": "lyda35@example.org"
 };
 
 fetch(url, {
@@ -849,6 +927,27 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/profile';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'assumenda',
+            'email' =&gt; 'lyda35@example.org',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -941,10 +1040,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-profile"
-               value="non"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>non</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -952,10 +1051,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-profile"
-               value="vbergnaum@example.com"
+               value="lyda35@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>vbergnaum@example.com</code></p>
+<p>Must be a valid email address. Example: <code>lyda35@example.org</code></p>
         </div>
         </form>
 
@@ -978,8 +1077,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"current_password\": \"natus\",
-    \"password\": \"accusantium\",
+    \"current_password\": \"omnis\",
+    \"password\": \"cum\",
     \"password_confirmation\": null
 }"
 </code></pre></div>
@@ -997,8 +1096,8 @@ const headers = {
 };
 
 let body = {
-    "current_password": "natus",
-    "password": "accusantium",
+    "current_password": "omnis",
+    "password": "cum",
     "password_confirmation": null
 };
 
@@ -1007,6 +1106,28 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/password';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'current_password' =&gt; 'omnis',
+            'password' =&gt; 'cum',
+            'password_confirmation' =&gt; null,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1098,10 +1219,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="current_password"                data-endpoint="PUTapi-password"
-               value="natus"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>natus</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1109,10 +1230,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-password"
-               value="accusantium"
+               value="cum"
                data-component="body">
     <br>
-<p>Example: <code>accusantium</code></p>
+<p>Example: <code>cum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -1162,6 +1283,23 @@ fetch(url, {
     method: "POST",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/auth/logout';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1274,6 +1412,22 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books-by-category/82';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1397,14 +1551,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://libraryapi.site/api/books/5" \
+    --get "https://libraryapi.site/api/books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/books/5"
+    "https://libraryapi.site/api/books/1"
 );
 
 const headers = {
@@ -1416,6 +1570,22 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books/1';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1441,7 +1611,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-books--book_id-" hidden>
@@ -1503,10 +1675,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="book_id"                data-endpoint="GETapi-books--book_id-"
-               value="5"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the book. Example: <code>5</code></p>
+<p>The ID of the book. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -1545,6 +1717,23 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1660,9 +1849,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"pvubgwmdpph\",
-    \"rating\": 5,
-    \"category_id\": 44
+    \"name\": \"efsofmtzkevplpi\",
+    \"rating\": 3,
+    \"category_id\": 75
 }"
 </code></pre></div>
 
@@ -1679,9 +1868,9 @@ const headers = {
 };
 
 let body = {
-    "name": "pvubgwmdpph",
-    "rating": 5,
-    "category_id": 44
+    "name": "efsofmtzkevplpi",
+    "rating": 3,
+    "category_id": 75
 };
 
 fetch(url, {
@@ -1689,6 +1878,28 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'efsofmtzkevplpi',
+            'rating' =&gt; 3,
+            'category_id' =&gt; 75,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1787,10 +1998,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-books"
-               value="pvubgwmdpph"
+               value="efsofmtzkevplpi"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>pvubgwmdpph</code></p>
+<p>Must not be greater than 255 characters. Example: <code>efsofmtzkevplpi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
@@ -1798,10 +2009,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="rating"                data-endpoint="POSTapi-books"
-               value="5"
+               value="3"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 5. Example: <code>5</code></p>
+<p>Must be at least 1. Must not be greater than 5. Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -1809,10 +2020,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="POSTapi-books"
-               value="44"
+               value="75"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>44</code></p>
+<p>Must be at least 1. Example: <code>75</code></p>
         </div>
         </form>
 
@@ -1830,21 +2041,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://libraryapi.site/api/books/12" \
+    "https://libraryapi.site/api/books/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"dsfnxdjkuhook\",
-    \"rating\": 1,
-    \"category_id\": 15
+    \"name\": \"qdvqaxwlfltavqcdsyfwwpb\",
+    \"rating\": 5,
+    \"category_id\": 17
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/books/12"
+    "https://libraryapi.site/api/books/1"
 );
 
 const headers = {
@@ -1854,9 +2065,9 @@ const headers = {
 };
 
 let body = {
-    "name": "dsfnxdjkuhook",
-    "rating": 1,
-    "category_id": 15
+    "name": "qdvqaxwlfltavqcdsyfwwpb",
+    "rating": 5,
+    "category_id": 17
 };
 
 fetch(url, {
@@ -1864,6 +2075,28 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books/1';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'qdvqaxwlfltavqcdsyfwwpb',
+            'rating' =&gt; 5,
+            'category_id' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -1889,7 +2122,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
             <blockquote>
             <p>Example response (422, Validation Errors.):</p>
@@ -1969,10 +2204,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="book_id"                data-endpoint="PUTapi-books--book_id-"
-               value="12"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the book. Example: <code>12</code></p>
+<p>The ID of the book. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1981,10 +2216,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-books--book_id-"
-               value="dsfnxdjkuhook"
+               value="qdvqaxwlfltavqcdsyfwwpb"
                data-component="body">
     <br>
-<p>This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters. Example: <code>dsfnxdjkuhook</code></p>
+<p>This field is required when none of <code>rating</code> and <code>category_id</code> are present. Must not be greater than 255 characters. Example: <code>qdvqaxwlfltavqcdsyfwwpb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
@@ -1992,10 +2227,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="rating"                data-endpoint="PUTapi-books--book_id-"
-               value="1"
+               value="5"
                data-component="body">
     <br>
-<p>This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5. Example: <code>1</code></p>
+<p>This field is required when none of <code>name</code> and <code>category_id</code> are present. Must be at least 1. Must not be greater than 5. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -2003,10 +2238,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="PUTapi-books--book_id-"
-               value="15"
+               value="17"
                data-component="body">
     <br>
-<p>This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1. Example: <code>15</code></p>
+<p>This field is required when none of <code>name</code> and <code>rating</code> are present. Must be at least 1. Example: <code>17</code></p>
         </div>
         </form>
 
@@ -2046,6 +2281,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books/1';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-DELETEapi-books--book_id-">
@@ -2060,7 +2312,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-DELETEapi-books--book_id-" hidden>
@@ -2163,8 +2417,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category_id\": 29,
-    \"name\": \"doloribus\",
+    \"category_id\": 89,
+    \"name\": \"tempore\",
     \"rating\": 3,
     \"condition\": 4
 }"
@@ -2183,8 +2437,8 @@ const headers = {
 };
 
 let body = {
-    "category_id": 29,
-    "name": "doloribus",
+    "category_id": 89,
+    "name": "tempore",
     "rating": 3,
     "condition": 4
 };
@@ -2194,6 +2448,29 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/books/donate';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'category_id' =&gt; 89,
+            'name' =&gt; 'tempore',
+            'rating' =&gt; 3,
+            'condition' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -2299,10 +2576,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="POSTapi-books-donate"
-               value="29"
+               value="89"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>29</code></p>
+<p>Must be at least 1. Example: <code>89</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2310,10 +2587,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-books-donate"
-               value="doloribus"
+               value="tempore"
                data-component="body">
     <br>
-<p>Example: <code>doloribus</code></p>
+<p>Example: <code>tempore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
@@ -2357,7 +2634,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://libraryapi.site/api/borrow/8" \
+    "https://libraryapi.site/api/borrow/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2365,7 +2642,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/borrow/8"
+    "https://libraryapi.site/api/borrow/1"
 );
 
 const headers = {
@@ -2378,6 +2655,23 @@ fetch(url, {
     method: "POST",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/borrow/1';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -2439,7 +2733,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
             <blockquote>
             <p>Example response (422, Validation Errors.):</p>
@@ -2519,10 +2815,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="exemplar_id"                data-endpoint="POSTapi-borrow--exemplar_id-"
-               value="8"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the exemplar. Example: <code>8</code></p>
+<p>The ID of the exemplar. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2561,6 +2857,23 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/borrowed-list';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -2715,6 +3028,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/giveback/8247';
+$response = $client-&gt;patch(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'condition' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -2882,7 +3215,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"start\": 55
+    \"start\": 45
 }"
 </code></pre></div>
 
@@ -2898,7 +3231,7 @@ const headers = {
 };
 
 let body = {
-    "start": 55
+    "start": 45
 };
 
 fetch(url, {
@@ -2906,6 +3239,25 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/categories';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'start' =&gt; 45,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -2995,10 +3347,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="start"                data-endpoint="GETapi-categories"
-               value="55"
+               value="45"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>55</code></p>
+<p>Must be at least 1. Example: <code>45</code></p>
         </div>
         </form>
 
@@ -3015,14 +3367,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://libraryapi.site/api/categories/10" \
+    --get "https://libraryapi.site/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/categories/10"
+    "https://libraryapi.site/api/categories/1"
 );
 
 const headers = {
@@ -3035,6 +3387,22 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/categories/1';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-categories--category_id-">
@@ -3045,8 +3413,8 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 1478,
-        &quot;name&quot;: &quot;Quis maxime aperiam et eius.&quot;
+        &quot;id&quot;: 22,
+        &quot;name&quot;: &quot;Dolor quidem totam aut.&quot;
     }
 }</code>
  </pre>
@@ -3055,7 +3423,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-categories--category_id-" hidden>
@@ -3117,10 +3487,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="GETapi-categories--category_id-"
-               value="10"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>10</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3143,7 +3513,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"gqyhpnonquktzizxpljsnl\"
+    \"name\": \"cdwvztup\"
 }"
 </code></pre></div>
 
@@ -3160,7 +3530,7 @@ const headers = {
 };
 
 let body = {
-    "name": "gqyhpnonquktzizxpljsnl"
+    "name": "cdwvztup"
 };
 
 fetch(url, {
@@ -3168,6 +3538,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/categories';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'cdwvztup',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -3262,10 +3652,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-categories"
-               value="gqyhpnonquktzizxpljsnl"
+               value="cdwvztup"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>gqyhpnonquktzizxpljsnl</code></p>
+<p>Must not be greater than 255 characters. Example: <code>cdwvztup</code></p>
         </div>
         </form>
 
@@ -3283,19 +3673,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://libraryapi.site/api/categories/8" \
+    "https://libraryapi.site/api/categories/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"kdofbezchgkwpwvnkkxhbex\"
+    \"name\": \"lkmoxlmglhfxtbnhowdtmlea\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/categories/8"
+    "https://libraryapi.site/api/categories/1"
 );
 
 const headers = {
@@ -3305,7 +3695,7 @@ const headers = {
 };
 
 let body = {
-    "name": "kdofbezchgkwpwvnkkxhbex"
+    "name": "lkmoxlmglhfxtbnhowdtmlea"
 };
 
 fetch(url, {
@@ -3313,6 +3703,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/categories/1';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'lkmoxlmglhfxtbnhowdtmlea',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -3324,8 +3734,8 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 1479,
-        &quot;name&quot;: &quot;At expedita nisi iure ut.&quot;
+        &quot;id&quot;: 23,
+        &quot;name&quot;: &quot;Expedita et quae est rerum.&quot;
     }
 }</code>
  </pre>
@@ -3334,7 +3744,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
             <blockquote>
             <p>Example response (422, Validation Errors.):</p>
@@ -3414,10 +3826,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="PUTapi-categories--category_id-"
-               value="8"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>8</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3426,10 +3838,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-categories--category_id-"
-               value="kdofbezchgkwpwvnkkxhbex"
+               value="lkmoxlmglhfxtbnhowdtmlea"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>kdofbezchgkwpwvnkkxhbex</code></p>
+<p>Must not be greater than 255 characters. Example: <code>lkmoxlmglhfxtbnhowdtmlea</code></p>
         </div>
         </form>
 
@@ -3447,7 +3859,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://libraryapi.site/api/categories/15" \
+    "https://libraryapi.site/api/categories/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3455,7 +3867,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/categories/15"
+    "https://libraryapi.site/api/categories/1"
 );
 
 const headers = {
@@ -3468,6 +3880,23 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/categories/1';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -3483,7 +3912,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-DELETEapi-categories--category_id-" hidden>
@@ -3556,10 +3987,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="DELETEapi-categories--category_id-"
-               value="15"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>15</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3580,14 +4011,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://libraryapi.site/api/exemplars/6" \
+    --get "https://libraryapi.site/api/exemplars/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/exemplars/6"
+    "https://libraryapi.site/api/exemplars/1"
 );
 
 const headers = {
@@ -3599,6 +4030,22 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars/1';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -3624,7 +4071,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-exemplars--exemplar_id-" hidden>
@@ -3686,10 +4135,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="exemplar_id"                data-endpoint="GETapi-exemplars--exemplar_id-"
-               value="6"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the exemplar. Example: <code>6</code></p>
+<p>The ID of the exemplar. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3736,6 +4185,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars/list/831';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'condition' =&gt; 2,
+            'borrowable' =&gt; true,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -3905,7 +4374,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"book_id\": 70,
+    \"book_id\": 21,
     \"condition\": 1,
     \"borrowable\": true
 }"
@@ -3924,7 +4393,7 @@ const headers = {
 };
 
 let body = {
-    "book_id": 70,
+    "book_id": 21,
     "condition": 1,
     "borrowable": true
 };
@@ -3934,6 +4403,28 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'book_id' =&gt; 21,
+            'condition' =&gt; 1,
+            'borrowable' =&gt; true,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -4032,10 +4523,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="book_id"                data-endpoint="POSTapi-exemplars"
-               value="70"
+               value="21"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>70</code></p>
+<p>Must be at least 1. Example: <code>21</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>condition</code></b>&nbsp;&nbsp;
@@ -4085,15 +4576,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://libraryapi.site/api/exemplars/17" \
+    "https://libraryapi.site/api/exemplars/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"book_id\": 8,
-    \"condition\": 3,
+    \"book_id\": 70,
+    \"condition\": 1,
     \"borrowable\": false,
-    \"user_id\": 55,
+    \"user_id\": 74,
     \"change_donor\": false
 }"
 </code></pre></div>
@@ -4101,7 +4592,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/exemplars/17"
+    "https://libraryapi.site/api/exemplars/1"
 );
 
 const headers = {
@@ -4111,10 +4602,10 @@ const headers = {
 };
 
 let body = {
-    "book_id": 8,
-    "condition": 3,
+    "book_id": 70,
+    "condition": 1,
     "borrowable": false,
-    "user_id": 55,
+    "user_id": 74,
     "change_donor": false
 };
 
@@ -4123,6 +4614,30 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars/1';
+$response = $client-&gt;put(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'book_id' =&gt; 70,
+            'condition' =&gt; 1,
+            'borrowable' =&gt; false,
+            'user_id' =&gt; 74,
+            'change_donor' =&gt; false,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -4148,7 +4663,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
             <blockquote>
             <p>Example response (422, Validation Errors.):</p>
@@ -4228,10 +4745,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="exemplar_id"                data-endpoint="PUTapi-exemplars--exemplar_id-"
-               value="17"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the exemplar. Example: <code>17</code></p>
+<p>The ID of the exemplar. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4240,10 +4757,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="book_id"                data-endpoint="PUTapi-exemplars--exemplar_id-"
-               value="8"
+               value="70"
                data-component="body">
     <br>
-<p>This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Example: <code>8</code></p>
+<p>This field is required when none of <code>condition</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Example: <code>70</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>condition</code></b>&nbsp;&nbsp;
@@ -4251,10 +4768,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="condition"                data-endpoint="PUTapi-exemplars--exemplar_id-"
-               value="3"
+               value="1"
                data-component="body">
     <br>
-<p>This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4. Example: <code>3</code></p>
+<p>This field is required when none of <code>book_id</code>, <code>borrowable</code>, and <code>change_donor</code> are present. Must be at least 1. Must not be greater than 4. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>borrowable</code></b>&nbsp;&nbsp;
@@ -4283,10 +4800,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="user_id"                data-endpoint="PUTapi-exemplars--exemplar_id-"
-               value="55"
+               value="74"
                data-component="body">
     <br>
-<p>This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1. Example: <code>55</code></p>
+<p>This field is required when <code>change_donor</code> is <code>true</code>. Must be at least 1. Example: <code>74</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>change_donor</code></b>&nbsp;&nbsp;
@@ -4325,7 +4842,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://libraryapi.site/api/exemplars/3" \
+    "https://libraryapi.site/api/exemplars/1" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4333,7 +4850,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/exemplars/3"
+    "https://libraryapi.site/api/exemplars/1"
 );
 
 const headers = {
@@ -4346,6 +4863,23 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars/1';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -4361,7 +4895,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-DELETEapi-exemplars--exemplar_id-" hidden>
@@ -4434,10 +4970,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="exemplar_id"                data-endpoint="DELETEapi-exemplars--exemplar_id-"
-               value="3"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the exemplar. Example: <code>3</code></p>
+<p>The ID of the exemplar. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -4464,7 +5000,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"book_id\": 39,
+    \"book_id\": 57,
     \"condition\": 1
 }"
 </code></pre></div>
@@ -4482,7 +5018,7 @@ const headers = {
 };
 
 let body = {
-    "book_id": 39,
+    "book_id": 57,
     "condition": 1
 };
 
@@ -4491,6 +5027,27 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplars/donate';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'book_id' =&gt; 57,
+            'condition' =&gt; 1,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -4596,10 +5153,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="book_id"                data-endpoint="POSTapi-exemplars-donate"
-               value="39"
+               value="57"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>39</code></p>
+<p>Must be at least 1. Example: <code>57</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>condition</code></b>&nbsp;&nbsp;
@@ -4653,6 +5210,23 @@ fetch(url, {
     method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/exemplar-loss/54';
+$response = $client-&gt;delete(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -4798,6 +5372,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/all-payments-total';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-all-payments-total">
@@ -4913,6 +5504,23 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/balance-due-open';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -5030,6 +5638,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/balance-due-unpaid';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-balance-due-unpaid">
@@ -5145,6 +5770,23 @@ fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/list-all-payments';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -5283,6 +5925,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/list-balance-due-unpaid';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-list-balance-due-unpaid">
@@ -5420,6 +6079,23 @@ fetch(url, {
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/list-balance-due-open';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-list-balance-due-open">
@@ -5535,19 +6211,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://libraryapi.site/api/pay/9" \
+    "https://libraryapi.site/api/pay/8" \
     --header "Authorization: Bearer {TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"money\": 18
+    \"money\": 17
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://libraryapi.site/api/pay/9"
+    "https://libraryapi.site/api/pay/8"
 );
 
 const headers = {
@@ -5557,7 +6233,7 @@ const headers = {
 };
 
 let body = {
-    "money": 18
+    "money": 17
 };
 
 fetch(url, {
@@ -5565,6 +6241,26 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://libraryapi.site/api/pay/8';
+$response = $client-&gt;patch(
+    $url,
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'money' =&gt; 17,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
 
 </span>
 
@@ -5609,7 +6305,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">{&quot;errors&quot;: [list]}</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Object not found.&quot;
+}</code>
  </pre>
             <blockquote>
             <p>Example response (422, Already paid.):</p>
@@ -5691,10 +6389,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="payment_id"                data-endpoint="PATCHapi-pay--payment_id-"
-               value="9"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the payment. Example: <code>9</code></p>
+<p>The ID of the payment. Example: <code>8</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5703,10 +6401,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="money"                data-endpoint="PATCHapi-pay--payment_id-"
-               value="18"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>18</code></p>
+<p>Example: <code>17</code></p>
         </div>
         </form>
 
@@ -5718,6 +6416,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                     <div class="lang-selector">
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
                             </div>
             </div>
 </div>
